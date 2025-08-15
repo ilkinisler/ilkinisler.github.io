@@ -1,18 +1,70 @@
-   <nav class="navbar navbar-inverse">
-      <div class="container">
-         <!-- Brand and toggle get grouped for better mobile display -->
-         <div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
-                  class="icon-bar"></span><span class="icon-bar"></span></button>
-               <a class="navbar-brand montserrat dark-blue" href="index.html">Ilkin S. Isler</a>
-         </div> <!-- Collect the nav links, forms, and other content for toggling -->
-         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-               <li id="about"><a class="montserrat" href="index.html">About</a></li>
-            <!--   <li id="research"><a class="montserrat" href="research.html">Research</a></li> -->
-            <!--   <li id="teaching"><a class="montserrat" href="teaching.html">Teaching</a></li> -->
-               <li id="vitae"><a class="montserrat" href="vitae.html">Vitae</a></li>
-            <!--   <li id="projects"><a class="montserrat" href="projects.html">Projects</a></li> -->
-            </ul>
-         </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-   </nav>
+<nav class="navbar navbar-inverse navbar-fixed-top custom-navbar">
+   <div class="container">
+     <!-- Brand and toggle for mobile -->
+     <div class="navbar-header">
+       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+       <a class="navbar-brand montserrat" href="index.html">
+         <span class="brand-highlight">Ilkin S. Isler</span>
+       </a>
+     </div>
+ 
+     <!-- Links -->
+     <div class="collapse navbar-collapse" id="navbar-main">
+       <ul class="nav navbar-nav navbar-right">
+         <li id="about"><a class="montserrat" href="index.html">About</a></li>
+         <!-- <li id="research"><a class="montserrat" href="research.html">Research</a></li> -->
+         <!-- <li id="teaching"><a class="montserrat" href="teaching.html">Teaching</a></li> -->
+         <li id="vitae"><a class="montserrat" href="vitae.html">Vitae</a></li>
+         <!-- <li id="projects"><a class="montserrat" href="projects.html">Projects</a></li> -->
+       </ul>
+     </div>
+   </div>
+ </nav>
+ 
+ <style>
+   /* Extra navbar polish */
+   .custom-navbar {
+     border: none;
+     background: #1c1f26; /* slightly softer than pure black */
+     font-size: 15px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+   }
+   .custom-navbar .navbar-brand {
+     font-size: 20px;
+     font-weight: 600;
+     padding: 12px 20px;
+   }
+   .custom-navbar .brand-highlight {
+     background: linear-gradient(135deg, #4c8bf5, #6bc1ff);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+   }
+   .custom-navbar .nav > li > a {
+     color: #e0e0e0;
+     padding: 12px 15px;
+     transition: color 0.2s, background 0.2s;
+   }
+   .custom-navbar .nav > li > a:hover,
+   .custom-navbar .nav > li.active > a {
+     background: none;
+     color: #6bc1ff;
+   }
+   .navbar-toggle {
+     border-color: transparent;
+   }
+   .navbar-toggle .icon-bar {
+     background-color: #fff;
+   }
+   /* Ensure content isn't hidden behind fixed navbar */
+   body {
+     padding-top: 60px;
+   }
+ </style>
+ 
