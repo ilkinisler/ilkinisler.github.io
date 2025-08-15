@@ -133,7 +133,7 @@
 
 <body>
 
-  <!-- navbar include (kept as-is) -->
+  <!-- navbar include -->
   <div w3-include-html="navbar.html"></div>
 
   <div class="spacer-div-3 hidden-xs hidden-xs"></div>
@@ -269,7 +269,7 @@
     <span class="sr-only">Back to top</span>
   </a>
 
-  <!-- footer include (kept as-is) -->
+  <!-- footer include -->
   <div w3-include-html="footer.html"></div>
 
   <!-- jQuery -->
@@ -278,9 +278,27 @@
   <!-- Bootstrap JS Library -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
-  <!-- html file include script | used for navbar and footer -->
+  <!-- html include helper -->
   <script src="js/w3data.js"></script>
-  <script> w3IncludeHTML(); </script>
+
+  <!-- Auto cache-buster for includes & CSS -->
+  <script>
+    (function () {
+      // Update this when you change shared includes or CSS
+      var v = '20250815T1205';
+
+      // Cache-bust main.css
+      var css = document.querySelector('link[href$="css/main.css"]');
+      if (css) css.href = css.href + (css.href.indexOf('?') > -1 ? '&' : '?') + 'v=' + v;
+
+      // Append ?v=... to all w3 includes BEFORE calling w3IncludeHTML
+      document.querySelectorAll('[w3-include-html]').forEach(function (el) {
+        var url = el.getAttribute('w3-include-html') || '';
+        el.setAttribute('w3-include-html', url + (url.indexOf('?') > -1 ? '&' : '?') + 'v=' + v);
+      });
+      w3IncludeHTML();
+    })();
+  </script>
 
   <!-- Local scripts -->
   <script src="js/main.js"></script>
