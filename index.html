@@ -279,26 +279,35 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
   <!-- html include helper -->
+  <!-- html include helper -->
   <script src="js/w3data.js"></script>
 
-  <!-- Auto cache-buster for includes & CSS -->
+  <!-- Auto cache-buster for navbar, footer, and main.css -->
   <script>
     (function () {
-      // Update this when you change shared includes or CSS
-      var v = '20250815T1205';
+      // Change this string whenever you update navbar.html, footer.html, or main.css
+      var v = '20250815T1300';
 
       // Cache-bust main.css
       var css = document.querySelector('link[href$="css/main.css"]');
-      if (css) css.href = css.href + (css.href.indexOf('?') > -1 ? '&' : '?') + 'v=' + v;
+      if (css) {
+        css.href = css.href + (css.href.indexOf('?') > -1 ? '&' : '?') + 'v=' + v;
+      }
 
       // Append ?v=... to all w3 includes BEFORE calling w3IncludeHTML
       document.querySelectorAll('[w3-include-html]').forEach(function (el) {
         var url = el.getAttribute('w3-include-html') || '';
-        el.setAttribute('w3-include-html', url + (url.indexOf('?') > -1 ? '&' : '?') + 'v=' + v);
+        el.setAttribute(
+          'w3-include-html',
+          url + (url.indexOf('?') > -1 ? '&' : '?') + 'v=' + v
+        );
       });
+
+      // Run the includes
       w3IncludeHTML();
     })();
   </script>
+
 
   <!-- Local scripts -->
   <script src="js/main.js"></script>
