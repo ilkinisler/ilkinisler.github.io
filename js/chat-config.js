@@ -17,10 +17,5 @@ window.ILKIN_CHAT_CONFIG = {
     model: "gpt-4.1-mini",
     apiKey: "",
     apiKeyHeader: "Authorization"
-  },
-  vectara: {
-    endpoint: "https://api.vectara.io/v2/evaluate_factual_consistency",
-    apiKey: "",
-    enabled: true
   }
 };

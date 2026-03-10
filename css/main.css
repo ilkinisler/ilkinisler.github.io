@@ -596,19 +596,6 @@ body[data-page="home"] .header-actions {
   background: rgba(224, 245, 232, 0.82);
 }
 
-.chat-factual-score {
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
-  border-radius: 999px;
-  border: 1px solid rgba(28, 64, 145, 0.24);
-  background: rgba(225, 239, 255, 0.58);
-  color: #1f3f86;
-  font-size: 0.71rem;
-  font-weight: 700;
-  padding: 0.2rem 0.56rem;
-}
-
 .chat-notice {
   color: #51648d;
   font-size: 0.73rem;

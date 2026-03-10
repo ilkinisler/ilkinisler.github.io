@@ -25,11 +25,6 @@
       apiKeyHeader: "Authorization",
       temperature: 0.15,
       maxTokens: 520
-    },
-    vectara: {
-      endpoint: "https://api.vectara.io/v2/evaluate_factual_consistency",
-      apiKey: "",
-      enabled: true
     }
   });
 
@@ -326,7 +321,6 @@
         pending.remove();
         addMessage(log, "bot", result.answer, {
           citations: result.citations,
-          factualScore: result.factualScore,
           support: result.support,
           links: result.links,
           notice: result.notice
@@ -440,10 +434,6 @@
       citations,
       support,
       links,
-      factualScore:
-        payload?.factualScore && typeof payload.factualScore.score === "number"
-          ? payload.factualScore
-          : null,
       notice: typeof payload?.notice === "string" ? payload.notice : ""
     };
   }
@@ -533,7 +523,6 @@
             citations: [],
             support: [],
             links: [],
-            factualScore: null,
             notice: "Start backend API and set chat-config endpoint."
           };
         }
@@ -546,8 +535,7 @@
         citations: [],
         support: [],
         links: [],
-        factualScore: null,
-      notice: "Load data/page-index.json to enable grounded answers."
+        notice: "Load data/page-index.json to enable grounded answers."
       };
     }
 
@@ -563,7 +551,6 @@
         citations: [],
         support: [],
         links: [],
-        factualScore: null,
         notice: "Current sources are limited to your resume and The Mind to Move Mountains article."
       };
     }
@@ -575,7 +562,6 @@
         citations: [],
         support: [],
         links: [],
-        factualScore: null,
         notice: "Try a more specific question and I will pull the most relevant source links."
       };
     }
@@ -619,21 +605,12 @@
         .filter(Boolean)
     ];
     const citations = normalizeCitations(citationIds, context.selectedChunks);
-    const factualScore = await scoreWithVectara(
-      policy.answer,
-      context.selectedChunks,
-      config.vectara || {}
-    );
-    if (!factualScore && config.vectara?.enabled !== false && !config.vectara?.apiKey) {
-      notice = appendNotice(notice, "Vectara scoring is off until a Vectara API key is set.");
-    }
 
     return {
       answer: policy.answer,
       citations,
       support,
       links,
-      factualScore,
       notice
     };
   }
@@ -1007,56 +984,6 @@
     };
   }
 
-  async function scoreWithVectara(answer, selectedChunks, vectaraConfig) {
-    if (!vectaraConfig || vectaraConfig.enabled === false) {
-      return null;
-    }
-
-    if (!vectaraConfig.apiKey || !answer) {
-      return null;
-    }
-
-    const sourceTexts = selectedChunks
-      .map((chunk) => String(chunk.text || "").trim())
-      .filter(Boolean)
-      .slice(0, 8);
-
-    if (!sourceTexts.length) {
-      return null;
-    }
-
-    const response = await fetch(vectaraConfig.endpoint || "https://api.vectara.io/v2/evaluate_factual_consistency", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": vectaraConfig.apiKey
-      },
-      body: JSON.stringify({
-        generated_text: answer,
-        source_texts: sourceTexts,
-        language: "eng"
-      })
-    });
-
-    if (!response.ok) {
-      const details = await response.text();
-      console.error(`Vectara score failed: ${response.status} ${details}`);
-      return null;
-    }
-
-    const payload = await response.json();
-    const score = toNumber(payload.score);
-    if (score === null) {
-      return null;
-    }
-
-    return {
-      score,
-      pConsistent: toNumber(payload.p_consistent),
-      pInconsistent: toNumber(payload.p_inconsistent)
-    };
-  }
-
   function normalizeCitations(citations, selectedChunks) {
     const known = new Map();
     selectedChunks.forEach((chunk) => {
@@ -1213,11 +1140,10 @@
 
   function createMetaBlock(meta) {
     const showCitations = Array.isArray(meta.citations) && meta.citations.length;
-    const showScore = meta.factualScore && typeof meta.factualScore.score === "number";
     const showLinks = Array.isArray(meta.links) && meta.links.length;
     const showNotice = typeof meta.notice === "string" && meta.notice.trim();
 
-    if (!showCitations && !showScore && !showLinks && !showNotice) {
+    if (!showCitations && !showLinks && !showNotice) {
       return null;
     }
 
@@ -1238,14 +1164,6 @@
           ? `Source: ${citationLabels[0] || "Provided source"}`
           : `Sources: ${citationLabels.join(" • ")}`;
       wrapper.appendChild(citations);
-    }
-
-    if (showScore) {
-      const score = document.createElement("span");
-      score.className = "chat-factual-score";
-      const percent = Math.max(0, Math.min(100, Math.round(meta.factualScore.score * 100)));
-      score.textContent = `Consistency check: ${percent}%`;
-      wrapper.appendChild(score);
     }
 
     if (showLinks) {
