@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="Stylized avatar of Ilkin Isler">
+  <defs>
+    <filter id="avatarFilter" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.75" result="soft"/>
+      <feComponentTransfer in="soft" result="poster">
+        <feFuncR type="discrete" tableValues="0 0.18 0.34 0.5 0.66 0.82 1"/>
+        <feFuncG type="discrete" tableValues="0 0.18 0.34 0.5 0.66 0.82 1"/>
+        <feFuncB type="discrete" tableValues="0 0.18 0.34 0.5 0.66 0.82 1"/>
+      </feComponentTransfer>
+      <feConvolveMatrix in="SourceGraphic" order="3" kernelMatrix="-1 -1 -1 -1 8 -1 -1 -1 -1" divisor="1" bias="0" result="edges"/>
+      <feColorMatrix in="edges" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" result="edgeAlpha"/>
+      <feComponentTransfer in="edgeAlpha" result="edgeMask">
+        <feFuncA type="gamma" amplitude="1.6" exponent="1.2" offset="0"/>
+      </feComponentTransfer>
+      <feFlood flood-color="#111a2c" flood-opacity="0.34" result="ink"/>
+      <feComposite in="ink" in2="edgeMask" operator="in" result="inkEdges"/>
+      <feMerge>
+        <feMergeNode in="poster"/>
+        <feMergeNode in="inkEdges"/>
+      </feMerge>
+    </filter>
+
+    <radialGradient id="bgGlow" cx="34%" cy="18%" r="85%">
+      <stop offset="0%" stop-color="#d8ecff"/>
+      <stop offset="58%" stop-color="#f3f7ff"/>
+      <stop offset="100%" stop-color="#fde3ef"/>
+    </radialGradient>
+
+    <clipPath id="avatarClip">
+      <circle cx="512" cy="512" r="465"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1024" height="1024" fill="url(#bgGlow)"/>
+  <g clip-path="url(#avatarClip)">
+    <image href="../pp.jpg" x="0" y="0" width="1024" height="1024" preserveAspectRatio="xMidYMid slice" filter="url(#avatarFilter)"/>
+  </g>
+  <circle cx="512" cy="512" r="465" fill="none" stroke="#ffffff" stroke-opacity="0.7" stroke-width="14"/>
+</svg>

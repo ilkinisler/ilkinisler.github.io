@@ -1,323 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <!-- Metadata for the Webpage -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ilkin S. Isler, Ph.D.</title>
+  <title>Ilkin Isler | AI Engineer, Researcher, Champion</title>
+  <meta name="description" content="Ilkin Isler is a Senior AI Engineer and PhD building high-impact, trustworthy AI systems.">
 
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+  <meta name="theme-color" content="#f8f9ff">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- jQuery UI CSS (optional) -->
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-
-  <!-- Google web fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600" rel="stylesheet">
-
-  <!-- Font Awesome & Academicons -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
-
-  <!-- Local styles -->
   <link rel="stylesheet" href="css/main.css">
-
-  <!-- Light touch visual polish -->
-  <style>
-    body {
-      font-family: "Open Sans", Arial, sans-serif;
-      background: #f7f9fc;
-      color: #2a2e35;
-      line-height: 1.7;
-    }
-    #main-container {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.06);
-      padding: 30px 20px;
-    }
-    @media (min-width: 768px) {
-      #main-container { padding: 40px; }
-    }
-    h3 span {
-      background: #fff;
-      padding: 0 .5em;
-      position: relative;
-      z-index: 1;
-      font-family: "Montserrat", sans-serif;
-      font-weight: 600;
-      letter-spacing: .3px;
-    }
-    h3.push-down-3, h3.push-down-4 {
-      margin-top: 35px;
-      margin-bottom: 20px;
-    }
-    .section-divider {
-      height: 1px;
-      background: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,.08), rgba(0,0,0,0));
-      margin: 24px 0 16px;
-    }
-    #title {
-      font-weight: 600;
-      margin: 12px 0 14px;
-      font-size: 16px;
-      color: #4b5563;
-      text-align: center;
-    }
-    .profile-card {
-      background: #ffffff;
-      border: 1px solid #eef2f7;
-      border-radius: 10px;
-      padding: 20px;
-    }
-    .img-thumbnail {
-      border-radius: 8px;
-      border: 1px solid #e5e7eb;
-    }
-    .lead-intro {
-      font-size: 16px;
-      color: #374151;
-      margin-top: 4px;
-    }
-    #contact-table td:first-child {
-      color: #6b7280;
-      width: 30px;
-      border: none;
-    }
-    #contact-table td:last-child {
-      border: none;
-    }
-    ul#education li {
-      margin-bottom: 10px;
-    }
-    .publication-list li {
-      margin-bottom: 12px;
-    }
-    .label-pill {
-      display: inline-block;
-      font-size: 12px;
-      background: #eef2ff;
-      color: #3730a3;
-      border-radius: 999px;
-      padding: 4px 10px;
-      margin-left: 6px;
-      vertical-align: 2px;
-    }
-    /* Better focus styles for accessibility */
-    a:focus, button:focus {
-      outline: 2px dashed #94a3b8;
-      outline-offset: 2px;
-    }
-  </style>
+  <script src="js/chat-config.js"></script>
+  <script src="js/main.js" defer></script>
 </head>
+<body data-page="home">
+  <div data-include="navbar.html"></div>
 
-<body>
+  <main class="page-frame" id="top">
+    <div class="site-shell">
+      <section class="hero reveal" aria-label="Homepage hero">
+        <div class="hero-inner">
+          <p class="hero-pretitle">Multidimensional AI Builder</p>
 
-  <!-- navbar include -->
-  <div w3-include-html="navbar.html"></div>
+          <h1 class="hero-title">
+            Ilkin Isler, PhD
+            <br>
+            <span class="gradient">AI Engineer. Researcher. Champion.</span>
+          </h1>
 
-  <div class="spacer-div-3 hidden-xs hidden-xs"></div>
+          <p class="hero-subtitle">
+            I build secure, trustworthy AI systems for high-stakes real-world use.
+          </p>
 
-  <!-- Main content -->
-  <div id="main-container" class="container" role="main" aria-label="Profile and publications">
+          <div class="hero-visual-wrap" aria-hidden="true">
+            <div class="hero-visual-glow"></div>
+            <div class="hero-visual-ring"></div>
+            <div class="hero-visual">
+              <img src="assets/avatar-main.jpg" alt="Portrait of Ilkin Isler">
+            </div>
+          </div>
 
-    <div class="row">
-      <!-- Left column: profile -->
-      <aside class="col-sm-4" aria-label="Profile card">
-        <div class="profile-card">
-          <img class="center-block img img-responsive img-thumbnail" src="pp.jpg" alt="Portrait of Ilkin Isler">
+          <div class="card chatbot-shell hero-chat" id="chat" data-bio-chatbot>
+            <p class="chat-intro" data-chat-intro>
+              Tell me what you need and I will pull the right projects, research, CV, media, or contact links.
+            </p>
+            <p class="chat-source-note" data-chat-source-note>
+              Grounded knowledge base: resume + UCF article.
+            </p>
 
-          <p id="title">PhD in Computer Science</p>
+            <ul class="chat-log" data-chat-log aria-live="polite" aria-label="Chat messages" hidden></ul>
 
-          <table class="table" id="contact-table" aria-label="Contact information">
-            <tbody>
-              <tr>
-                <td><i class="fas fa-home" aria-hidden="true"></i></td>
-                <td>Orlando, FL</td>
-              </tr>
-              <tr>
-                <td><i class="fas fa-at" aria-hidden="true"></i></td>
-                <td><a href="mailto:ilkinisler@gmail.com">ilkinisler@gmail.com</a></td>
-              </tr>
-            </tbody>
-          </table>
+            <div class="chat-suggestions" aria-label="Suggested questions">
+              <button type="button" class="command-shortcut" data-chat-suggestion="Can you tell me about your background?">Can you tell me about your background?</button>
+              <button type="button" class="command-shortcut" data-chat-suggestion="What projects are you building?">What projects are you building?</button>
+              <button type="button" class="command-shortcut" data-chat-suggestion="What is your research focus?">What is your research focus?</button>
+              <button type="button" class="command-shortcut" data-chat-suggestion="How much can you deadlift?">How much can you deadlift?</button>
+              <button type="button" class="command-shortcut" data-chat-suggestion="Where can I see your media links?">Where can I see your media links?</button>
+              <button type="button" class="command-shortcut" data-chat-suggestion="How can I contact you?">How can I contact you?</button>
+            </div>
+
+            <form class="chat-form" data-chat-form>
+              <label class="sr-only" for="chat-input">Ask a question</label>
+              <input id="chat-input" class="chat-input" data-chat-input type="text" placeholder="Message..." autocomplete="off" required>
+              <button class="chat-send" type="submit" aria-label="Send message">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 17V7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M8 11l4-4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </form>
+          </div>
         </div>
-      </aside>
-
-      <!-- Right column: summary + content -->
-      <section class="col-sm-8">
-
-        <h1 class="sr-only">Ilkin S. Isler, Ph.D.</h1>
-
-        <p class="lead-intro">
-          PhD in Computer Science with deep expertise in AI and deep learning. Experienced in designing and deploying robust explainable AI systems for high-risk applications. Skilled in computer vision, uncertainty quantification, model interpretability, and advanced NLP workflows including retrieval-augmented generation (RAG), citation systems, hallucination detection, and large language models (LLMs). Passionate about applying AI and machine learning to solve complex challenges and drive impact.
-        </p>
-
-        <div class="section-divider" role="presentation"></div>
-
-        <h3 class="push-down-3"><span>Education</span></h3>
-        <ul id="education" class="list-unstyled">
-          <li>
-            <strong>Doctor of Philosophy in Computer Science</strong>, 2025
-            <span class="university"><em>— University of Central Florida</em></span>
-          </li>
-          <li>
-            <strong>Master of Science in Computer Science</strong>, 2022
-            <span class="university"><em>— University of Central Florida</em></span>
-          </li>
-          <li>
-            <strong>Bachelor of Science in Computer Science</strong>, 2020
-            <span class="university"><em>— Hacettepe University, Ankara, Turkey</em></span>
-          </li>
-        </ul>
-
-        <div class="section-divider" role="presentation"></div>
-
-        <h3 class="push-down-4"><span>Academia</span></h3>
-
-        <h4 style="margin-top:18px;">I. Journals</h4>
-        <ul class="publication-list">
-          <li>
-            <p>
-              Zhang, Z. <em>et al.</em>, “Large-scale multi-center CT and MRI segmentation of pancreas with deep learning.” <em>Medical Image Analysis</em>, 99, Jan 2025, 103382
-              <a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S1361841524003074">doi:10.1016/j.media.2024.103382</a>
-              <span class="label-pill">co-author</span>
-            </p>
-          </li>
-          <li>
-            <p>
-              Gulec, U.* &amp; Isler, I. S.* <em>et al.</em>, “Power-VR: Interactive 3D virtual environment to increase motivation levels of powerlifters during training sessions.” <em>Computer Animation and Virtual Worlds</em>, 34(2), 2022, e2045
-              <a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/cav.2045">wiley: 10.1002/cav.2045</a>
-              <span class="label-pill">*equal contribution</span>
-            </p>
-          </li>
-        </ul>
-
-        <h4>II. Peer-reviewed conference articles (full papers)</h4>
-        <ul class="publication-list">
-          <li>
-            <p>
-              Isler, I. S. <em>et al.</em>, “Uncertainty-Guided Coarse-to-Fine Tumor Segmentation with Anatomy-Aware Post-Processing.” ACDSA IEEE, 2025.
-              <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2504.12215">doi: 10.48550/arXiv.2504.12215</a>
-            </p>
-          </li>
-          <li>
-            <p>
-              Isler, I. S. <em>et al.</em>, “Self-Supervised Learning for Organs At Risk (OARs) and Tumor Segmentation with Uncertainty Quantification.” ICECCME IEEE, 2023.
-              <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2305.02491">doi: 10.1109/ICECCME57830.2023.10252269</a>
-            </p>
-          </li>
-          <li>
-            <p>
-              Isler, I. S. <em>et al.</em>, “Enhancing Organ at Risk Segmentation with Improved Deep Neural Networks.” SPIE Medical Imaging, 2022.
-              <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2202.01866">doi: 10.1117/12.2611498</a>
-            </p>
-          </li>
-          <li>
-            <p>
-              Ali, K. <em>et al.</em>, “Facial Expression Recognition Using Human to Animated-Character Expression Translation.” arXiv preprint, 2019.
-              <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1910.05595">doi:10.48550/arXiv.1910.05595</a>
-              <span class="label-pill">co-author</span>
-            </p>
-          </li>
-        </ul>
-
-        <h4>III. Other publications</h4>
-        <ul class="publication-list">
-          <li>
-            <p>
-              AJha, D. <em>et al.</em>, “Practical and Ethical Considerations for Generative AI in Medical Imaging.” FAIMI &amp; EPIMI at MICCAI 2024, pp. 176–187.
-              <a target="_blank" rel="noopener" href="https://link.springer.com/chapter/10.1007/978-3-031-72787-0_17">doi:10.1007/978-3-031-72787-0_17</a>
-              <span class="label-pill">co-author</span>
-            </p>
-          </li>
-          <li>
-            <p>
-              Isler, S. <em>et al.</em>, “Usage of 3D Modelling and Morphing Tools in Plastic Surgery.” UYMS, 2019.
-            </p>
-          </li>
-        </ul>
-
       </section>
+
     </div>
+  </main>
 
-  </div>
-
-  <!-- Back-to-top button -->
-  <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" class="btn scroll-link" href="#top">
-    <i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i>
-    <span class="sr-only">Back to top</span>
-  </a>
-
-  <!-- footer include -->
-  <div w3-include-html="footer.html"></div>
-
-  <!-- jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-  <!-- Bootstrap JS Library -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-
-  <!-- html include helper -->
-  <!-- html include helper -->
-  <script src="js/w3data.js"></script>
-
-  <!-- Auto cache-buster for navbar, footer, and main.css -->
-  <script>
-    (function () {
-      // Change this string whenever you update navbar.html, footer.html, or main.css
-      var v = '20250815T1300';
-
-      // Cache-bust main.css
-      var css = document.querySelector('link[href$="css/main.css"]');
-      if (css) {
-        css.href = css.href + (css.href.indexOf('?') > -1 ? '&' : '?') + 'v=' + v;
-      }
-
-      // Append ?v=... to all w3 includes BEFORE calling w3IncludeHTML
-      document.querySelectorAll('[w3-include-html]').forEach(function (el) {
-        var url = el.getAttribute('w3-include-html') || '';
-        el.setAttribute(
-          'w3-include-html',
-          url + (url.indexOf('?') > -1 ? '&' : '?') + 'v=' + v
-        );
-      });
-
-      // Run the includes
-      w3IncludeHTML();
-    })();
-  </script>
-
-
-  <!-- Local scripts -->
-  <script src="js/main.js"></script>
-
-  <script>
-    $(document).ready(function() {
-      $("li#about a").addClass("active hvr-bubble-bottom");
-      $('[data-toggle="tooltip"]').tooltip();
-    });
-  </script>
-
+  <div data-include="footer.html"></div>
 </body>
 </html>

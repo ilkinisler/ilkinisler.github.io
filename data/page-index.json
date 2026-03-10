@@ -1,0 +1,669 @@
+{
+  "generated_at": "2026-03-10T05:25:46+00:00",
+  "pipeline": "page-index-rag-v1",
+  "sources": [
+    {
+      "source_id": "resume_nov2025",
+      "title": "Ilkin Isler Resume (Nov 2025)",
+      "type": "pdf",
+      "url": "assets/resumeilkinisler-nov5.pdf",
+      "note": "Primary professional record"
+    },
+    {
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "title": "The Mind to Move Mountains (UCF News)",
+      "type": "article",
+      "url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "published": "2026-02-24",
+      "note": "Personal story and motivations"
+    },
+    {
+      "source_id": "ilkin_profile_facts",
+      "title": "Ilkin Profile Facts",
+      "type": "manual",
+      "url": "local://profile-facts",
+      "note": "First-party facts provided directly by Ilkin Isler"
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_id": "resume-p1-c1",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Resume Page 1",
+      "text": "Ilkin Isler, Resume - Page 1 ILKIN ISLER Orlando, FL | +1 (407) 455 - 3810 ilkinisler@gmail.com | www.linkedin.com/in/ilkinsevgiisler"
+    },
+    {
+      "chunk_id": "resume-p1-c2",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Professional Summary",
+      "text": "Ph.D. in Computer Science with deep expertise in AI and deep learning. Experienced in designing and deploying robust, explainable AI systems for high-risk applications. Skilled in computer vision, uncertainty quantification, model interpretability, and advanced NLP workflows including retrieval-augmented generation (RAG), citation systems, hallucination detection, and large language models (LLMs)."
+    },
+    {
+      "chunk_id": "resume-p1-c3",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Professional Summary",
+      "text": "Highly adaptable and passionate about continuous learning, with a strong drive to apply AI and machine learning to solve complex challenges and create meaningful impact."
+    },
+    {
+      "chunk_id": "resume-p1-c4",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Education",
+      "text": "\u2022 Ph.D., Computer Science, University of Central Florida, Orlando, FL"
+    },
+    {
+      "chunk_id": "resume-p1-c5",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Education",
+      "text": "\u2022 MS, Computer Science, University of Central Florida, Orlando, FL"
+    },
+    {
+      "chunk_id": "resume-p1-c6",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Education",
+      "text": "\u2022 BS, Computer Science, Hacettepe University, Ankara, Turkey"
+    },
+    {
+      "chunk_id": "resume-p1-c7",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Work Experience",
+      "text": "Senior AI Engineer Aug 2025 - Present Universal Creative, AI Strategy & Solutions Orlando, FL"
+    },
+    {
+      "chunk_id": "resume-p1-c8",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Work Experience",
+      "text": "\u2022 Architected and built a secure, production-grade MCP-based AI platform from scratch, enabling centralized orchestration and lifecycle management of AI agents and tools. Designed and implemented role-based access control (RBAC), authentication layers, and security hardening mechanisms to ensure safe deployment of ML services at scale. Delivered an end-to-end infrastructure stack supporting data ingestion, model integration, API interfaces, and governed execution of AI workflows. AI Software Engineer Jan - Aug 2025 Universal Creative, Engineering & Safety Orlando, FL"
+    },
+    {
+      "chunk_id": "resume-p1-c9",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Work Experience",
+      "text": "\u2022 Developed AI solutions using LLMs and retrieval-augmented generation (RAG) with capabilities for hallucination detection, groundedness evaluation, citation, meta tagging and topic modeling. Graduate Teaching Assistant Aug 2023 - Dec 2024 University of Central Florida, College of Engineering and Computer Science Orlando, FL"
+    },
+    {
+      "chunk_id": "resume-p1-c10",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Work Experience",
+      "text": "\u2022 Assisting with Advanced Artificial Intelligence and Advanced Computer Networks courses. Graduate Research Assistant Jan 2020 - Aug 2023 University of Central Florida, College of Engineering and Computer Science Orlando, FL"
+    },
+    {
+      "chunk_id": "resume-p1-c11",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Work Experience",
+      "text": "\u2022 Built explainable, uncertainty\u2011aware models for organ and tumor segmentation and outcome prediction."
+    },
+    {
+      "chunk_id": "resume-p1-c12",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Work Experience",
+      "text": "\u2022 Led cross\u2011institutional projects (including Northwestern Radiology) to deploy AI visualization tools."
+    },
+    {
+      "chunk_id": "resume-p1-c13",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Work Experience",
+      "text": "\u2022 Oversaw project delivery and documentation to support clinical integration of AI models. Python Developer May - Oct 2022 Universal Orlando Resort, BAIE Department Orlando, FL"
+    },
+    {
+      "chunk_id": "resume-p1-c14",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Work Experience",
+      "text": "\u2022 Enhanced system health and stability by identifying and resolving 100+ vulnerabilities in cloud scripts."
+    },
+    {
+      "chunk_id": "resume-p1-c15",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Work Experience",
+      "text": "\u2022 Optimized machine learning pipelines with Azure Databricks and MLflow to enhance performance. Data Analyst Jan - Aug 2020 Simsoft Information Technologies Ankara, Turkey"
+    },
+    {
+      "chunk_id": "resume-p1-c16",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Work Experience",
+      "text": "\u2022 Implemented LSTM models for predictive maintenance and anomaly detection."
+    },
+    {
+      "chunk_id": "resume-p1-c17",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Work Experience",
+      "text": "\u2022 Simulated COVID-19 spread using models to analyze disease transmission and population impact. Research Intern Jul - Sep 2019 University of Central Florida, Synthetic Reality Lab Orlando, FL"
+    },
+    {
+      "chunk_id": "resume-p1-c18",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Work Experience",
+      "text": "\u2022 Utilized Generative Adversarial Networks (GANs) for facial expression recognition. Data Analyst Intern Jul - Sep 2018 Carbon Health San Francisco, CA"
+    },
+    {
+      "chunk_id": "resume-p1-c19",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Work Experience",
+      "text": "\u2022 Utilized machine learning to predict outcomes, validate data and reduce clinic wait times by 30%, improving appointment forecasting and overall efficiency."
+    },
+    {
+      "chunk_id": "resume-p2-c1",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Resume Page 2",
+      "text": "Ilkin Isler, Resume - Page 2"
+    },
+    {
+      "chunk_id": "resume-p2-c2",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Technical Skills",
+      "text": "Languages: Python, Java, C, SQL ML Systems & Infrastructure: MCP-based AI systems architecture, distributed ML pipelines, model serving APIs, RBAC, secure AI deployment, model governance, Areas of Expertise: Computer Vision; NLP (LLMs, RAG, hallucination detection); Uncertainty Quantification; Explainable AI; Anomaly Detection; ML Systems Design"
+    },
+    {
+      "chunk_id": "resume-p2-c3",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "I. Journals"
+    },
+    {
+      "chunk_id": "resume-p2-c4",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 Zhang, Z. et al., \"Large-scale multi-center CT and MRI segmentation of pancreas with deep learning.\" Medical Image Analysis, Volume 99, January 2025, 103382. doi:10.1016/j.media.2024.103382. (co-author)"
+    },
+    {
+      "chunk_id": "resume-p2-c5",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 Gulec, U.*, Isler, I. S.*, et al., \"Power-VR: Interactive 3D virtual environment to increase motivation levels of powerlifters during training sessions.\" Computer Animation and Virtual Worlds, Volume 34, Issue 2, 2022, e2045. doi: 10.1002/cav.2045. (*equal contribution) II. Peer- reviewed conference articles (full papers)"
+    },
+    {
+      "chunk_id": "resume-p2-c6",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 Isler, I. S. et al., \" Uncertainty-Guided Coarse-to-Fine Tumor Segmentation with Anatomy-Aware Post-Processing.\" ACDSA IEEE, 2025. doi: 10.48550/arXiv.2504.12215."
+    },
+    {
+      "chunk_id": "resume-p2-c7",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 Isler, I. S. et al., \"Self-Supervised Learning for Organs At Risk (OARs) and Tumor Segmentation with Uncertainty Quantification.\" ICECCME IEEE, 2023. doi: 10.1109/ICECCME57830.2023.10252269"
+    },
+    {
+      "chunk_id": "resume-p2-c8",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 Isler, I. S. et al., \"Enhancing Organ at Risk Segmentation with Improved Deep Neural Networks.\" SPIE Medical Imaging, 2022. doi: 10.1117/12.2611498."
+    },
+    {
+      "chunk_id": "resume-p2-c9",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 Ali, K. et al., \"Facial Expression Recognition Using Human to Animated-Character Expression Translation.\" arXiv preprint, 2019. doi:10.48550/arXiv.1910.05595. (co-author) III. Other publications"
+    },
+    {
+      "chunk_id": "resume-p2-c10",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 Jha, D. et al., \"Practical and Ethical Considerations for Generative AI in Medical Imaging.\" FAIMI & EPIMI at MICCAI 2024, pp. 176-187. doi:10.1007/978-3-031-72787-0_17. (co-author)"
+    },
+    {
+      "chunk_id": "resume-p2-c11",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 Isler, S. et al., \"Usage of 3D Modelling and Morphing Tools in Plastic Surgery.\", UYMS, 2019. IV. Peer Reviewing"
+    },
+    {
+      "chunk_id": "resume-p2-c12",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 Medical Physics, American Association of Physicists in Medicine"
+    },
+    {
+      "chunk_id": "resume-p2-c13",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 IEEE, Journal of Biomedical and Health Informatics"
+    },
+    {
+      "chunk_id": "resume-p2-c14",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 IEEE, Transactions on Medical Imaging"
+    },
+    {
+      "chunk_id": "resume-p2-c15",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Additional Credentials",
+      "text": "Workshops & Conferences"
+    },
+    {
+      "chunk_id": "resume-p2-c16",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Additional Credentials",
+      "text": "\u2022 Presenter, SPIE Medical Imaging 2022, San Diego, CA Feb 2022"
+    },
+    {
+      "chunk_id": "resume-p2-c17",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Additional Credentials",
+      "text": "\u2022 Participant, MIDL Doctoral Symposium, Virtual July 2021"
+    },
+    {
+      "chunk_id": "resume-p2-c18",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Additional Credentials",
+      "text": "\u2022 Participant, Trustworthy AI for Imaging-based Diagnoses (IEEE EMBS), Virtual June 2021"
+    },
+    {
+      "chunk_id": "resume-p2-c19",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Additional Credentials",
+      "text": "\u2022 Team member, UCF Research Experiences (NSF REU), Orlando, FL May 2021 Honors & Awards"
+    },
+    {
+      "chunk_id": "resume-p2-c20",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Additional Credentials",
+      "text": "\u2022 Fellowships o MI22 Student Conference Support Dec 2021 o UCF College of Graduate Studies Presentation Fellowship Nov 2021"
+    },
+    {
+      "chunk_id": "resume-p2-c21",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Additional Credentials",
+      "text": "\u2022 Competitive powerlifter o 4 x USA Powerlifting FL state record holder o 2 x Powerlifting Overall Champion of Turkey o IPSU European Championship - 2nd Place Overall"
+    },
+    {
+      "chunk_id": "mind-p0-c1",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 0,
+      "section": "Title",
+      "text": "The Mind to Move Mountains"
+    },
+    {
+      "chunk_id": "mind-p0-c2",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 0,
+      "section": "Excerpt",
+      "text": "Ilkin Isler '22MS '25PhD left the familiarity of home in Turkey to study AI at UCF - a daring choice that resulted in research improving the assessment of cancerous tumors and supporting better patient care."
+    },
+    {
+      "chunk_id": "mind-p1-c3",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 1,
+      "section": "Article",
+      "text": "Nothing motivates Ilkin Isler '22MS '25PhD quite like this phrase: \u201cIt can't be done.\u201d"
+    },
+    {
+      "chunk_id": "mind-p2-c4",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 2,
+      "section": "Article",
+      "text": "When Isler says candidly, \u201cWorking on my Ph.D. is the most difficult thing I've ever faced,\u201d there's a montage of difficult things in her life to consider - physical and mental, past and present."
+    },
+    {
+      "chunk_id": "mind-p3-c5",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 3,
+      "section": "Article",
+      "text": "For example, in August 2025, the recent computer science doctoral graduate began work as a senior artificial intelligence (AI) engineer at Universal Creative. Her role involved analyzing complex white papers and developing state-of-the-art AI systems from scratch - all for the purpose of improving the safety of park guests."
+    },
+    {
+      "chunk_id": "mind-p4-c6",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 4,
+      "section": "Article",
+      "text": "\u201cI find solutions for high-risk applications,\u201d Isler says, \u201cwhich is a good description for what I love to do.\u201d"
+    },
+    {
+      "chunk_id": "mind-p5-c7",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 5,
+      "section": "Article",
+      "text": "\u201c\u2026 when I hear something can't be done, it motivates me to make it happen.\u201d - Ilkin Isler '22MS '25PhD"
+    },
+    {
+      "chunk_id": "mind-p6-c8",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 6,
+      "section": "Article",
+      "text": "The fact that her work requires fortitude also fits Isler well. In high school in Turkey, she once walked into a gym \u201cjust for something to do.\u201d A trainer immediately suggested she head to the cardio area, where she'd blend in easily. Isler, however, saw the powerlifting space and thought, \u201c That's what I want to do.\u201d"
+    },
+    {
+      "chunk_id": "mind-p7-c9",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 7,
+      "section": "Article",
+      "text": "\u201cI had to teach myself how to do [powerlifting],\u201d she says. \u201cPeople probably thought I'd give up, but when I hear something can't be done, it motivates me to make it happen.\u201d"
+    },
+    {
+      "chunk_id": "mind-p8-c10",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 8,
+      "section": "Article",
+      "text": "Self-taught and competing despite her small frame, Isler went on to become a European powerlifting champion."
+    },
+    {
+      "chunk_id": "mind-p9-c11",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 9,
+      "section": "Article",
+      "text": "All of this is important for understanding the person who, while studying at UCF, helped develop an AI model to assess cancerous tumors."
+    },
+    {
+      "chunk_id": "mind-p10-c12",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 10,
+      "section": "Using Computer Imaging to Enhance Patient Care",
+      "text": "Guided by a team of advisors, Isler came up with a way to feed medical imaging into an algorithm that measures shapes and textures with more speed, precision and consistency than is currently possible. Given such accurate information, an oncologist could make quicker, more confident decisions - improving overall patient care."
+    },
+    {
+      "chunk_id": "mind-p11-c13",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 11,
+      "section": "Using Computer Imaging to Enhance Patient Care",
+      "text": "\u201c\u2026 [Ilkin's] work helps push the field forward in an important and timely way.\u201d - David Mohaisen, UCF computer science professor"
+    },
+    {
+      "chunk_id": "mind-p12-c14",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 12,
+      "section": "Using Computer Imaging to Enhance Patient Care",
+      "text": "\u201cThe problem she chose to work on is inherently difficult for several reasons,\u201d says David Mohaisen, UCF computer science professor and one of her advisors. \u201cMedical imaging is a high-stakes domain where errors have serious clinical consequences.\u201d"
+    },
+    {
+      "chunk_id": "mind-p13-c15",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 13,
+      "section": "Using Computer Imaging to Enhance Patient Care",
+      "text": "\u201cIt's also a mature and crowded research area, with competitive works focusing on incremental benchmark gains rather than addressing deeper issues, such as reliability, uncertainty and clinical integration,\u201d Mohaisen continues. \u201cInstead of chasing marginal improvements, Ilkin focused on meaningful outcomes. Her work helps push the field forward in an important and timely way.\u201d"
+    },
+    {
+      "chunk_id": "mind-p14-c16",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 14,
+      "section": "Using Computer Imaging to Enhance Patient Care",
+      "text": "Yet the breakthrough alone, and the work that went into it, does not fully capture what Isler faced at the dizzying start of her doctorate journey."
+    },
+    {
+      "chunk_id": "mind-p15-c17",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 15,
+      "section": "Taking a Chance to Change Her Life and Others",
+      "text": "Isler arrived from Turkey with two suitcases and a hotel reservation near UCF."
+    },
+    {
+      "chunk_id": "mind-p16-c18",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 16,
+      "section": "Taking a Chance to Change Her Life and Others",
+      "text": "\u201cMy mom filled one of the suitcases with Turkish food,\u201d Isler says. She can laugh now, but at the time, she had no clear path beyond the airport. \u201cI had to figure everything out.\u201d"
+    },
+    {
+      "chunk_id": "mind-p17-c19",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 17,
+      "section": "Taking a Chance to Change Her Life and Others",
+      "text": "A few years earlier, she traveled across the globe to UCF as an undergraduate, having earned a competitive internship in the Synthetic Reality Lab, where she worked with Pegasus Professor Charles Hughes and then computer engineering doctoral student Kamran Ali '21PhD on facial expression recognition."
+    },
+    {
+      "chunk_id": "mind-p18-c20",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 18,
+      "section": "Taking a Chance to Change Her Life and Others",
+      "text": "\u201cShe committed herself to the research,\u201d Hughes says, \u201cand even contributed to writing and editing the resulting report after she returned to Turkey.\u201d"
+    },
+    {
+      "chunk_id": "mind-p19-c21",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 19,
+      "section": "Taking a Chance to Change Her Life and Others",
+      "text": "Days away from starting doctorate-level research, with all her belongings in a single piece of luggage, Isler would do what she does best: find a way. She moved from the hotel to an unfurnished apartment."
+    },
+    {
+      "chunk_id": "mind-p20-c22",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 20,
+      "section": "Taking a Chance to Change Her Life and Others",
+      "text": "But with her, Isler brought two specific interests to her postgraduate research at UCF. Her mother, a dentist in Turkey, inspired an interest in medical advancement. Her father, a computer science professor, recognized in his daughter the curiosity and determination required for the field."
+    },
+    {
+      "chunk_id": "mind-p21-c23",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 21,
+      "section": "Taking a Chance to Change Her Life and Others",
+      "text": "\u201cIf I know an idea can be impactful, I'll do whatever is necessary to make it a reality,\u201d she says. \u201cThe higher the stakes, the more driven I become.\u201d"
+    },
+    {
+      "chunk_id": "mind-p22-c24",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 22,
+      "section": "Taking a Chance to Change Her Life and Others",
+      "text": "Those stakes led her to focus on medical imaging solutions for cancer care worldwide. Without a medical background, she collaborated with doctors. It helped that she never looked at her research as an academic exercise. She wanted only to deliver something trustworthy that clinicians everywhere could use to eliminate gray areas in image analysis."
+    },
+    {
+      "chunk_id": "mind-p23-c25",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 23,
+      "section": "Taking a Chance to Change Her Life and Others",
+      "text": "\u201cI've been fortunate to work with many doctoral students over the years, and Ilkin stands out on multiple levels,\u201d says Mohaisen, pointing out her motivation, energy and curiosity, before adding: \u201cI'd say she is among the most driven.\u201d"
+    },
+    {
+      "chunk_id": "mind-p24-c26",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 24,
+      "section": "Fueled by Challenge and Service",
+      "text": "By now, the source of Isler's uncommon drive is clear. Every time someone showed skepticism about her powerlifting, she responded by breaking a national record. Although she could have attended a private college in Turkey, where she would have been surrounded by familiar language and culture, she instead chose to move across the world to study AI."
+    },
+    {
+      "chunk_id": "mind-p25-c27",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 25,
+      "section": "Fueled by Challenge and Service",
+      "text": "There's one more motivation that consistently guides her: others."
+    },
+    {
+      "chunk_id": "mind-p26-c28",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 26,
+      "section": "Fueled by Challenge and Service",
+      "text": "Isler considers her greatest accomplishment in powerlifting to be the doors she helped open for others in Turkey to try any form of fitness they choose. And she says she would gladly move to another continent again, with just a suitcase and her AI skills, if it meant helping improve the lives of others."
+    },
+    {
+      "chunk_id": "mind-p27-c29",
+      "source_id": "ucf_mind_to_move_mountains_2026",
+      "source_title": "The Mind to Move Mountains (UCF News)",
+      "source_url": "https://www.ucf.edu/news/the-mind-to-move-mountains/",
+      "page_index": 27,
+      "section": "Fueled by Challenge and Service",
+      "text": "\u201cWhen I look back, I can see that I've often traded comfort for growth,\u201d she says, \u201cand I will not hesitate to do it again.\u201d"
+    },
+    {
+      "chunk_id": "profile-p1-c1",
+      "source_id": "ilkin_profile_facts",
+      "source_title": "Ilkin Profile Facts",
+      "source_url": "local://profile-facts",
+      "page_index": 1,
+      "section": "Strength",
+      "text": "Powerlifting PRs: Squat 355, Bench 200, Deadlift 475."
+    },
+    {
+      "chunk_id": "profile-p1-c2",
+      "source_id": "ilkin_profile_facts",
+      "source_title": "Ilkin Profile Facts",
+      "source_url": "local://profile-facts",
+      "page_index": 1,
+      "section": "Strength",
+      "text": "These PR values are directly provided by Ilkin Isler."
+    }
+  ]
+}
