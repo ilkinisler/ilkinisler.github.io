@@ -87,7 +87,7 @@ input:focus-visible {
 
 .page-frame {
   padding-top: calc(var(--header-offset, 0px) + 0.5rem);
-  padding-bottom: 4rem;
+  padding-bottom: 1.8rem;
 }
 
 .section {
@@ -287,7 +287,10 @@ body[data-page="home"] .header-actions {
 .hero {
   position: relative;
   overflow: hidden;
-  padding: clamp(1.95rem, 4.8vw, 3.8rem);
+  padding:
+    clamp(1.95rem, 4.8vw, 3.8rem)
+    clamp(1.95rem, 4.8vw, 3.8rem)
+    clamp(1.1rem, 2.2vw, 1.75rem);
   border-radius: var(--radius-xl);
   border: 1px solid rgba(27, 37, 63, 0.13);
   background:
@@ -1189,8 +1192,8 @@ body[data-page="home"] .header-actions {
 }
 
 .site-footer {
-  margin-top: 2rem;
-  padding: 1.4rem 0 2.5rem;
+  margin-top: 0.9rem;
+  padding: 0.9rem 0 1.5rem;
 }
 
 .footer-card {
@@ -1317,7 +1320,7 @@ body[data-page="home"] .header-actions {
   }
 
   .page-frame {
-    padding-bottom: 3rem;
+    padding-bottom: 1.45rem;
   }
 
   .hero {
