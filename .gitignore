@@ -1,0 +1,9 @@
+# OS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Local artifacts
+assets/avatar-main.png

@@ -1,6 +1,11 @@
 (() => {
   const DEFAULT_CHAT_CONFIG = Object.freeze({
     knowledgeBaseUrl: "data/page-index.json",
+    api: {
+      enabled: false,
+      endpoint: "",
+      sourceNote: "Grounded knowledge base served by the chat backend."
+    },
     retrieval: {
       topK: 6,
       maxContextChars: 4600
@@ -120,15 +125,14 @@
     }
 
     const nav = document.querySelector(".site-nav");
-    if (!nav) {
-      return;
+    if (nav) {
+      nav.remove();
     }
 
-    nav.querySelectorAll(".site-nav-link").forEach((link) => {
-      if (link.dataset.nav !== "home") {
-        link.remove();
-      }
-    });
+    const toggle = document.querySelector("[data-nav-toggle]");
+    if (toggle) {
+      toggle.remove();
+    }
   }
 
   function initHomeReturnButton() {
@@ -265,18 +269,26 @@
     intro.textContent = "Tell me what you need and I will pull the right projects, research, CV, media, or contact links.";
 
     const chatConfig = mergeConfig(DEFAULT_CHAT_CONFIG, window.ILKIN_CHAT_CONFIG || {});
+    const backendEnabled = Boolean(chatConfig.api?.enabled && chatConfig.api?.endpoint);
 
     let retrievalIndex = null;
-    try {
-      const knowledgeBase = await loadKnowledgeBase(chatConfig.knowledgeBaseUrl);
-      retrievalIndex = buildRetrievalIndex(knowledgeBase);
+    if (backendEnabled) {
       if (sourceNote) {
-        sourceNote.textContent = buildSourceNote(knowledgeBase);
+        sourceNote.textContent =
+          chatConfig.api?.sourceNote || "Grounded knowledge base served by the chat backend.";
       }
-    } catch (error) {
-      console.error(error);
-      if (sourceNote) {
-        sourceNote.textContent = "Knowledge base unavailable. Check data/page-index.json.";
+    } else {
+      try {
+        const knowledgeBase = await loadKnowledgeBase(chatConfig.knowledgeBaseUrl);
+        retrievalIndex = buildRetrievalIndex(knowledgeBase);
+        if (sourceNote) {
+          sourceNote.textContent = buildSourceNote(knowledgeBase);
+        }
+      } catch (error) {
+        console.error(error);
+        if (sourceNote) {
+          sourceNote.textContent = "Knowledge base unavailable. Check data/page-index.json.";
+        }
       }
     }
 
@@ -364,6 +376,78 @@
     return merged;
   }
 
+  async function askBackendQuestion(question, apiConfig) {
+    const endpoint = String(apiConfig.endpoint || "").trim();
+    if (!endpoint) {
+      throw new Error("Backend endpoint is missing");
+    }
+
+    const headers = {
+      "Content-Type": "application/json"
+    };
+
+    if (apiConfig.apiKeyHeader && apiConfig.apiKey) {
+      headers[apiConfig.apiKeyHeader] = apiConfig.apiKey;
+    }
+
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ question })
+    });
+
+    if (!response.ok) {
+      const details = await response.text();
+      throw new Error(`Backend chat call failed: ${response.status} ${details}`);
+    }
+
+    const payload = await response.json();
+    return normalizeBackendAnswer(payload);
+  }
+
+  function normalizeBackendAnswer(payload) {
+    const answer = String(payload?.answer || "").trim() || "I do not have that in the current knowledge base.";
+
+    const citations = Array.isArray(payload?.citations)
+      ? payload.citations
+          .map((entry) => ({
+            id: String(entry?.id || entry?.chunk_id || "").trim(),
+            label: String(entry?.label || entry?.id || "Source").trim()
+          }))
+          .filter((entry) => entry.label)
+      : [];
+
+    const support = Array.isArray(payload?.support)
+      ? payload.support
+          .map((entry) => ({
+            label: String(entry?.label || "").trim(),
+            supported: Boolean(entry?.supported)
+          }))
+          .filter((entry) => entry.label)
+      : [];
+
+    const links = Array.isArray(payload?.links)
+      ? payload.links
+          .map((entry) => ({
+            label: String(entry?.label || "Source").trim(),
+            href: String(entry?.href || "").trim()
+          }))
+          .filter((entry) => entry.href)
+      : [];
+
+    return {
+      answer,
+      citations,
+      support,
+      links,
+      factualScore:
+        payload?.factualScore && typeof payload.factualScore.score === "number"
+          ? payload.factualScore
+          : null,
+      notice: typeof payload?.notice === "string" ? payload.notice : ""
+    };
+  }
+
   async function loadKnowledgeBase(url) {
     const response = await fetch(url, { cache: "no-store" });
     if (!response.ok) {
@@ -438,6 +522,24 @@
   }
 
   async function answerQuestion(question, retrievalIndex, config) {
+    if (config.api?.enabled && config.api?.endpoint) {
+      try {
+        return await askBackendQuestion(question, config.api);
+      } catch (error) {
+        console.error(error);
+        if (!retrievalIndex) {
+          return {
+            answer: "I could not reach the chat backend.",
+            citations: [],
+            support: [],
+            links: [],
+            factualScore: null,
+            notice: "Start backend API and set chat-config endpoint."
+          };
+        }
+      }
+    }
+
     if (!retrievalIndex) {
       return {
         answer: "I do not have the indexed knowledge loaded yet.",
@@ -445,7 +547,7 @@
         support: [],
         links: [],
         factualScore: null,
-        notice: "Load data/page-index.json to enable grounded answers."
+      notice: "Load data/page-index.json to enable grounded answers."
       };
     }
 
