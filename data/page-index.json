@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-10T05:25:46+00:00",
+  "generated_at": "2026-03-10T06:04:01+00:00",
   "pipeline": "page-index-rag-v1",
   "sources": [
     {
@@ -33,7 +33,7 @@
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
       "section": "Resume Page 1",
-      "text": "Ilkin Isler, Resume - Page 1 ILKIN ISLER Orlando, FL | +1 (407) 455 - 3810 ilkinisler@gmail.com | www.linkedin.com/in/ilkinsevgiisler"
+      "text": "Ilkin Isler, Resume - Page 1"
     },
     {
       "chunk_id": "resume-p1-c2",
@@ -41,8 +41,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
-      "section": "Professional Summary",
-      "text": "Ph.D. in Computer Science with deep expertise in AI and deep learning. Experienced in designing and deploying robust, explainable AI systems for high-risk applications. Skilled in computer vision, uncertainty quantification, model interpretability, and advanced NLP workflows including retrieval-augmented generation (RAG), citation systems, hallucination detection, and large language models (LLMs)."
+      "section": "Resume Page 1",
+      "text": "ILKIN ISLERan"
     },
     {
       "chunk_id": "resume-p1-c3",
@@ -50,8 +50,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
-      "section": "Professional Summary",
-      "text": "Highly adaptable and passionate about continuous learning, with a strong drive to apply AI and machine learning to solve complex challenges and create meaningful impact."
+      "section": "Resume Page 1",
+      "text": "ilkinisler@gmail.com | www.linkedin.com/in/ilkinsevgiisler"
     },
     {
       "chunk_id": "resume-p1-c4",
@@ -59,8 +59,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
-      "section": "Education",
-      "text": "\u2022 Ph.D., Computer Science, University of Central Florida, Orlando, FL"
+      "section": "Professional Summary",
+      "text": "Ph.D. in Computer Science with deep expertise in AI and deep learning. Experienced in designing and"
     },
     {
       "chunk_id": "resume-p1-c5",
@@ -68,8 +68,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
-      "section": "Education",
-      "text": "\u2022 MS, Computer Science, University of Central Florida, Orlando, FL"
+      "section": "Professional Summary",
+      "text": "deploying robust, explainable AI systems for high-risk applications. Skilled in computer vision, uncertainty"
     },
     {
       "chunk_id": "resume-p1-c6",
@@ -77,8 +77,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
-      "section": "Education",
-      "text": "\u2022 BS, Computer Science, Hacettepe University, Ankara, Turkey"
+      "section": "Professional Summary",
+      "text": "quantification, model interpretability, and advanced NLP workflows including retrieval-augmented"
     },
     {
       "chunk_id": "resume-p1-c7",
@@ -86,8 +86,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
-      "section": "Work Experience",
-      "text": "Senior AI Engineer Aug 2025 - Present Universal Creative, AI Strategy & Solutions Orlando, FL"
+      "section": "Professional Summary",
+      "text": "generation (RAG), citation systems, hallucination detection, and large language models (LLMs). Highly"
     },
     {
       "chunk_id": "resume-p1-c8",
@@ -95,8 +95,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
-      "section": "Work Experience",
-      "text": "\u2022 Architected and built a secure, production-grade MCP-based AI platform from scratch, enabling centralized orchestration and lifecycle management of AI agents and tools. Designed and implemented role-based access control (RBAC), authentication layers, and security hardening mechanisms to ensure safe deployment of ML services at scale. Delivered an end-to-end infrastructure stack supporting data ingestion, model integration, API interfaces, and governed execution of AI workflows. AI Software Engineer Jan - Aug 2025 Universal Creative, Engineering & Safety Orlando, FL"
+      "section": "Professional Summary",
+      "text": "adaptable and passionate about continuous learning, with a strong drive to apply AI and machine learning to"
     },
     {
       "chunk_id": "resume-p1-c9",
@@ -104,8 +104,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
-      "section": "Work Experience",
-      "text": "\u2022 Developed AI solutions using LLMs and retrieval-augmented generation (RAG) with capabilities for hallucination detection, groundedness evaluation, citation, meta tagging and topic modeling. Graduate Teaching Assistant Aug 2023 - Dec 2024 University of Central Florida, College of Engineering and Computer Science Orlando, FL"
+      "section": "Professional Summary",
+      "text": "solve complex challenges and create meaningful impact."
     },
     {
       "chunk_id": "resume-p1-c10",
@@ -113,8 +113,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
-      "section": "Work Experience",
-      "text": "\u2022 Assisting with Advanced Artificial Intelligence and Advanced Computer Networks courses. Graduate Research Assistant Jan 2020 - Aug 2023 University of Central Florida, College of Engineering and Computer Science Orlando, FL"
+      "section": "Education",
+      "text": "\u2022 Ph.D., Computer Science, University of Central Florida, Orlando, FL Aug 2025"
     },
     {
       "chunk_id": "resume-p1-c11",
@@ -122,8 +122,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
-      "section": "Work Experience",
-      "text": "\u2022 Built explainable, uncertainty\u2011aware models for organ and tumor segmentation and outcome prediction."
+      "section": "Education",
+      "text": "\u2022 MS, Computer Science, University of Central Florida, Orlando, FL Dec 2022"
     },
     {
       "chunk_id": "resume-p1-c12",
@@ -131,8 +131,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
-      "section": "Work Experience",
-      "text": "\u2022 Led cross\u2011institutional projects (including Northwestern Radiology) to deploy AI visualization tools."
+      "section": "Education",
+      "text": "\u2022 BS, Computer Science, Hacettepe University, Ankara, Turkey June 2020"
     },
     {
       "chunk_id": "resume-p1-c13",
@@ -141,7 +141,7 @@
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
       "section": "Work Experience",
-      "text": "\u2022 Oversaw project delivery and documentation to support clinical integration of AI models. Python Developer May - Oct 2022 Universal Orlando Resort, BAIE Department Orlando, FL"
+      "text": "Senior AI Engineer Aug 2025 - Present"
     },
     {
       "chunk_id": "resume-p1-c14",
@@ -150,7 +150,7 @@
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
       "section": "Work Experience",
-      "text": "\u2022 Enhanced system health and stability by identifying and resolving 100+ vulnerabilities in cloud scripts."
+      "text": "Universal Creative, AI Strategy & Solutions Orlando,"
     },
     {
       "chunk_id": "resume-p1-c15",
@@ -158,8 +158,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
-      "section": "Work Experience",
-      "text": "\u2022 Optimized machine learning pipelines with Azure Databricks and MLflow to enhance performance. Data Analyst Jan - Aug 2020 Simsoft Information Technologies Ankara, Turkey"
+      "section": "Fl",
+      "text": "\u2022 Architected and built a secure, production-grade MCP-based AI platform from scratch, enabling"
     },
     {
       "chunk_id": "resume-p1-c16",
@@ -167,8 +167,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
-      "section": "Work Experience",
-      "text": "\u2022 Implemented LSTM models for predictive maintenance and anomaly detection."
+      "section": "Fl",
+      "text": "centralized orchestration and lifecycle management of AI agents and tools. Designed and implemented"
     },
     {
       "chunk_id": "resume-p1-c17",
@@ -176,8 +176,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
-      "section": "Work Experience",
-      "text": "\u2022 Simulated COVID-19 spread using models to analyze disease transmission and population impact. Research Intern Jul - Sep 2019 University of Central Florida, Synthetic Reality Lab Orlando, FL"
+      "section": "Fl",
+      "text": "role-based access control (RBAC), authentication layers, and security hardening mechanisms to ensure"
     },
     {
       "chunk_id": "resume-p1-c18",
@@ -185,8 +185,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
-      "section": "Work Experience",
-      "text": "\u2022 Utilized Generative Adversarial Networks (GANs) for facial expression recognition. Data Analyst Intern Jul - Sep 2018 Carbon Health San Francisco, CA"
+      "section": "Fl",
+      "text": "safe deployment of ML services at scale. Delivered an end-to-end infrastructure stack supporting data"
     },
     {
       "chunk_id": "resume-p1-c19",
@@ -194,8 +194,242 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 1,
-      "section": "Work Experience",
-      "text": "\u2022 Utilized machine learning to predict outcomes, validate data and reduce clinic wait times by 30%, improving appointment forecasting and overall efficiency."
+      "section": "Fl",
+      "text": "ingestion, model integration, API interfaces, and governed execution of AI workflows."
+    },
+    {
+      "chunk_id": "resume-p1-c20",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "AI Software Engineer Jan - Aug 2025"
+    },
+    {
+      "chunk_id": "resume-p1-c21",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "Universal Creative, Engineering & Safety Orlando,"
+    },
+    {
+      "chunk_id": "resume-p1-c22",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "\u2022 Developed AI solutions using LLMs and retrieval-augmented generation (RAG) with capabilities for"
+    },
+    {
+      "chunk_id": "resume-p1-c23",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "hallucination detection, groundedness evaluation, citation, meta tagging and topic modeling."
+    },
+    {
+      "chunk_id": "resume-p1-c24",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "Graduate Teaching Assistant Aug 2023 - Dec 2024"
+    },
+    {
+      "chunk_id": "resume-p1-c25",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "University of Central Florida, College of Engineering and Computer Science Orlando,"
+    },
+    {
+      "chunk_id": "resume-p1-c26",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "\u2022 Assisting with Advanced Artificial Intelligence and Advanced Computer Networks courses."
+    },
+    {
+      "chunk_id": "resume-p1-c27",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "Graduate Research Assistant Jan 2020 - Aug 2023"
+    },
+    {
+      "chunk_id": "resume-p1-c28",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "University of Central Florida, College of Engineering and Computer Science Orlando,"
+    },
+    {
+      "chunk_id": "resume-p1-c29",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "\u2022 Built explainable, uncertainty-aware models for organ and tumor segmentation and outcome prediction."
+    },
+    {
+      "chunk_id": "resume-p1-c30",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "\u2022 Led cross-institutional projects (including Northwestern Radiology) to deploy AI visualization tools."
+    },
+    {
+      "chunk_id": "resume-p1-c31",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "\u2022 Oversaw project delivery and documentation to support clinical integration of AI models."
+    },
+    {
+      "chunk_id": "resume-p1-c32",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "Python Developer May - Oct"
+    },
+    {
+      "chunk_id": "resume-p1-c33",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "2022"
+    },
+    {
+      "chunk_id": "resume-p1-c34",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "Universal Orlando Resort, BAIE Department Orlando,"
+    },
+    {
+      "chunk_id": "resume-p1-c35",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "\u2022 Enhanced system health and stability by identifying and resolving 100+ vulnerabilities in cloud scripts."
+    },
+    {
+      "chunk_id": "resume-p1-c36",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "\u2022 Optimized machine learning pipelines with Azure Databricks and MLflow to enhance performance."
+    },
+    {
+      "chunk_id": "resume-p1-c37",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "Data Analyst Jan - Aug"
+    },
+    {
+      "chunk_id": "resume-p1-c38",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "2020"
+    },
+    {
+      "chunk_id": "resume-p1-c39",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "Simsoft Information Technologies Ankara, Turkey"
+    },
+    {
+      "chunk_id": "resume-p1-c40",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "\u2022 Implemented LSTM models for predictive maintenance and anomaly detection."
+    },
+    {
+      "chunk_id": "resume-p1-c41",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "\u2022 Simulated COVID-19 spread using models to analyze disease transmission and population impact."
+    },
+    {
+      "chunk_id": "resume-p1-c42",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "Research Intern Jul - Sep 2019"
+    },
+    {
+      "chunk_id": "resume-p1-c43",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "University of Central Florida, Synthetic Reality Lab Orlando,"
+    },
+    {
+      "chunk_id": "resume-p1-c44",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "\u2022 Utilized Generative Adversarial Networks (GANs) for facial expression recognition."
+    },
+    {
+      "chunk_id": "resume-p1-c45",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 1,
+      "section": "Fl",
+      "text": "Data Analyst Intern Jul - Sep 2018"
     },
     {
       "chunk_id": "resume-p2-c1",
@@ -212,8 +446,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 2,
-      "section": "Technical Skills",
-      "text": "Languages: Python, Java, C, SQL ML Systems & Infrastructure: MCP-based AI systems architecture, distributed ML pipelines, model serving APIs, RBAC, secure AI deployment, model governance, Areas of Expertise: Computer Vision; NLP (LLMs, RAG, hallucination detection); Uncertainty Quantification; Explainable AI; Anomaly Detection; ML Systems Design"
+      "section": "Resume Page 2",
+      "text": "Carbon Health San Francisco,"
     },
     {
       "chunk_id": "resume-p2-c3",
@@ -221,8 +455,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 2,
-      "section": "Academia",
-      "text": "I. Journals"
+      "section": "Ca",
+      "text": "\u2022 Utilized machine learning to predict outcomes, validate data and reduce clinic wait times by 30%,"
     },
     {
       "chunk_id": "resume-p2-c4",
@@ -230,8 +464,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 2,
-      "section": "Academia",
-      "text": "\u2022 Zhang, Z. et al., \"Large-scale multi-center CT and MRI segmentation of pancreas with deep learning.\" Medical Image Analysis, Volume 99, January 2025, 103382. doi:10.1016/j.media.2024.103382. (co-author)"
+      "section": "Ca",
+      "text": "improving appointment forecasting and overall efficiency."
     },
     {
       "chunk_id": "resume-p2-c5",
@@ -239,8 +473,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 2,
-      "section": "Academia",
-      "text": "\u2022 Gulec, U.*, Isler, I. S.*, et al., \"Power-VR: Interactive 3D virtual environment to increase motivation levels of powerlifters during training sessions.\" Computer Animation and Virtual Worlds, Volume 34, Issue 2, 2022, e2045. doi: 10.1002/cav.2045. (*equal contribution) II. Peer- reviewed conference articles (full papers)"
+      "section": "Technical Skills",
+      "text": "Languages: Python, Java, C, SQL"
     },
     {
       "chunk_id": "resume-p2-c6",
@@ -248,8 +482,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 2,
-      "section": "Academia",
-      "text": "\u2022 Isler, I. S. et al., \" Uncertainty-Guided Coarse-to-Fine Tumor Segmentation with Anatomy-Aware Post-Processing.\" ACDSA IEEE, 2025. doi: 10.48550/arXiv.2504.12215."
+      "section": "Technical Skills",
+      "text": "ML Systems & Infrastructure: MCP-based AI systems architecture, distributed ML pipelines, model"
     },
     {
       "chunk_id": "resume-p2-c7",
@@ -257,8 +491,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 2,
-      "section": "Academia",
-      "text": "\u2022 Isler, I. S. et al., \"Self-Supervised Learning for Organs At Risk (OARs) and Tumor Segmentation with Uncertainty Quantification.\" ICECCME IEEE, 2023. doi: 10.1109/ICECCME57830.2023.10252269"
+      "section": "Technical Skills",
+      "text": "serving APIs, RBAC, secure AI deployment, model governance,"
     },
     {
       "chunk_id": "resume-p2-c8",
@@ -266,8 +500,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 2,
-      "section": "Academia",
-      "text": "\u2022 Isler, I. S. et al., \"Enhancing Organ at Risk Segmentation with Improved Deep Neural Networks.\" SPIE Medical Imaging, 2022. doi: 10.1117/12.2611498."
+      "section": "Technical Skills",
+      "text": "Areas of Expertise: Computer Vision; NLP (LLMs, RAG, hallucination detection); Uncertainty"
     },
     {
       "chunk_id": "resume-p2-c9",
@@ -275,8 +509,8 @@
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 2,
-      "section": "Academia",
-      "text": "\u2022 Ali, K. et al., \"Facial Expression Recognition Using Human to Animated-Character Expression Translation.\" arXiv preprint, 2019. doi:10.48550/arXiv.1910.05595. (co-author) III. Other publications"
+      "section": "Technical Skills",
+      "text": "Quantification; Explainable AI; Anomaly Detection; ML Systems Design"
     },
     {
       "chunk_id": "resume-p2-c10",
@@ -285,7 +519,7 @@
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 2,
       "section": "Academia",
-      "text": "\u2022 Jha, D. et al., \"Practical and Ethical Considerations for Generative AI in Medical Imaging.\" FAIMI & EPIMI at MICCAI 2024, pp. 176-187. doi:10.1007/978-3-031-72787-0_17. (co-author)"
+      "text": "I.Journals"
     },
     {
       "chunk_id": "resume-p2-c11",
@@ -294,7 +528,7 @@
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 2,
       "section": "Academia",
-      "text": "\u2022 Isler, S. et al., \"Usage of 3D Modelling and Morphing Tools in Plastic Surgery.\", UYMS, 2019. IV. Peer Reviewing"
+      "text": "\u2022 Zhang, Z. et al., \"Large-scale multi-center CT and MRI segmentation of pancreas with deep learning.\""
     },
     {
       "chunk_id": "resume-p2-c12",
@@ -303,7 +537,7 @@
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 2,
       "section": "Academia",
-      "text": "\u2022 Medical Physics, American Association of Physicists in Medicine"
+      "text": "Medical Image Analysis, V olume 99, January 2025, 103382. doi:10.1016/j.media.2024.103382. (co-"
     },
     {
       "chunk_id": "resume-p2-c13",
@@ -312,7 +546,7 @@
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 2,
       "section": "Academia",
-      "text": "\u2022 IEEE, Journal of Biomedical and Health Informatics"
+      "text": "author)"
     },
     {
       "chunk_id": "resume-p2-c14",
@@ -321,10 +555,181 @@
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 2,
       "section": "Academia",
-      "text": "\u2022 IEEE, Transactions on Medical Imaging"
+      "text": "\u2022 Gulec, U.*, Isler, I. S.*, et al., \"Power-VR: Interactive 3D virtual environment to increase motivation"
     },
     {
       "chunk_id": "resume-p2-c15",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "levels of powerlifters during training sessions.\" Computer Animation and Virtual Worlds, V olume 34,"
+    },
+    {
+      "chunk_id": "resume-p2-c16",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "Issue 2, 2022, e2045. doi: 10.1002/cav.2045. (*equal contribution)"
+    },
+    {
+      "chunk_id": "resume-p2-c17",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "II.Peer- reviewed conference articles (full papers)"
+    },
+    {
+      "chunk_id": "resume-p2-c18",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 Isler, I. S. et al., \" Uncertainty-Guided Coarse-to-Fine Tumor Segmentation with Anatomy-Aware Post-"
+    },
+    {
+      "chunk_id": "resume-p2-c19",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "Processing.\" ACDSA IEEE, 2025. doi: 10.48550/arXiv.2504.12215."
+    },
+    {
+      "chunk_id": "resume-p2-c20",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 Isler, I. S. et al., \"Self-Supervised Learning for Organs At Risk (OARs) and Tumor Segmentation with"
+    },
+    {
+      "chunk_id": "resume-p2-c21",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "Uncertainty Quantification.\" ICECCME IEEE, 2023. doi: 10.1109/ICECCME57830.2023.10252269"
+    },
+    {
+      "chunk_id": "resume-p2-c22",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 Isler, I. S. et al., \"Enhancing Organ at Risk Segmentation with Improved Deep Neural Networks.\" SPIE"
+    },
+    {
+      "chunk_id": "resume-p2-c23",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "Medical Imaging, 2022. doi: 10.1117/12.2611498."
+    },
+    {
+      "chunk_id": "resume-p2-c24",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 Ali, K. et al., \"Facial Expression Recognition Using Human to Animated-Character Expression"
+    },
+    {
+      "chunk_id": "resume-p2-c25",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "Translation.\" arXiv preprint, 2019. doi:10.48550/arXiv.1910.05595. (co-author)"
+    },
+    {
+      "chunk_id": "resume-p2-c26",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "III.Other publications"
+    },
+    {
+      "chunk_id": "resume-p2-c27",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 Jha, D. et al., \"Practical and Ethical Considerations for Generative AI in Medical Imaging.\" FAIMI &"
+    },
+    {
+      "chunk_id": "resume-p2-c28",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "EPIMI at MICCAI 2024, pp. 176-187. doi:10.1007/978-3-031-72787-0_17. (co-author)"
+    },
+    {
+      "chunk_id": "resume-p2-c29",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 Isler, S. et al., \"Usage of 3D Modelling and Morphing Tools in Plastic Surgery.\", UYMS, 2019."
+    },
+    {
+      "chunk_id": "resume-p2-c30",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "IV .Peer Reviewing"
+    },
+    {
+      "chunk_id": "resume-p2-c31",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 Medical Physics, American Association of Physicists in Medicine"
+    },
+    {
+      "chunk_id": "resume-p2-c32",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 IEEE, Journal of Biomedical and Health Informatics"
+    },
+    {
+      "chunk_id": "resume-p2-c33",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Academia",
+      "text": "\u2022 IEEE, Transactions on Medical Imaging"
+    },
+    {
+      "chunk_id": "resume-p2-c34",
       "source_id": "resume_nov2025",
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
@@ -333,7 +738,7 @@
       "text": "Workshops & Conferences"
     },
     {
-      "chunk_id": "resume-p2-c16",
+      "chunk_id": "resume-p2-c35",
       "source_id": "resume_nov2025",
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
@@ -342,7 +747,7 @@
       "text": "\u2022 Presenter, SPIE Medical Imaging 2022, San Diego, CA Feb 2022"
     },
     {
-      "chunk_id": "resume-p2-c17",
+      "chunk_id": "resume-p2-c36",
       "source_id": "resume_nov2025",
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
@@ -351,7 +756,7 @@
       "text": "\u2022 Participant, MIDL Doctoral Symposium, Virtual July 2021"
     },
     {
-      "chunk_id": "resume-p2-c18",
+      "chunk_id": "resume-p2-c37",
       "source_id": "resume_nov2025",
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
@@ -360,31 +765,85 @@
       "text": "\u2022 Participant, Trustworthy AI for Imaging-based Diagnoses (IEEE EMBS), Virtual June 2021"
     },
     {
-      "chunk_id": "resume-p2-c19",
+      "chunk_id": "resume-p2-c38",
       "source_id": "resume_nov2025",
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 2,
       "section": "Additional Credentials",
-      "text": "\u2022 Team member, UCF Research Experiences (NSF REU), Orlando, FL May 2021 Honors & Awards"
+      "text": "\u2022 Team member, UCF Research Experiences (NSF REU), Orlando, FL May 2021"
     },
     {
-      "chunk_id": "resume-p2-c20",
+      "chunk_id": "resume-p2-c39",
       "source_id": "resume_nov2025",
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 2,
       "section": "Additional Credentials",
-      "text": "\u2022 Fellowships o MI22 Student Conference Support Dec 2021 o UCF College of Graduate Studies Presentation Fellowship Nov 2021"
+      "text": "Honors & Awards"
     },
     {
-      "chunk_id": "resume-p2-c21",
+      "chunk_id": "resume-p2-c40",
       "source_id": "resume_nov2025",
       "source_title": "Ilkin Isler Resume (Nov 2025)",
       "source_url": "assets/resumeilkinisler-nov5.pdf",
       "page_index": 2,
       "section": "Additional Credentials",
-      "text": "\u2022 Competitive powerlifter o 4 x USA Powerlifting FL state record holder o 2 x Powerlifting Overall Champion of Turkey o IPSU European Championship - 2nd Place Overall"
+      "text": "\u2022 Fellowships"
+    },
+    {
+      "chunk_id": "resume-p2-c41",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Additional Credentials",
+      "text": "oMI22 Student Conference Support Dec 2021"
+    },
+    {
+      "chunk_id": "resume-p2-c42",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Additional Credentials",
+      "text": "oUCF College of Graduate Studies Presentation Fellowship Nov 2021"
+    },
+    {
+      "chunk_id": "resume-p2-c43",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Additional Credentials",
+      "text": "\u2022 Competitive powerlifter"
+    },
+    {
+      "chunk_id": "resume-p2-c44",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Additional Credentials",
+      "text": "o4 x USA Powerlifting FL state record holder"
+    },
+    {
+      "chunk_id": "resume-p2-c45",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Additional Credentials",
+      "text": "o2 x Powerlifting Overall Champion of Turkey"
+    },
+    {
+      "chunk_id": "resume-p2-c46",
+      "source_id": "resume_nov2025",
+      "source_title": "Ilkin Isler Resume (Nov 2025)",
+      "source_url": "assets/resumeilkinisler-nov5.pdf",
+      "page_index": 2,
+      "section": "Additional Credentials",
+      "text": "oIPSU European Championship - 2nd Place Overall"
     },
     {
       "chunk_id": "mind-p0-c1",

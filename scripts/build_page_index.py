@@ -29,6 +29,10 @@ ARTICLE_API_URL = "https://www.ucf.edu/news/wp-json/wp/v2/posts/150753"
 MAX_CHUNK_CHARS = 560
 MIN_CHUNK_CHARS = 120
 
+PHONE_PATTERN = re.compile(
+    r"(?:\+?\d{1,2}\s*)?\(?\d{3}\)?(?:\s+|-\s*)\d{3}(?:\s+|-\s*)\d{4}"
+)
+
 
 @dataclass
 class Chunk:
@@ -49,6 +53,7 @@ def normalize_text(text: str) -> str:
     text = text.replace("\u2014", "-")
     text = text.replace("\u00a0", " ")
     text = re.sub(r"\s+", " ", text).strip()
+    text = PHONE_PATTERN.sub("[redacted]", text)
     return text
 
 
