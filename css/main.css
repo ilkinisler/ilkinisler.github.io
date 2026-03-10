@@ -1199,46 +1199,14 @@ body[data-page="home"] .header-actions {
 
 .site-footer {
   margin-top: 0.9rem;
-  padding: 0.9rem 0 1.5rem;
-}
-
-.footer-card {
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(35, 46, 77, 0.13);
-  box-shadow: var(--shadow-md);
-  padding: 1rem 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
+  padding: 0.5rem 0 1.2rem;
+  text-align: center;
 }
 
 .footer-meta {
   margin: 0;
   color: #47587a;
-  font-size: 0.9rem;
-}
-
-.social-row {
-  display: flex;
-  gap: 0.58rem;
-  flex-wrap: wrap;
-}
-
-.social-link {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #1f3f8e;
-  border: 1px solid rgba(47, 115, 255, 0.24);
-  border-radius: 999px;
-  padding: 0.42rem 0.74rem;
-  background: rgba(255, 255, 255, 0.84);
-}
-
-.social-link:hover {
-  background: #fff;
+  font-size: 0.88rem;
 }
 
 @keyframes float-card {
