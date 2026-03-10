@@ -548,9 +548,10 @@ body[data-page="home"] .header-actions {
 }
 
 .chat-citations {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.32rem;
+  margin: 0;
+  color: #4d6087;
+  font-size: 0.74rem;
+  line-height: 1.42;
 }
 
 .chat-citation {

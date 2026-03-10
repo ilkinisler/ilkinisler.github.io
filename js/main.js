@@ -571,12 +571,12 @@
     const retrievalAssessment = assessRetrievalStrength(retrieved, config.trust || {});
     if (!retrievalAssessment.passed) {
       return {
-        answer: "I'm not confident enough to answer from Ilkin's published site content.",
+        answer: "I do not have enough reliable evidence in the current sources to answer that clearly yet.",
         citations: [],
         support: [],
         links: [],
         factualScore: null,
-        notice: "Try a more specific question so I can retrieve stronger supporting chunks."
+        notice: "Try a more specific question and I will pull the most relevant source links."
       };
     }
 
@@ -609,7 +609,7 @@
     );
 
     notice = appendNotice(notice, policy.notice);
-    const support = formatSupportScores(grounding, config.trust || {});
+    const support = [];
     const links = policy.links;
 
     const citationIds = [
@@ -816,19 +816,17 @@
 
     let answer = supportedSentences.slice(0, 2).join(" ").trim();
     if (!answer) {
-      answer = "I'm not confident enough to answer from Ilkin's published site content.";
+      answer = "I do not have enough reliable evidence in the current sources to answer that clearly yet.";
     } else {
-      answer = `${answer} I may be missing enough grounded support for a full answer.`;
+      answer = `${answer} I can share this partial answer, but I may be missing enough evidence for a complete response.`;
     }
 
     const links = buildSourceLinksForReview(selectedChunks);
-    let notice = `Grounding support is below threshold (${grounding.averageSupport.toFixed(
-      2
-    )} average; ${grounding.supportedMajorClaimCount}/${grounding.majorClaimCount} major claims supported).`;
+    let notice = "I found only partial support in the sources.";
     if (links.length) {
       notice = appendNotice(
         notice,
-        "For details, please review the linked source page."
+        "Use the source links below for full details."
       );
     }
 
@@ -853,9 +851,9 @@
       seen.add(sourceId);
       let label = chunk.source_title || "Source";
       if (sourceId === "resume_nov2025") {
-        label = "Resume (PDF)";
+        label = "Open Resume";
       } else if (sourceId === "ucf_mind_to_move_mountains_2026") {
-        label = "Mind to Move Mountains";
+        label = "Open UCF Article";
       }
 
       links.push({ label, href });
@@ -1066,16 +1064,19 @@
     });
 
     const resolved = [];
+    const seenSources = new Set();
     const addCitation = (chunkId) => {
       const chunk = known.get(chunkId);
       if (!chunk) {
         return;
       }
-      if (resolved.some((item) => item.id === chunkId)) {
+      const sourceKey = String(chunk.source_id || chunkId);
+      if (seenSources.has(sourceKey)) {
         return;
       }
+      seenSources.add(sourceKey);
       resolved.push({
-        id: chunkId,
+        id: sourceKey,
         label: citationLabel(chunk)
       });
     };
@@ -1093,17 +1094,18 @@
 
   function citationLabel(chunk) {
     if (chunk.source_id === "resume_nov2025") {
-      return `Resume p${chunk.page_index}`;
+      return "Resume";
     }
 
     if (chunk.source_id === "ucf_mind_to_move_mountains_2026") {
-      if (Number(chunk.page_index) === 0) {
-        return "Mind to Move Mountains intro";
-      }
-      return `Mind to Move Mountains p${chunk.page_index}`;
+      return "The Mind to Move Mountains";
     }
 
-    return `${chunk.source_title} ${chunk.page_index}`;
+    if (chunk.source_id === "ilkin_profile_facts") {
+      return "Profile Facts";
+    }
+
+    return `${chunk.source_title || "Source"}`;
   }
 
   function extractAssistantText(payload) {
@@ -1211,12 +1213,11 @@
 
   function createMetaBlock(meta) {
     const showCitations = Array.isArray(meta.citations) && meta.citations.length;
-    const showSupport = Array.isArray(meta.support) && meta.support.length;
     const showScore = meta.factualScore && typeof meta.factualScore.score === "number";
     const showLinks = Array.isArray(meta.links) && meta.links.length;
     const showNotice = typeof meta.notice === "string" && meta.notice.trim();
 
-    if (!showCitations && !showSupport && !showScore && !showLinks && !showNotice) {
+    if (!showCitations && !showScore && !showLinks && !showNotice) {
       return null;
     }
 
@@ -1224,37 +1225,26 @@
     wrapper.className = "chat-meta";
 
     if (showCitations) {
-      const citations = document.createElement("div");
+      const citationLabels = [...new Set(
+        meta.citations
+          .map((citation) => String(citation?.label || "").trim())
+          .filter(Boolean)
+      )];
+
+      const citations = document.createElement("p");
       citations.className = "chat-citations";
-
-      meta.citations.forEach((citation) => {
-        const chip = document.createElement("span");
-        chip.className = "chat-citation";
-        chip.textContent = citation.label;
-        citations.appendChild(chip);
-      });
-
+      citations.textContent =
+        citationLabels.length <= 1
+          ? `Source: ${citationLabels[0] || "Provided source"}`
+          : `Sources: ${citationLabels.join(" • ")}`;
       wrapper.appendChild(citations);
-    }
-
-    if (showSupport) {
-      const support = document.createElement("div");
-      support.className = "chat-support";
-
-      meta.support.forEach((entry) => {
-        const chip = document.createElement("span");
-        chip.className = `chat-support-chip ${entry.supported ? "ok" : "low"}`;
-        chip.textContent = entry.label;
-        support.appendChild(chip);
-      });
-
-      wrapper.appendChild(support);
     }
 
     if (showScore) {
       const score = document.createElement("span");
       score.className = "chat-factual-score";
-      score.textContent = `Vectara consistency: ${meta.factualScore.score.toFixed(2)}`;
+      const percent = Math.max(0, Math.min(100, Math.round(meta.factualScore.score * 100)));
+      score.textContent = `Consistency check: ${percent}%`;
       wrapper.appendChild(score);
     }
 
