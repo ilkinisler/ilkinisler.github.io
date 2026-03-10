@@ -14,7 +14,7 @@ window.ILKIN_CHAT_CONFIG = {
   },
   llm: {
     endpoint: "https://api.openai.com/v1/chat/completions",
-    model: "gpt-4.1-mini",
+    model: "gpt-5-nano",
     apiKey: "",
     apiKeyHeader: "Authorization"
   }
