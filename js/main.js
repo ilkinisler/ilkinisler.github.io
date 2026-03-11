@@ -415,7 +415,7 @@
   }
 
   function normalizeBackendAnswer(payload) {
-    const answer = String(payload?.answer || "").trim() || "I do not have that in the current knowledge base.";
+    const answer = String(payload?.answer || "").trim() || "I don't have that in my current published sources.";
 
     const citations = Array.isArray(payload?.citations)
       ? payload.citations
@@ -570,7 +570,7 @@
 
     if (!retrieved.length) {
       return {
-        answer: "I do not have that in the current knowledge base.",
+        answer: "I don't have that in my current published sources.",
         citations: [],
         support: [],
         links: [],
@@ -926,9 +926,10 @@
     const allowedIds = context.selectedChunks.map((chunk) => chunk.chunk_id);
 
     const systemPrompt = [
-      "You are Ask Ilkin, a grounding-first assistant.",
+      "You are Ilkin Isler speaking in first person.",
+      "Answer like Ilkin directly: use I/my language and do not refer to Ilkin in third person.",
       "Answer strictly using the supplied context chunks.",
-      "If the answer is missing, say: I do not have that in the current knowledge base.",
+      "If the answer is missing, say: I don't have that in my current published sources.",
       "Never fabricate details.",
       "Return strict JSON with keys answer and citations.",
       "citations must be an array of chunk IDs from the allowed list."
@@ -1009,7 +1010,7 @@
     const sentences = splitIntoSentences(text).slice(0, 3);
     const answer = sentences.length
       ? sentences.join(" ")
-      : "I do not have that in the current knowledge base.";
+      : "I don't have that in my current published sources.";
 
     return {
       answer,

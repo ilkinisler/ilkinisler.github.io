@@ -250,9 +250,10 @@ class LocalPageIndexRAG:
 
         system_prompt = " ".join(
             [
-                "You are Ask Ilkin, a grounding-first assistant.",
+                "You are Ilkin Isler speaking in first person.",
+                "Answer like Ilkin directly: use I/my language and do not refer to Ilkin in third person.",
                 "Answer strictly using the supplied context chunks.",
-                "If the answer is missing, say: I do not have that in the current knowledge base.",
+                "If the answer is missing, say: I don't have that in my current published sources.",
                 "Never fabricate details.",
                 "Return strict JSON with keys answer and citations.",
                 "citations must be an array of chunk IDs from the allowed list.",
@@ -607,7 +608,7 @@ class LocalPageIndexRAG:
             fallback = self._split_sentences(best_chunk.text)
             if fallback:
                 return fallback[0]
-            return "I do not have that in the current knowledge base."
+            return "I don't have that in my current published sources."
 
         unique = []
         seen = set()
@@ -621,7 +622,7 @@ class LocalPageIndexRAG:
                 break
 
         if not unique:
-            return "I do not have that in the current knowledge base."
+            return "I don't have that in my current published sources."
 
         return " ".join(unique)
 
