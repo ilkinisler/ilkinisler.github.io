@@ -39,6 +39,19 @@ curl -X POST http://localhost:8000/chat \
 - `ALLOWED_ORIGIN` (default: `*`; set to `https://ilkinisler.com` in production)
 - `EMBEDDING_DIMS` (default: `640`)
 - `REBUILD_RETRIEVAL_CACHE=true` to force cache rebuild at startup
+- `OPENAI_API_KEY` (required for LLM answers; keep in backend only)
+- `OPENAI_MODEL` (default: `gpt-5-nano`)
+- `OPENAI_ENDPOINT` (default: `https://api.openai.com/v1/chat/completions`)
+- `LLM_TEMPERATURE` (default: `0.15`)
+- `LLM_MAX_TOKENS` (default: `520`)
+
+Example `backend/.env`:
+
+```env
+OPENAI_API_KEY=YOUR_NEW_KEY
+OPENAI_MODEL=gpt-5-nano
+ALLOWED_ORIGIN=https://ilkinisler.com
+```
 
 ## Production notes
 - Deploy this service to a host like Render as `api.ilkinisler.com`

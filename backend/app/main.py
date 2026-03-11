@@ -16,6 +16,11 @@ FRONTEND_BASE_URL = os.getenv("FRONTEND_BASE_URL", "https://ilkinisler.com")
 ALLOWED_ORIGIN = os.getenv("ALLOWED_ORIGIN", "*")
 EMBEDDING_DIMS = int(os.getenv("EMBEDDING_DIMS", "640"))
 REBUILD_CACHE = os.getenv("REBUILD_RETRIEVAL_CACHE", "false").lower() == "true"
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5-nano").strip()
+OPENAI_ENDPOINT = os.getenv("OPENAI_ENDPOINT", "https://api.openai.com/v1/chat/completions").strip()
+LLM_TEMPERATURE = float(os.getenv("LLM_TEMPERATURE", "0.15"))
+LLM_MAX_TOKENS = int(os.getenv("LLM_MAX_TOKENS", "520"))
 
 rag = LocalPageIndexRAG(
     page_index_path=PAGE_INDEX_PATH,
@@ -23,6 +28,11 @@ rag = LocalPageIndexRAG(
     frontend_base_url=FRONTEND_BASE_URL,
     embedding_dims=EMBEDDING_DIMS,
     rebuild_cache=REBUILD_CACHE,
+    openai_api_key=OPENAI_API_KEY,
+    openai_model=OPENAI_MODEL,
+    openai_endpoint=OPENAI_ENDPOINT,
+    llm_temperature=LLM_TEMPERATURE,
+    llm_max_tokens=LLM_MAX_TOKENS,
 )
 
 app = FastAPI(

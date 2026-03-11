@@ -4,6 +4,8 @@ import hashlib
 import json
 import math
 import re
+import urllib.error
+import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List
@@ -137,11 +139,21 @@ class LocalPageIndexRAG:
         frontend_base_url: str = "https://ilkinisler.com",
         embedding_dims: int = 640,
         rebuild_cache: bool = False,
+        openai_api_key: str = "",
+        openai_model: str = "gpt-5-nano",
+        openai_endpoint: str = "https://api.openai.com/v1/chat/completions",
+        llm_temperature: float = 0.15,
+        llm_max_tokens: int = 520,
     ) -> None:
         self.page_index_path = Path(page_index_path)
         self.cache_path = Path(cache_path)
         self.frontend_base_url = frontend_base_url.rstrip("/") + "/"
         self.embedding_dims = int(embedding_dims)
+        self.openai_api_key = str(openai_api_key or "").strip()
+        self.openai_model = str(openai_model or "gpt-5-nano").strip()
+        self.openai_endpoint = str(openai_endpoint or "https://api.openai.com/v1/chat/completions").strip()
+        self.llm_temperature = float(llm_temperature)
+        self.llm_max_tokens = int(llm_max_tokens)
 
         if not self.page_index_path.exists():
             raise FileNotFoundError(f"Page index not found: {self.page_index_path}")
@@ -173,7 +185,6 @@ class LocalPageIndexRAG:
                 "citations": [],
                 "support": [],
                 "links": [],
-                "factualScore": None,
                 "notice": "",
             }
 
@@ -182,22 +193,31 @@ class LocalPageIndexRAG:
 
         if not retrieval_assessment["passed"]:
             return {
-                "answer": "I'm not confident enough to answer from Ilkin's published site content.",
+                "answer": "I do not have enough reliable evidence in the current sources to answer that clearly yet.",
                 "citations": [],
                 "support": [],
                 "links": [],
-                "factualScore": None,
-                "notice": "Try a more specific question so retrieval can find stronger supporting chunks.",
+                "notice": "Try a more specific question and I will pull the most relevant source links.",
                 "retrieval": retrieval_assessment,
             }
 
         selected_chunks = [row["chunk"] for row in retrieved[:6]]
         draft_answer = self._build_extractive_answer(question, retrieved)
+        llm_notice = ""
+        llm_result = self._ask_grounded_llm(question, selected_chunks)
 
-        grounding = self._score_sentence_grounding(draft_answer, selected_chunks)
-        policy = self._apply_response_policy(draft_answer, grounding, selected_chunks)
+        answer_text = llm_result.get("answer", "").strip() if llm_result else ""
+        if not answer_text:
+            answer_text = draft_answer
+            if self.openai_api_key:
+                llm_notice = "LLM was unavailable, so I returned a source-grounded summary."
+
+        grounding = self._score_sentence_grounding(answer_text, selected_chunks)
+        policy = self._apply_response_policy(answer_text, grounding, selected_chunks)
 
         citation_ids: List[str] = []
+        if llm_result:
+            citation_ids.extend(llm_result.get("citations", []))
         for item in grounding["per_sentence"]:
             chunk_id = item.get("chunk_id")
             if chunk_id:
@@ -211,10 +231,153 @@ class LocalPageIndexRAG:
             "citations": self._normalize_citations(citation_ids, selected_chunks),
             "support": self._format_support_scores(grounding),
             "links": policy["links"],
-            "factualScore": None,
-            "notice": policy["notice"],
+            "notice": self._append_notice(llm_notice, policy["notice"]),
             "retrieval": retrieval_assessment,
         }
+
+    def _ask_grounded_llm(self, question: str, selected_chunks: List[Chunk]) -> dict | None:
+        if not self.openai_api_key or not self.openai_model or not selected_chunks:
+            return None
+
+        allowed_ids = [chunk.chunk_id for chunk in selected_chunks]
+        context_blocks = []
+        for chunk in selected_chunks:
+            header = (
+                f"[{chunk.chunk_id}] source={chunk.source_title}; "
+                f"section={chunk.section}; page_index={chunk.page_index}"
+            )
+            context_blocks.append(f"{header}\n{chunk.text}")
+
+        system_prompt = " ".join(
+            [
+                "You are Ask Ilkin, a grounding-first assistant.",
+                "Answer strictly using the supplied context chunks.",
+                "If the answer is missing, say: I do not have that in the current knowledge base.",
+                "Never fabricate details.",
+                "Return strict JSON with keys answer and citations.",
+                "citations must be an array of chunk IDs from the allowed list.",
+            ]
+        )
+
+        user_prompt = "\n".join(
+            [
+                f"Question: {question}",
+                "",
+                f"Allowed chunk IDs: {', '.join(allowed_ids)}",
+                "",
+                "Context chunks:",
+                "\n\n".join(context_blocks),
+                "",
+                "Return format:",
+                '{"answer":"...","citations":["chunk-id"]}',
+            ]
+        )
+
+        payload = {
+            "model": self.openai_model,
+            "temperature": self.llm_temperature,
+            "max_tokens": self.llm_max_tokens,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+        }
+
+        request = urllib.request.Request(
+            self.openai_endpoint,
+            data=json.dumps(payload).encode("utf-8"),
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {self.openai_api_key}",
+            },
+            method="POST",
+        )
+
+        try:
+            with urllib.request.urlopen(request, timeout=45) as response:
+                raw = response.read().decode("utf-8", errors="replace")
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, json.JSONDecodeError):
+            return None
+
+        try:
+            response_payload = json.loads(raw)
+        except json.JSONDecodeError:
+            return None
+
+        content = self._extract_assistant_text(response_payload)
+        parsed = self._parse_llm_json(content, allowed_ids)
+        if not parsed.get("answer"):
+            return None
+        return parsed
+
+    def _extract_assistant_text(self, payload: dict) -> str:
+        choice_content = (
+            ((payload.get("choices") or [{}])[0] or {}).get("message", {}) or {}
+        ).get("content")
+
+        if isinstance(choice_content, list):
+            parts: List[str] = []
+            for part in choice_content:
+                if isinstance(part, str):
+                    parts.append(part)
+                elif isinstance(part, dict):
+                    parts.append(str(part.get("text", "")))
+            return " ".join(parts).strip()
+
+        if isinstance(choice_content, str):
+            return choice_content.strip()
+
+        output_text = payload.get("output_text")
+        if isinstance(output_text, str):
+            return output_text.strip()
+
+        output = payload.get("output") or []
+        if output and isinstance(output[0], dict):
+            output_content = output[0].get("content")
+            if isinstance(output_content, list):
+                parts = []
+                for part in output_content:
+                    if isinstance(part, dict):
+                        parts.append(str(part.get("text", "")))
+                text = " ".join(parts).strip()
+                if text:
+                    return text
+
+        return ""
+
+    def _parse_llm_json(self, raw_content: str, allowed_ids: List[str]) -> dict:
+        cleaned = str(raw_content or "").strip()
+        cleaned = re.sub(r"^```json\s*", "", cleaned, flags=re.IGNORECASE)
+        cleaned = re.sub(r"^```\s*", "", cleaned, flags=re.IGNORECASE)
+        cleaned = re.sub(r"```$", "", cleaned).strip()
+
+        def parse_candidate(candidate: str) -> dict | None:
+            try:
+                parsed = json.loads(candidate)
+            except json.JSONDecodeError:
+                return None
+
+            answer = str(parsed.get("answer", "")).strip() if isinstance(parsed, dict) else ""
+            citations_raw = parsed.get("citations", []) if isinstance(parsed, dict) else []
+            citations = []
+            if isinstance(citations_raw, list):
+                for item in citations_raw:
+                    chunk_id = str(item or "").strip()
+                    if chunk_id and chunk_id in allowed_ids:
+                        citations.append(chunk_id)
+            return {"answer": answer, "citations": citations}
+
+        direct = parse_candidate(cleaned)
+        if direct:
+            return direct
+
+        object_match = re.search(r"\{[\s\S]*\}", cleaned)
+        if object_match:
+            fallback = parse_candidate(object_match.group(0))
+            if fallback:
+                return fallback
+
+        return {"answer": cleaned, "citations": []}
 
     def retrieve(self, question: str, top_k: int = 6) -> List[dict]:
         raw_tokens = [self._stem(token) for token in self._tokenize(question)]
@@ -523,17 +686,17 @@ class LocalPageIndexRAG:
         shortened = " ".join(supported_sentences[:2]).strip()
 
         if not shortened:
-            shortened = "I'm not confident enough to answer from Ilkin's published site content."
+            shortened = "I do not have enough reliable evidence in the current sources to answer that clearly yet."
         else:
-            shortened = f"{shortened} I may be missing enough grounded support for a full answer."
+            shortened = (
+                f"{shortened} I can share this partial answer, but I may be "
+                "missing enough evidence for a complete response."
+            )
 
         links = self._build_source_links(selected_chunks)
-        notice = (
-            f"Grounding support is below threshold ({grounding['average_support']:.2f} average; "
-            f"{grounding['supported_major_claim_count']}/{grounding['major_claim_count']} major claims supported)."
-        )
+        notice = "I found only partial support in the sources."
         if links:
-            notice = f"{notice} For details, please review the linked source page."
+            notice = f"{notice} Use the source links below for full details."
 
         return {"answer": shortened, "notice": notice, "links": links}
 
@@ -552,9 +715,9 @@ class LocalPageIndexRAG:
             seen_sources.add(chunk.source_id)
             label = chunk.source_title or "Source"
             if chunk.source_id == "resume_nov2025":
-                label = "Resume (PDF)"
+                label = "Open Resume"
             elif chunk.source_id == "ucf_mind_to_move_mountains_2026":
-                label = "Mind to Move Mountains"
+                label = "Open UCF Article"
 
             links.append({"label": label, "href": href})
             if len(links) >= 2:
@@ -572,31 +735,39 @@ class LocalPageIndexRAG:
             return source_url
         return urljoin(self.frontend_base_url, source_url)
 
+    def _append_notice(self, current_notice: str, next_notice: str) -> str:
+        base = str(current_notice or "").strip()
+        incoming = str(next_notice or "").strip()
+        if not incoming:
+            return base
+        if not base:
+            return incoming
+        return f"{base} {incoming}"
+
     def _normalize_citations(self, citation_ids: List[str], selected_chunks: List[Chunk]) -> List[dict]:
         known = {chunk.chunk_id: chunk for chunk in selected_chunks}
         results = []
-        seen = set()
+        seen_sources = set()
 
         for chunk_id in citation_ids:
             chunk = known.get(chunk_id)
-            if not chunk or chunk.chunk_id in seen:
+            source_key = chunk.source_id if chunk else ""
+            if not chunk or source_key in seen_sources:
                 continue
 
-            seen.add(chunk.chunk_id)
-            results.append({"id": chunk.chunk_id, "label": self._citation_label(chunk)})
+            seen_sources.add(source_key)
+            results.append({"id": source_key or chunk.chunk_id, "label": self._citation_label(chunk)})
 
         return results[:5]
 
     def _citation_label(self, chunk: Chunk) -> str:
         if chunk.source_id == "resume_nov2025":
-            return f"Resume p{chunk.page_index}"
+            return "Resume"
         if chunk.source_id == "ucf_mind_to_move_mountains_2026":
-            if chunk.page_index == 0:
-                return "Mind to Move Mountains intro"
-            return f"Mind to Move Mountains p{chunk.page_index}"
+            return "The Mind to Move Mountains"
         if chunk.source_id == "ilkin_profile_facts":
-            return "Profile facts"
-        return f"{chunk.source_title} {chunk.page_index}"
+            return "Profile Facts"
+        return chunk.source_title or "Source"
 
     def _format_support_scores(self, grounding: dict) -> List[dict]:
         results = []
