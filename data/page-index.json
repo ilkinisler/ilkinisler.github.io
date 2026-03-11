@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-10T06:04:01+00:00",
+  "generated_at": "2026-03-11T02:48:36+00:00",
   "pipeline": "page-index-rag-v1",
   "sources": [
     {
@@ -1112,8 +1112,8 @@
       "source_title": "Ilkin Profile Facts",
       "source_url": "local://profile-facts",
       "page_index": 1,
-      "section": "Strength",
-      "text": "Powerlifting PRs: Squat 355, Bench 200, Deadlift 475."
+      "section": "Background",
+      "text": "I moved from Turkey to the United States to pursue AI at UCF, where I earned my MS in Computer Science in 2022 and my PhD in 2025."
     },
     {
       "chunk_id": "profile-p1-c2",
@@ -1121,8 +1121,44 @@
       "source_title": "Ilkin Profile Facts",
       "source_url": "local://profile-facts",
       "page_index": 1,
+      "section": "Projects",
+      "text": "I build trustworthy AI and LLM systems for high-impact environments, including RAG workflows, hallucination-aware pipelines, and uncertainty-aware decision support."
+    },
+    {
+      "chunk_id": "profile-p1-c3",
+      "source_id": "ilkin_profile_facts",
+      "source_title": "Ilkin Profile Facts",
+      "source_url": "local://profile-facts",
+      "page_index": 1,
+      "section": "Research",
+      "text": "My research focuses on medical imaging, explainable AI, uncertainty quantification, and trustworthy AI for high-stakes decision environments."
+    },
+    {
+      "chunk_id": "profile-p1-c4",
+      "source_id": "ilkin_profile_facts",
+      "source_title": "Ilkin Profile Facts",
+      "source_url": "local://profile-facts",
+      "page_index": 1,
       "section": "Strength",
-      "text": "These PR values are directly provided by Ilkin Isler."
+      "text": "My powerlifting PRs are Squat 355 lbs, Bench 200 lbs, and Deadlift 475 lbs. I am a European powerlifting champion and a national champion in Turkey."
+    },
+    {
+      "chunk_id": "profile-p1-c5",
+      "source_id": "ilkin_profile_facts",
+      "source_title": "Ilkin Profile Facts",
+      "source_url": "local://profile-facts",
+      "page_index": 1,
+      "section": "Media",
+      "text": "My featured story is The Mind to Move Mountains (UCF News): https://www.ucf.edu/news/the-mind-to-move-mountains/."
+    },
+    {
+      "chunk_id": "profile-p1-c6",
+      "source_id": "ilkin_profile_facts",
+      "source_title": "Ilkin Profile Facts",
+      "source_url": "local://profile-facts",
+      "page_index": 1,
+      "section": "Contact",
+      "text": "You can reach me at ilkinisler@gmail.com. LinkedIn: https://www.linkedin.com/in/ilkinsevgiisler/. Google Scholar: https://scholar.google.com/citations?user=ZgPdlJ0AAAAJ&hl=en."
     }
   ]
 }

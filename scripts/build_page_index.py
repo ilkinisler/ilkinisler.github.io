@@ -286,12 +286,34 @@ def extract_profile_chunks() -> List[Chunk]:
     source_url = "local://profile-facts"
 
     facts = [
-        "Powerlifting PRs: Squat 355, Bench 200, Deadlift 475.",
-        "These PR values are directly provided by Ilkin Isler.",
+        (
+            "Background",
+            "I moved from Turkey to the United States to pursue AI at UCF, where I earned my MS in Computer Science in 2022 and my PhD in 2025.",
+        ),
+        (
+            "Projects",
+            "I build trustworthy AI and LLM systems for high-impact environments, including RAG workflows, hallucination-aware pipelines, and uncertainty-aware decision support.",
+        ),
+        (
+            "Research",
+            "My research focuses on medical imaging, explainable AI, uncertainty quantification, and trustworthy AI for high-stakes decision environments.",
+        ),
+        (
+            "Strength",
+            "My powerlifting PRs are Squat 355 lbs, Bench 200 lbs, and Deadlift 475 lbs. I am a European powerlifting champion and a national champion in Turkey.",
+        ),
+        (
+            "Media",
+            "My featured story is The Mind to Move Mountains (UCF News): https://www.ucf.edu/news/the-mind-to-move-mountains/.",
+        ),
+        (
+            "Contact",
+            "You can reach me at ilkinisler@gmail.com. LinkedIn: https://www.linkedin.com/in/ilkinsevgiisler/. Google Scholar: https://scholar.google.com/citations?user=ZgPdlJ0AAAAJ&hl=en.",
+        ),
     ]
 
     chunks: List[Chunk] = []
-    for index, fact in enumerate(facts, start=1):
+    for index, (section, fact) in enumerate(facts, start=1):
         chunks.append(
             Chunk(
                 chunk_id=f"profile-p1-c{index}",
@@ -299,7 +321,7 @@ def extract_profile_chunks() -> List[Chunk]:
                 source_title=source_title,
                 source_url=source_url,
                 page_index=1,
-                section="Strength",
+                section=section,
                 text=fact,
             )
         )
