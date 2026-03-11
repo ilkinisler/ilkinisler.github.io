@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-11T03:20:30+00:00",
+  "generated_at": "2026-03-11T03:23:31+00:00",
   "pipeline": "page-index-rag-v1",
   "sources": [
     {
@@ -1139,11 +1139,20 @@
       "source_title": "Ilkin Profile Facts",
       "source_url": "local://profile-facts",
       "page_index": 1,
+      "section": "Publications",
+      "text": "Selected publications with links: Pancreas CT/MRI segmentation (2025) https://doi.org/10.1016/j.media.2024.103382; Power-VR (2022) https://doi.org/10.1002/cav.2045; Uncertainty-Guided Tumor Segmentation (2025) https://doi.org/10.48550/arXiv.2504.12215; OAR and Tumor Segmentation with UQ (2023) https://doi.org/10.1109/ICECCME57830.2023.10252269; Enhancing OAR Segmentation (2022) https://doi.org/10.1117/12.2611498; Facial Expression Translation (2019) https://doi.org/10.48550/arXiv.1910.05595; Generative AI in Medical Imaging (2024) https://doi.org/10.1007/978-3-031-72787-0_17. Full list: https://scholar.google.com/citations?user=ZgPdlJ0AAAAJ&hl=en."
+    },
+    {
+      "chunk_id": "profile-p1-c5",
+      "source_id": "ilkin_profile_facts",
+      "source_title": "Ilkin Profile Facts",
+      "source_url": "local://profile-facts",
+      "page_index": 1,
       "section": "Strength",
       "text": "My powerlifting PRs are Squat 355 lbs, Bench 200 lbs, and Deadlift 475 lbs. I am a European powerlifting champion and a national champion in Turkey."
     },
     {
-      "chunk_id": "profile-p1-c5",
+      "chunk_id": "profile-p1-c6",
       "source_id": "ilkin_profile_facts",
       "source_title": "Ilkin Profile Facts",
       "source_url": "local://profile-facts",
@@ -1152,7 +1161,7 @@
       "text": "My featured story is The Mind to Move Mountains (UCF News): https://www.ucf.edu/news/the-mind-to-move-mountains/."
     },
     {
-      "chunk_id": "profile-p1-c6",
+      "chunk_id": "profile-p1-c7",
       "source_id": "ilkin_profile_facts",
       "source_title": "Ilkin Profile Facts",
       "source_url": "local://profile-facts",

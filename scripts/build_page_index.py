@@ -299,6 +299,10 @@ def extract_profile_chunks() -> List[Chunk]:
             "My research focuses on medical imaging, explainable AI, and uncertainty modeling, with the goal of building systems clinicians and real-world operators can trust. During my PhD, my dissertation centered on advanced AI algorithms for medical imaging, including tumor and organ-at-risk segmentation. More recently, I have been working on LLM and retrieval-augmented generation (RAG) systems with hallucination detection, groundedness evaluation, citation, meta tagging, and topic modeling.",
         ),
         (
+            "Publications",
+            "Selected publications with links: Pancreas CT/MRI segmentation (2025) https://doi.org/10.1016/j.media.2024.103382; Power-VR (2022) https://doi.org/10.1002/cav.2045; Uncertainty-Guided Tumor Segmentation (2025) https://doi.org/10.48550/arXiv.2504.12215; OAR and Tumor Segmentation with UQ (2023) https://doi.org/10.1109/ICECCME57830.2023.10252269; Enhancing OAR Segmentation (2022) https://doi.org/10.1117/12.2611498; Facial Expression Translation (2019) https://doi.org/10.48550/arXiv.1910.05595; Generative AI in Medical Imaging (2024) https://doi.org/10.1007/978-3-031-72787-0_17. Full list: https://scholar.google.com/citations?user=ZgPdlJ0AAAAJ&hl=en.",
+        ),
+        (
             "Strength",
             "My powerlifting PRs are Squat 355 lbs, Bench 200 lbs, and Deadlift 475 lbs. I am a European powerlifting champion and a national champion in Turkey.",
         ),

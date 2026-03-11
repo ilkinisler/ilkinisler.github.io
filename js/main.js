@@ -72,14 +72,24 @@
         { label: "Open Resume", href: "assets/resumeilkinisler-nov5.pdf" }
       ]
     },
-    "what projects are you building": {
+    "where can i see your publications": {
       answer:
-        "I’m building trustworthy AI systems and LLM/RAG workflows for high-impact environments, including uncertainty-aware decision support, explainability, and hallucination-aware pipelines. I’m also building personal AI assistants for home workflows and daily automation.",
+        "Here are my publications with links. I included direct DOI links where available, plus my Google Scholar profile for complete citations and updates.",
       citations: [
         { id: "resume", label: "Resume" },
-        { id: "profile_facts", label: "Profile Facts" }
+        { id: "scholar", label: "Google Scholar" }
       ],
-      links: [{ label: "Open GitHub", href: "https://github.com/ilkinisler" }]
+      links: [
+        { label: "Pancreas CT/MRI Segmentation (2025)", href: "https://doi.org/10.1016/j.media.2024.103382" },
+        { label: "Power-VR (2022)", href: "https://doi.org/10.1002/cav.2045" },
+        { label: "Uncertainty-Guided Tumor Segmentation (2025)", href: "https://doi.org/10.48550/arXiv.2504.12215" },
+        { label: "OAR + Tumor Segmentation UQ (2023)", href: "https://doi.org/10.1109/ICECCME57830.2023.10252269" },
+        { label: "Enhancing OAR Segmentation (2022)", href: "https://doi.org/10.1117/12.2611498" },
+        { label: "Facial Expression Translation (2019)", href: "https://doi.org/10.48550/arXiv.1910.05595" },
+        { label: "Generative AI in Medical Imaging (2024)", href: "https://doi.org/10.1007/978-3-031-72787-0_17" },
+        { label: "3D Modelling in Plastic Surgery (2019)", href: "https://scholar.google.com/scholar?q=Usage+of+3D+Modelling+and+Morphing+Tools+in+Plastic+Surgery" },
+        { label: "Open Google Scholar", href: "https://scholar.google.com/citations?user=ZgPdlJ0AAAAJ&hl=en" }
+      ]
     },
     "what is your research focus": {
       answer:
