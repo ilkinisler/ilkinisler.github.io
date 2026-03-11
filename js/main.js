@@ -596,13 +596,23 @@
 
     let answerResult;
     let notice = "";
+    const llmConfig = config.llm || {};
+    const hasFrontendLlmCreds = Boolean(
+      String(llmConfig.endpoint || "").trim() &&
+      String(llmConfig.model || "").trim() &&
+      String(llmConfig.apiKey || "").trim()
+    );
 
-    try {
-      answerResult = await askGroundedLlm(question, context, config.llm || {});
-    } catch (error) {
-      console.error(error);
+    if (hasFrontendLlmCreds) {
+      try {
+        answerResult = await askGroundedLlm(question, context, llmConfig);
+      } catch (error) {
+        console.error(error);
+        answerResult = buildExtractiveFallback(context.selectedChunks);
+        notice = "AI response is temporarily unavailable. I returned a grounded summary from the indexed sources.";
+      }
+    } else {
       answerResult = buildExtractiveFallback(context.selectedChunks);
-      notice = "LLM unavailable, returning extractive answer from retrieved chunks.";
     }
 
     const grounding = scoreSentenceGrounding(
