@@ -59,6 +59,63 @@
     }
   ];
 
+  const EXAMPLE_QUESTION_ANSWERS = Object.freeze({
+    "can you tell me about your background": {
+      answer:
+        "I moved from Turkey to the U.S. to pursue AI at UCF, where I completed my MS (2022) and PhD (2025) in Computer Science. I focus on building trustworthy AI for high-stakes real-world decisions.",
+      citations: [
+        { id: "resume", label: "Resume" },
+        { id: "mind_to_move", label: "The Mind to Move Mountains" }
+      ],
+      links: [
+        { label: "Open UCF Article", href: "https://www.ucf.edu/news/the-mind-to-move-mountains/" },
+        { label: "Open Resume", href: "assets/resumeilkinisler-nov5.pdf" }
+      ]
+    },
+    "what projects are you building": {
+      answer:
+        "I’m building trustworthy AI systems and LLM/RAG workflows for high-impact environments, including uncertainty-aware decision support, explainability, and hallucination-aware pipelines.",
+      citations: [
+        { id: "resume", label: "Resume" },
+        { id: "profile_facts", label: "Profile Facts" }
+      ],
+      links: [{ label: "Open GitHub", href: "https://github.com/ilkinisler" }]
+    },
+    "what is your research focus": {
+      answer:
+        "My research focuses on medical imaging, explainable AI, and uncertainty modeling, with the goal of building systems that clinicians and real-world operators can actually trust.",
+      citations: [
+        { id: "resume", label: "Resume" },
+        { id: "mind_to_move", label: "The Mind to Move Mountains" }
+      ],
+      links: [{ label: "Open Google Scholar", href: "https://scholar.google.com/citations?user=ZgPdlJ0AAAAJ&hl=en" }]
+    },
+    "how much can you deadlift": {
+      answer:
+        "My current powerlifting PRs are: squat 355 lbs, bench 200 lbs, and deadlift 475 lbs.",
+      citations: [{ id: "profile_facts", label: "Profile Facts" }]
+    },
+    "where can i see your media links": {
+      answer:
+        "The best place to start is my UCF feature article, The Mind to Move Mountains. You can also follow updates on LinkedIn and my publication list on Google Scholar.",
+      citations: [{ id: "mind_to_move", label: "The Mind to Move Mountains" }],
+      links: [
+        { label: "Open UCF Article", href: "https://www.ucf.edu/news/the-mind-to-move-mountains/" },
+        { label: "Open LinkedIn", href: "https://www.linkedin.com/in/ilkinsevgiisler/" },
+        { label: "Open Google Scholar", href: "https://scholar.google.com/citations?user=ZgPdlJ0AAAAJ&hl=en" }
+      ]
+    },
+    "how can i contact you": {
+      answer:
+        "The best way to reach me is by email. You can also message me on LinkedIn.",
+      citations: [{ id: "resume", label: "Resume" }],
+      links: [
+        { label: "Email Me", href: "mailto:ilkinisler@gmail.com" },
+        { label: "Open LinkedIn", href: "https://www.linkedin.com/in/ilkinsevgiisler/" }
+      ]
+    }
+  });
+
   document.addEventListener("DOMContentLoaded", async () => {
     await injectPartials();
     trimHomeNavLinks();
@@ -243,6 +300,30 @@
     });
   }
 
+  function normalizeQuestionForPreset(value) {
+    return String(value || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function getManualExampleAnswer(question) {
+    const key = normalizeQuestionForPreset(question);
+    const preset = EXAMPLE_QUESTION_ANSWERS[key];
+    if (!preset) {
+      return null;
+    }
+
+    return {
+      answer: preset.answer,
+      citations: preset.citations || [],
+      support: [],
+      links: preset.links || [],
+      notice: ""
+    };
+  }
+
   async function initBioChatbot() {
     const root = document.querySelector("[data-bio-chatbot]");
     if (!root) {
@@ -312,6 +393,13 @@
 
       addMessage(log, "user", q);
       input.value = "";
+
+      const manualAnswer = getManualExampleAnswer(q);
+      if (manualAnswer) {
+        addMessage(log, "bot", manualAnswer.answer, manualAnswer);
+        input.focus();
+        return;
+      }
 
       setBusy(true);
       const pending = addPendingMessage(log, "Retrieving relevant context...");
