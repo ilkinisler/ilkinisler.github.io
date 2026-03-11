@@ -391,8 +391,23 @@
     });
 
     if (!response.ok) {
-      const details = await response.text();
-      throw new Error(`Backend chat call failed: ${response.status} ${details}`);
+      let detailMessage = "";
+      try {
+        const payload = await response.json();
+        if (typeof payload?.detail === "string") {
+          detailMessage = payload.detail.trim();
+        }
+      } catch (_) {
+        const details = await response.text();
+        detailMessage = details.trim();
+      }
+
+      const error = new Error(
+        `Backend chat call failed: ${response.status} ${detailMessage || "request failed"}`
+      );
+      error.status = response.status;
+      error.userMessage = detailMessage;
+      throw error;
     }
 
     const payload = await response.json();
@@ -518,12 +533,20 @@
       } catch (error) {
         console.error(error);
         if (!retrievalIndex) {
+          const userMessage =
+            typeof error?.userMessage === "string" && error.userMessage.trim()
+              ? error.userMessage.trim()
+              : "I could not reach the chat backend.";
+          const backendNotice =
+            Number(error?.status) === 429
+              ? ""
+              : "Start backend API and set chat-config endpoint.";
           return {
-            answer: "I could not reach the chat backend.",
+            answer: userMessage,
             citations: [],
             support: [],
             links: [],
-            notice: "Start backend API and set chat-config endpoint."
+            notice: backendNotice
           };
         }
       }

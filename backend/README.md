@@ -44,6 +44,9 @@ curl -X POST http://localhost:8000/chat \
 - `OPENAI_ENDPOINT` (default: `https://api.openai.com/v1/chat/completions`)
 - `LLM_TEMPERATURE` (default: `0.15`)
 - `LLM_MAX_TOKENS` (default: `520`)
+- `RATE_LIMIT_MAX_REQUESTS` (default: `12`)
+- `RATE_LIMIT_WINDOW_SECONDS` (default: `60`)
+- `RATE_LIMIT_BLOCK_SECONDS` (default: `120`)
 
 Example `backend/.env`:
 
@@ -51,6 +54,9 @@ Example `backend/.env`:
 OPENAI_API_KEY=YOUR_NEW_KEY
 OPENAI_MODEL=gpt-5-nano
 ALLOWED_ORIGIN=https://ilkinisler.com
+RATE_LIMIT_MAX_REQUESTS=12
+RATE_LIMIT_WINDOW_SECONDS=60
+RATE_LIMIT_BLOCK_SECONDS=120
 ```
 
 ## Production notes

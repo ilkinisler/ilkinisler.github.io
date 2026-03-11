@@ -1,9 +1,13 @@
 from __future__ import annotations
 
+import math
 import os
+import threading
+import time
+from collections import defaultdict, deque
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
@@ -21,6 +25,9 @@ OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5-nano").strip()
 OPENAI_ENDPOINT = os.getenv("OPENAI_ENDPOINT", "https://api.openai.com/v1/chat/completions").strip()
 LLM_TEMPERATURE = float(os.getenv("LLM_TEMPERATURE", "0.15"))
 LLM_MAX_TOKENS = int(os.getenv("LLM_MAX_TOKENS", "520"))
+RATE_LIMIT_MAX_REQUESTS = int(os.getenv("RATE_LIMIT_MAX_REQUESTS", "12"))
+RATE_LIMIT_WINDOW_SECONDS = int(os.getenv("RATE_LIMIT_WINDOW_SECONDS", "60"))
+RATE_LIMIT_BLOCK_SECONDS = int(os.getenv("RATE_LIMIT_BLOCK_SECONDS", "120"))
 
 rag = LocalPageIndexRAG(
     page_index_path=PAGE_INDEX_PATH,
@@ -55,6 +62,46 @@ app.add_middleware(
 )
 
 
+class SlidingWindowRateLimiter:
+    """Simple in-memory limiter for chat abuse control."""
+
+    def __init__(self, max_requests: int, window_seconds: int, block_seconds: int) -> None:
+        self.max_requests = max(1, int(max_requests))
+        self.window_seconds = max(1, int(window_seconds))
+        self.block_seconds = max(1, int(block_seconds))
+        self._events: dict[str, deque[float]] = defaultdict(deque)
+        self._blocked_until: dict[str, float] = {}
+        self._lock = threading.Lock()
+
+    def allow(self, key: str) -> tuple[bool, int]:
+        now = time.monotonic()
+
+        with self._lock:
+            blocked_until = self._blocked_until.get(key, 0.0)
+            if blocked_until > now:
+                return False, int(math.ceil(blocked_until - now))
+
+            events = self._events[key]
+            while events and (now - events[0]) > self.window_seconds:
+                events.popleft()
+
+            if len(events) >= self.max_requests:
+                retry_after = self.block_seconds
+                self._blocked_until[key] = now + self.block_seconds
+                events.clear()
+                return False, retry_after
+
+            events.append(now)
+            return True, 0
+
+
+rate_limiter = SlidingWindowRateLimiter(
+    max_requests=RATE_LIMIT_MAX_REQUESTS,
+    window_seconds=RATE_LIMIT_WINDOW_SECONDS,
+    block_seconds=RATE_LIMIT_BLOCK_SECONDS,
+)
+
+
 class ChatRequest(BaseModel):
     question: str = Field(..., min_length=1, max_length=1200)
 
@@ -75,9 +122,31 @@ def health() -> HealthResponse:
 
 
 @app.post("/chat")
-def chat(request: ChatRequest) -> dict:
+def chat(request: ChatRequest, http_request: Request) -> dict:
+    client_key = _client_key(http_request)
+    allowed, retry_after = rate_limiter.allow(client_key)
+    if not allowed:
+        raise HTTPException(
+            status_code=429,
+            detail=f"Rate limit exceeded. Please wait {retry_after}s and try again.",
+            headers={"Retry-After": str(retry_after)},
+        )
+
     question = request.question.strip()
     if not question:
         raise HTTPException(status_code=400, detail="question is required")
 
     return rag.chat(question)
+
+
+def _client_key(http_request: Request) -> str:
+    forwarded_for = http_request.headers.get("x-forwarded-for", "").strip()
+    if forwarded_for:
+        first_hop = forwarded_for.split(",")[0].strip()
+        if first_hop:
+            return first_hop
+
+    if http_request.client and http_request.client.host:
+        return http_request.client.host
+
+    return "unknown"
