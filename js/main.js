@@ -27,9 +27,10 @@
       maxTokens: 520
     }
   });
+  const FALLBACK_NOT_ENOUGH_INFO = "I don't have enough information to answer this question.";
 
   const STOP_WORDS = new Set([
-    "a", "an", "and", "are", "as", "at", "be", "but", "by", "can", "could", "did", "do", "does", "for", "from", "had", "has", "have", "how", "i", "if", "in", "into", "is", "it", "its", "me", "my", "of", "on", "or", "our", "should", "so", "that", "the", "their", "them", "there", "these", "they", "this", "to", "was", "we", "what", "when", "where", "which", "who", "why", "with", "you", "your"
+    "a", "an", "and", "are", "as", "at", "be", "but", "by", "can", "could", "did", "do", "does", "for", "from", "had", "has", "have", "how", "i", "if", "in", "into", "is", "it", "its", "me", "my", "of", "on", "or", "our", "should", "so", "that", "the", "their", "them", "there", "these", "they", "this", "to", "was", "we", "what", "when", "where", "which", "who", "why", "with", "you", "your", "ilkin", "isler", "hi", "hello", "hey"
   ]);
 
   const THEME_EXPANSIONS = [
@@ -93,10 +94,10 @@
     },
     "what is your research focus": {
       answer:
-        "My research focuses on medical imaging, explainable AI, and uncertainty modeling, with the goal of building systems that clinicians and real-world operators can actually trust. During my PhD, my dissertation centered on advanced AI algorithms for medical imaging, including tumor and organ-at-risk segmentation. More recently, I’ve been working on LLM + RAG systems with hallucination detection, groundedness evaluation, citation, meta tagging, and topic modeling.",
+        "My research focuses on medical imaging, explainable AI, and uncertainty modeling, with the goal of building systems that clinicians and real-world operators can actually trust. During my PhD, my dissertation centered on advanced AI algorithms for medical imaging, including tumor and organ-at-risk segmentation. More recently, I’ve been working on LLM + RAG systems with hallucination detection, groundedness evaluation, citation, meta tagging, and topic modeling. I’m also experienced in architecting secure, production-grade AI infrastructure, including MCP server ecosystems and multi-agent frameworks with persistent memory, tool orchestration, and controlled execution environments, with a strong focus on safety, cybersecurity alignment, access control, sandboxed tool use, audit logging, and governance.",
       citations: [
         { id: "resume", label: "Resume" },
-        { id: "mind_to_move", label: "The Mind to Move Mountains" }
+        { id: "profile_facts", label: "Profile Facts" }
       ],
       links: [{ label: "Open Google Scholar", href: "https://scholar.google.com/citations?user=ZgPdlJ0AAAAJ&hl=en" }]
     },
@@ -124,6 +125,15 @@
         { label: "Open LinkedIn", href: "https://www.linkedin.com/in/ilkinsevgiisler/" }
       ]
     }
+  });
+
+  const SMALL_TALK_RESPONSES = Object.freeze({
+    greeting:
+      "Hi! I am doing great, thanks for asking. Ask me about my research focus, publications, projects, deadlift PR, media links, or contact.",
+    thanks:
+      "You are welcome. If you want, ask me about research, publications, projects, strength stats, media, or contact.",
+    who:
+      "I am Ilkin Isler, PhD - an AI engineer, researcher, and powerlifting champion focused on trustworthy AI for high-stakes real-world use."
   });
 
   document.addEventListener("DOMContentLoaded", async () => {
@@ -334,6 +344,53 @@
     };
   }
 
+  function getSmallTalkAnswer(question) {
+    const text = normalize(question);
+    if (!text) {
+      return null;
+    }
+
+    if (/(^| )who are you( |$)|(^| )tell me about yourself( |$)/.test(text)) {
+      return {
+        answer: SMALL_TALK_RESPONSES.who,
+        citations: [],
+        support: [],
+        links: [],
+        notice: ""
+      };
+    }
+
+    if (/(^| )(thank you|thanks|thx)( |$)/.test(text)) {
+      return {
+        answer: SMALL_TALK_RESPONSES.thanks,
+        citations: [],
+        support: [],
+        links: [],
+        notice: ""
+      };
+    }
+
+    const hasGreeting = /(^| )(hi|hello|hey|good morning|good afternoon|good evening)( |$)/.test(text);
+    const isHowAreYou = /(how are you|how s it going|how is it going|how are u)/.test(text);
+    const hasKnowledgeIntent =
+      /(research|publication|paper|project|build|background|story|deadlift|squat|bench|pr|media|article|contact|email|linkedin|scholar|cv|resume)/.test(
+        text
+      );
+    const tokenCount = tokenizeForSearch(question).length;
+
+    if (isHowAreYou || (hasGreeting && tokenCount <= 4 && !hasKnowledgeIntent)) {
+      return {
+        answer: SMALL_TALK_RESPONSES.greeting,
+        citations: [],
+        support: [],
+        links: [],
+        notice: ""
+      };
+    }
+
+    return null;
+  }
+
   async function initBioChatbot() {
     const root = document.querySelector("[data-bio-chatbot]");
     if (!root) {
@@ -403,6 +460,13 @@
 
       addMessage(log, "user", q);
       input.value = "";
+
+      const smallTalk = getSmallTalkAnswer(q);
+      if (smallTalk) {
+        addMessage(log, "bot", smallTalk.answer, smallTalk);
+        input.focus();
+        return;
+      }
 
       const manualAnswer = getManualExampleAnswer(q);
       if (manualAnswer) {
@@ -668,22 +732,22 @@
 
     if (!retrieved.length) {
       return {
-        answer: "I don't have that in my current published sources.",
+        answer: FALLBACK_NOT_ENOUGH_INFO,
         citations: [],
         support: [],
         links: [],
-        notice: "Current sources are limited to your resume and The Mind to Move Mountains article."
+        notice: ""
       };
     }
 
     const retrievalAssessment = assessRetrievalStrength(retrieved, config.trust || {});
     if (!retrievalAssessment.passed) {
       return {
-        answer: "I do not have enough reliable evidence in the current sources to answer that clearly yet.",
+        answer: FALLBACK_NOT_ENOUGH_INFO,
         citations: [],
         support: [],
         links: [],
-        notice: "Try a more specific question and I will pull the most relevant source links."
+        notice: ""
       };
     }
 
@@ -713,35 +777,31 @@
       answerResult = buildExtractiveFallback(context.selectedChunks);
     }
 
-    const grounding = scoreSentenceGrounding(
-      answerResult.answer,
-      context.selectedChunks,
-      config.trust || {}
-    );
-    const policy = applyResponsePolicy(
-      answerResult.answer,
-      grounding,
-      context.selectedChunks,
-      config.trust || {}
-    );
+    const answerText = String(answerResult?.answer || "").trim();
+    const noAnswer =
+      !answerText ||
+      /^i don't have that in my current published sources\.?$/i.test(answerText);
 
-    notice = appendNotice(notice, policy.notice);
-    const support = [];
-    const links = policy.links;
+    if (noAnswer) {
+      return {
+        answer: FALLBACK_NOT_ENOUGH_INFO,
+        citations: [],
+        support: [],
+        links: [],
+        notice: ""
+      };
+    }
 
-    const citationIds = [
-      ...(Array.isArray(answerResult.citations) ? answerResult.citations : []),
-      ...grounding.perSentence
-        .map((entry) => entry.chunkId)
-        .filter(Boolean)
-    ];
+    const citationIds = Array.isArray(answerResult?.citations)
+      ? answerResult.citations
+      : context.selectedChunks.slice(0, 2).map((chunk) => chunk.chunk_id);
     const citations = normalizeCitations(citationIds, context.selectedChunks);
 
     return {
-      answer: policy.answer,
+      answer: answerText,
       citations,
-      support,
-      links,
+      support: [],
+      links: [],
       notice
     };
   }
@@ -838,144 +898,6 @@
       averageTopScore,
       topMatches
     };
-  }
-
-  function scoreSentenceGrounding(answerText, selectedChunks, trustConfig) {
-    const sentences = splitIntoSentences(answerText);
-    const majorClaimMinTokens = numberOrDefault(trustConfig.majorClaimMinTokens, 4);
-    const sentenceSupportThreshold = numberOrDefault(trustConfig.sentenceSupportThreshold, 0.56);
-
-    const perSentence = sentences.map((sentence) => {
-      const sentenceTokens = tokenizeForSearch(sentence).map(stemToken);
-      const tokenSet = new Set(sentenceTokens);
-      const normalizedSentence = normalize(sentence);
-
-      let bestScore = 0;
-      let bestChunkId = "";
-
-      selectedChunks.forEach((chunk) => {
-        const chunkTokens = new Set(chunk.tokens || []);
-        let overlaps = 0;
-        tokenSet.forEach((token) => {
-          if (chunkTokens.has(token)) {
-            overlaps += 1;
-          }
-        });
-
-        const overlapScore = tokenSet.size ? overlaps / tokenSet.size : 0;
-        const phraseBonus =
-          normalizedSentence && chunk.normalizedText.includes(normalizedSentence) ? 1 : 0;
-        const score = Math.min(1, overlapScore * 0.72 + phraseBonus * 0.28);
-
-        if (score > bestScore) {
-          bestScore = score;
-          bestChunkId = chunk.chunk_id;
-        }
-      });
-
-      return {
-        sentence,
-        score: bestScore,
-        chunkId: bestChunkId,
-        isMajorClaim: sentenceTokens.length >= majorClaimMinTokens,
-        isSupported: bestScore >= sentenceSupportThreshold && Boolean(bestChunkId)
-      };
-    });
-
-    const scoredSentences = perSentence.filter((item) => item.sentence.trim().length > 0);
-    const averageSupport =
-      scoredSentences.reduce((sum, item) => sum + item.score, 0) / Math.max(scoredSentences.length, 1);
-
-    const majorClaims = scoredSentences.filter((item) => item.isMajorClaim);
-    const supportedMajorClaims = majorClaims.filter((item) => item.isSupported);
-
-    return {
-      perSentence: scoredSentences,
-      averageSupport,
-      majorClaimCount: majorClaims.length,
-      supportedMajorClaimCount: supportedMajorClaims.length
-    };
-  }
-
-  function applyResponsePolicy(answerText, grounding, selectedChunks, trustConfig) {
-    const averageThreshold = numberOrDefault(
-      trustConfig.answerAverageSupportThreshold,
-      0.62
-    );
-    const sentenceThreshold = numberOrDefault(trustConfig.sentenceSupportThreshold, 0.56);
-
-    const hasSourcePerMajorClaim =
-      grounding.majorClaimCount === 0 ||
-      grounding.supportedMajorClaimCount >= grounding.majorClaimCount;
-    const allowFullAnswer =
-      grounding.averageSupport >= averageThreshold && hasSourcePerMajorClaim;
-
-    if (allowFullAnswer) {
-      return {
-        answer: answerText,
-        notice: "",
-        links: []
-      };
-    }
-
-    const supportedSentences = grounding.perSentence
-      .filter((item) => item.score >= sentenceThreshold)
-      .map((item) => item.sentence);
-
-    let answer = supportedSentences.slice(0, 2).join(" ").trim();
-    if (!answer) {
-      answer = "I do not have enough reliable evidence in the current sources to answer that clearly yet.";
-    } else {
-      answer = `${answer} I can share this partial answer, but I may be missing enough evidence for a complete response.`;
-    }
-
-    const links = buildSourceLinksForReview(selectedChunks);
-    let notice = "I found only partial support in the sources.";
-    if (links.length) {
-      notice = appendNotice(
-        notice,
-        "Use the source links below for full details."
-      );
-    }
-
-    return {
-      answer,
-      notice,
-      links
-    };
-  }
-
-  function buildSourceLinksForReview(selectedChunks) {
-    const seen = new Set();
-    const links = [];
-
-    selectedChunks.forEach((chunk) => {
-      const sourceId = chunk.source_id;
-      const href = String(chunk.source_url || "");
-      if (!sourceId || !href || href.startsWith("local://") || seen.has(sourceId)) {
-        return;
-      }
-
-      seen.add(sourceId);
-      let label = chunk.source_title || "Source";
-      if (sourceId === "resume_nov2025") {
-        label = "Open Resume";
-      } else if (sourceId === "ucf_mind_to_move_mountains_2026") {
-        label = "Open UCF Article";
-      }
-
-      links.push({ label, href });
-    });
-
-    return links.slice(0, 2);
-  }
-
-  function formatSupportScores(grounding, trustConfig) {
-    const supportThreshold = numberOrDefault(trustConfig.sentenceSupportThreshold, 0.56);
-    return grounding.perSentence.map((item, index) => ({
-      label: `S${index + 1}: ${item.score.toFixed(2)}`,
-      supported: item.score >= supportThreshold
-    }));
   }
 
   function expandQueryTokens(tokens) {

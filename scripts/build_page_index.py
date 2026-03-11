@@ -296,7 +296,7 @@ def extract_profile_chunks() -> List[Chunk]:
         ),
         (
             "Research",
-            "My research focuses on medical imaging, explainable AI, and uncertainty modeling, with the goal of building systems clinicians and real-world operators can trust. During my PhD, my dissertation centered on advanced AI algorithms for medical imaging, including tumor and organ-at-risk segmentation. More recently, I have been working on LLM and retrieval-augmented generation (RAG) systems with hallucination detection, groundedness evaluation, citation, meta tagging, and topic modeling.",
+            "My research focuses on medical imaging, explainable AI, and uncertainty modeling, with the goal of building systems clinicians and real-world operators can trust. During my PhD, my dissertation centered on advanced AI algorithms for medical imaging, including tumor and organ-at-risk segmentation. More recently, I have been working on LLM and retrieval-augmented generation (RAG) systems with hallucination detection, groundedness evaluation, citation, meta tagging, and topic modeling. I am experienced in architecting secure, production-grade AI infrastructure, including the design and deployment of MCP server ecosystems and multi-agent frameworks with persistent memory, tool orchestration, and controlled execution environments. I maintain a strong focus on safety, cybersecurity alignment, access control, sandboxed tool use, audit logging, and governance to keep AI systems reliable, traceable, and compliant.",
         ),
         (
             "Publications",

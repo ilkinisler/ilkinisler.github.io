@@ -9,7 +9,6 @@ import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List
-from urllib.parse import urljoin
 
 STOP_WORDS = {
     "a",
@@ -109,6 +108,7 @@ THEME_EXPANSIONS = [
 
 TOKEN_PATTERN = re.compile(r"[a-z0-9]+")
 SENTENCE_PATTERN = re.compile(r"(?<=[.!?])\s+(?=[A-Z0-9\"'])")
+FALLBACK_NOT_ENOUGH_INFO = "I don't have enough information to answer this question."
 
 
 @dataclass
@@ -188,16 +188,26 @@ class LocalPageIndexRAG:
                 "notice": "",
             }
 
+        small_talk = self._small_talk_response(question)
+        if small_talk:
+            return {
+                "answer": small_talk,
+                "citations": [],
+                "support": [],
+                "links": [],
+                "notice": "",
+            }
+
         retrieved = self.retrieve(question, top_k=6)
         retrieval_assessment = self._assess_retrieval_strength(retrieved)
 
         if not retrieval_assessment["passed"]:
             return {
-                "answer": "I do not have enough reliable evidence in the current sources to answer that clearly yet.",
+                "answer": FALLBACK_NOT_ENOUGH_INFO,
                 "citations": [],
                 "support": [],
                 "links": [],
-                "notice": "Try a more specific question and I will pull the most relevant source links.",
+                "notice": "",
                 "retrieval": retrieval_assessment,
             }
 
@@ -212,26 +222,32 @@ class LocalPageIndexRAG:
             if self.openai_api_key:
                 llm_notice = "LLM was unavailable, so I returned a source-grounded summary."
 
-        grounding = self._score_sentence_grounding(answer_text, selected_chunks)
-        policy = self._apply_response_policy(answer_text, grounding, selected_chunks)
+        if not answer_text or re.fullmatch(
+            r"i don't have that in my current published sources\.?",
+            answer_text,
+            flags=re.IGNORECASE,
+        ):
+            return {
+                "answer": FALLBACK_NOT_ENOUGH_INFO,
+                "citations": [],
+                "support": [],
+                "links": [],
+                "notice": "",
+                "retrieval": retrieval_assessment,
+            }
 
         citation_ids: List[str] = []
-        if llm_result:
+        if llm_result and isinstance(llm_result.get("citations"), list):
             citation_ids.extend(llm_result.get("citations", []))
-        for item in grounding["per_sentence"]:
-            chunk_id = item.get("chunk_id")
-            if chunk_id:
-                citation_ids.append(chunk_id)
-
         if not citation_ids:
-            citation_ids.extend(chunk.chunk_id for chunk in selected_chunks[:3])
+            citation_ids.extend(chunk.chunk_id for chunk in selected_chunks[:2])
 
         return {
-            "answer": policy["answer"],
+            "answer": answer_text,
             "citations": self._normalize_citations(citation_ids, selected_chunks),
-            "support": self._format_support_scores(grounding),
-            "links": policy["links"],
-            "notice": self._append_notice(llm_notice, policy["notice"]),
+            "support": [],
+            "links": [],
+            "notice": llm_notice,
             "retrieval": retrieval_assessment,
         }
 
@@ -626,125 +642,6 @@ class LocalPageIndexRAG:
 
         return " ".join(unique)
 
-    def _score_sentence_grounding(self, answer_text: str, selected_chunks: List[Chunk]) -> dict:
-        sentences = self._split_sentences(answer_text)
-        per_sentence = []
-
-        for sentence in sentences:
-            sentence_tokens = [self._stem(t) for t in self._tokenize(sentence)]
-            sentence_set = set(sentence_tokens)
-            normalized_sentence = self._normalize(sentence)
-
-            best_score = 0.0
-            best_chunk_id = ""
-
-            for chunk in selected_chunks:
-                chunk_token_set = set(chunk.tokens)
-                overlap_count = len(sentence_set & chunk_token_set)
-                overlap_score = overlap_count / max(len(sentence_set), 1)
-
-                phrase_bonus = 1.0 if normalized_sentence and normalized_sentence in chunk.normalized_text else 0.0
-                score = min(1.0, overlap_score * 0.72 + phrase_bonus * 0.28)
-
-                if score > best_score:
-                    best_score = score
-                    best_chunk_id = chunk.chunk_id
-
-            per_sentence.append(
-                {
-                    "sentence": sentence,
-                    "score": best_score,
-                    "chunk_id": best_chunk_id,
-                    "is_major_claim": len(sentence_tokens) >= 4,
-                    "is_supported": best_score >= 0.56 and bool(best_chunk_id),
-                }
-            )
-
-        average_support = sum(item["score"] for item in per_sentence) / max(len(per_sentence), 1)
-        major_claims = [item for item in per_sentence if item["is_major_claim"]]
-        supported_major_claims = [item for item in major_claims if item["is_supported"]]
-
-        return {
-            "per_sentence": per_sentence,
-            "average_support": average_support,
-            "major_claim_count": len(major_claims),
-            "supported_major_claim_count": len(supported_major_claims),
-        }
-
-    def _apply_response_policy(self, answer_text: str, grounding: dict, selected_chunks: List[Chunk]) -> dict:
-        has_source_per_major_claim = (
-            grounding["major_claim_count"] == 0
-            or grounding["supported_major_claim_count"] >= grounding["major_claim_count"]
-        )
-        allow_full = grounding["average_support"] >= 0.62 and has_source_per_major_claim
-
-        if allow_full:
-            return {"answer": answer_text, "notice": "", "links": []}
-
-        supported_sentences = [
-            item["sentence"] for item in grounding["per_sentence"] if item["score"] >= 0.56
-        ]
-        shortened = " ".join(supported_sentences[:2]).strip()
-
-        if not shortened:
-            shortened = "I do not have enough reliable evidence in the current sources to answer that clearly yet."
-        else:
-            shortened = (
-                f"{shortened} I can share this partial answer, but I may be "
-                "missing enough evidence for a complete response."
-            )
-
-        links = self._build_source_links(selected_chunks)
-        notice = "I found only partial support in the sources."
-        if links:
-            notice = f"{notice} Use the source links below for full details."
-
-        return {"answer": shortened, "notice": notice, "links": links}
-
-    def _build_source_links(self, selected_chunks: List[Chunk]) -> List[dict]:
-        links: List[dict] = []
-        seen_sources = set()
-
-        for chunk in selected_chunks:
-            if not chunk.source_id or chunk.source_id in seen_sources:
-                continue
-
-            href = self._resolve_source_url(chunk.source_url)
-            if not href:
-                continue
-
-            seen_sources.add(chunk.source_id)
-            label = chunk.source_title or "Source"
-            if chunk.source_id == "resume_nov2025":
-                label = "Open Resume"
-            elif chunk.source_id == "ucf_mind_to_move_mountains_2026":
-                label = "Open UCF Article"
-
-            links.append({"label": label, "href": href})
-            if len(links) >= 2:
-                break
-
-        return links
-
-    def _resolve_source_url(self, source_url: str) -> str:
-        source_url = str(source_url or "").strip()
-        if not source_url:
-            return ""
-        if source_url.startswith("local://"):
-            return ""
-        if source_url.startswith("http://") or source_url.startswith("https://"):
-            return source_url
-        return urljoin(self.frontend_base_url, source_url)
-
-    def _append_notice(self, current_notice: str, next_notice: str) -> str:
-        base = str(current_notice or "").strip()
-        incoming = str(next_notice or "").strip()
-        if not incoming:
-            return base
-        if not base:
-            return incoming
-        return f"{base} {incoming}"
-
     def _normalize_citations(self, citation_ids: List[str], selected_chunks: List[Chunk]) -> List[dict]:
         known = {chunk.chunk_id: chunk for chunk in selected_chunks}
         results = []
@@ -769,17 +666,6 @@ class LocalPageIndexRAG:
         if chunk.source_id == "ilkin_profile_facts":
             return "Profile Facts"
         return chunk.source_title or "Source"
-
-    def _format_support_scores(self, grounding: dict) -> List[dict]:
-        results = []
-        for idx, item in enumerate(grounding["per_sentence"]):
-            results.append(
-                {
-                    "label": f"S{idx + 1}: {item['score']:.2f}",
-                    "supported": bool(item["score"] >= 0.56),
-                }
-            )
-        return results
 
     def _assess_retrieval_strength(self, retrieved: List[dict]) -> dict:
         if not retrieved:
@@ -859,6 +745,36 @@ class LocalPageIndexRAG:
 
     def _normalize(self, text: str) -> str:
         return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9\s+]", " ", str(text).lower())).strip()
+
+    def _small_talk_response(self, question: str) -> str:
+        text = self._normalize(question)
+        if not text:
+            return ""
+
+        if re.search(r"(^| )who are you( |$)|(^| )tell me about yourself( |$)", text):
+            return (
+                "I'm Ilkin Isler, PhD - an AI engineer, researcher, and powerlifting champion. "
+                "Ask me about my research, publications, projects, deadlift PR, media, or contact."
+            )
+
+        if re.search(r"(^| )(thank you|thanks|thx)( |$)", text):
+            return "You're welcome."
+
+        greeting = re.search(r"(^| )(hi|hello|hey|good morning|good afternoon|good evening)( |$)", text)
+        how_are_you = re.search(r"(how are you|how s it going|how is it going|how are u)", text)
+        knowledge_intent = re.search(
+            r"(research|publication|paper|project|build|background|story|deadlift|squat|bench|pr|media|article|contact|email|linkedin|scholar|cv|resume)",
+            text,
+        )
+
+        token_count = len(self._tokenize(question))
+        if how_are_you or (greeting and token_count <= 4 and not knowledge_intent):
+            return (
+                "Hi! I'm doing great. Ask me about my research focus, publications, projects, "
+                "deadlift PR, media links, or contact."
+            )
+
+        return ""
 
     def _stable_hash(self, token: str) -> int:
         digest = hashlib.blake2b(token.encode("utf-8"), digest_size=8).digest()
