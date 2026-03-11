@@ -92,7 +92,7 @@
     },
     "how much can you deadlift": {
       answer:
-        "My current powerlifting PRs are: squat 355 lbs, bench 200 lbs, and deadlift 475 lbs.",
+        "Haha, my deadlift PR is 475 lbs, and yes, I pull sumo.",
       citations: [{ id: "profile_facts", label: "Profile Facts" }]
     },
     "where can i see your media links": {
