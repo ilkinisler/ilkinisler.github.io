@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-11T14:25:16+00:00",
+  "generated_at": "2026-03-11T15:23:36+00:00",
   "pipeline": "page-index-rag-v1",
   "sources": [
     {
@@ -1149,7 +1149,7 @@
       "source_url": "local://profile-facts",
       "page_index": 1,
       "section": "Strength",
-      "text": "My powerlifting PRs are Squat 355 lbs, Bench 200 lbs, and Deadlift 475 lbs. I am a European powerlifting champion and a national champion in Turkey."
+      "text": "My powerlifting PRs are Squat 355 lbs, Bench 200 lbs, and Deadlift 475 lbs. I am a European powerlifting champion and a national champion in Turkey. I am still holding deadlift records in Turkey since 2020 and in Florida since 2022. These include both junior and open records, and I broke both while I was a junior."
     },
     {
       "chunk_id": "profile-p1-c6",

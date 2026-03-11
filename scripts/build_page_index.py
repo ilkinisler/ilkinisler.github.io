@@ -304,7 +304,7 @@ def extract_profile_chunks() -> List[Chunk]:
         ),
         (
             "Strength",
-            "My powerlifting PRs are Squat 355 lbs, Bench 200 lbs, and Deadlift 475 lbs. I am a European powerlifting champion and a national champion in Turkey.",
+            "My powerlifting PRs are Squat 355 lbs, Bench 200 lbs, and Deadlift 475 lbs. I am a European powerlifting champion and a national champion in Turkey. I am still holding deadlift records in Turkey since 2020 and in Florida since 2022. These include both junior and open records, and I broke both while I was a junior.",
         ),
         (
             "Media",
