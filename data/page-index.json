@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-11T02:48:36+00:00",
+  "generated_at": "2026-03-11T03:10:27+00:00",
   "pipeline": "page-index-rag-v1",
   "sources": [
     {
@@ -1122,7 +1122,7 @@
       "source_url": "local://profile-facts",
       "page_index": 1,
       "section": "Projects",
-      "text": "I build trustworthy AI and LLM systems for high-impact environments, including RAG workflows, hallucination-aware pipelines, and uncertainty-aware decision support."
+      "text": "At Universal Creative, I architected and built a secure, production-grade MCP-based AI platform from scratch for centralized orchestration and lifecycle management of AI agents and tools. I also designed RBAC, authentication layers, and security hardening for safe ML service deployment, and delivered end-to-end infrastructure for data ingestion, model integration, API interfaces, and governed AI workflow execution."
     },
     {
       "chunk_id": "profile-p1-c3",
@@ -1131,7 +1131,7 @@
       "source_url": "local://profile-facts",
       "page_index": 1,
       "section": "Research",
-      "text": "My research focuses on medical imaging, explainable AI, uncertainty quantification, and trustworthy AI for high-stakes decision environments."
+      "text": "My research focuses on medical imaging, explainable AI, and uncertainty modeling, with the goal of building systems clinicians and real-world operators can trust. During my PhD, my dissertation centered on advanced AI algorithms for medical imaging, including tumor and organ-at-risk segmentation. More recently, I developed AI solutions using LLMs and retrieval-augmented generation (RAG) with hallucination detection, groundedness evaluation, citation, meta tagging, and topic modeling."
     },
     {
       "chunk_id": "profile-p1-c4",

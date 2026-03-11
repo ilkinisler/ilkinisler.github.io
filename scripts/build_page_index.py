@@ -292,11 +292,11 @@ def extract_profile_chunks() -> List[Chunk]:
         ),
         (
             "Projects",
-            "I build trustworthy AI and LLM systems for high-impact environments, including RAG workflows, hallucination-aware pipelines, and uncertainty-aware decision support.",
+            "At Universal Creative, I architected and built a secure, production-grade MCP-based AI platform from scratch for centralized orchestration and lifecycle management of AI agents and tools. I also designed RBAC, authentication layers, and security hardening for safe ML service deployment, and delivered end-to-end infrastructure for data ingestion, model integration, API interfaces, and governed AI workflow execution.",
         ),
         (
             "Research",
-            "My research focuses on medical imaging, explainable AI, uncertainty quantification, and trustworthy AI for high-stakes decision environments.",
+            "My research focuses on medical imaging, explainable AI, and uncertainty modeling, with the goal of building systems clinicians and real-world operators can trust. During my PhD, my dissertation centered on advanced AI algorithms for medical imaging, including tumor and organ-at-risk segmentation. More recently, I developed AI solutions using LLMs and retrieval-augmented generation (RAG) with hallucination detection, groundedness evaluation, citation, meta tagging, and topic modeling.",
         ),
         (
             "Strength",

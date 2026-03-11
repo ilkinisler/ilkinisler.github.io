@@ -83,7 +83,7 @@
     },
     "what is your research focus": {
       answer:
-        "My research focuses on medical imaging, explainable AI, and uncertainty modeling, with the goal of building systems that clinicians and real-world operators can actually trust.",
+        "My research focuses on medical imaging, explainable AI, and uncertainty modeling, with the goal of building systems that clinicians and real-world operators can actually trust. During my PhD, my dissertation centered on advanced AI algorithms for medical imaging, including tumor and organ-at-risk segmentation. More recently at Universal Creative, I architected and built a secure, production-grade MCP-based AI platform from scratch, designed RBAC/authentication/security hardening for safe ML deployment, and developed LLM + RAG solutions with hallucination detection, groundedness evaluation, citation, meta tagging, and topic modeling.",
       citations: [
         { id: "resume", label: "Resume" },
         { id: "mind_to_move", label: "The Mind to Move Mountains" }
