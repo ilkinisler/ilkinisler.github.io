@@ -103,7 +103,7 @@
     },
     "how much can you deadlift": {
       answer:
-        "Haha, my deadlift PR is 475 lbs, and yes, I pull sumo. Fun fact: I am still holding deadlift records in Turkey since 2020 and in Florida since 2022. Those include both junior and open records, and I broke both when I was a junior.",
+        "Haha, my deadlift PR is 475 lbs, and yes, I pull sumo. Fun fact: I am still holding deadlift records in Turkiye since 2020 and in Florida since 2022. Those include both junior and open records, and I broke both when I was a junior.",
       citations: [{ id: "profile_facts", label: "Profile Facts" }],
       links: [
         {

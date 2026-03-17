@@ -7,6 +7,7 @@ This backend serves a low-cost RAG-style chat API over `data/page-index.json`.
 - Local hybrid retrieval (BM25-style lexical + hashed embedding cosine)
 - Cached embedding index at `data/page-index-cache.json`
 - Trust policy for low-confidence retrieval and sentence grounding
+- Persistent SQLite question logs (`backend/data/chat_logs.sqlite3`)
 
 ## Run locally
 
@@ -47,6 +48,11 @@ curl -X POST http://localhost:8000/chat \
 - `RATE_LIMIT_MAX_REQUESTS` (default: `12`)
 - `RATE_LIMIT_WINDOW_SECONDS` (default: `60`)
 - `RATE_LIMIT_BLOCK_SECONDS` (default: `120`)
+- `CHAT_LOG_DB_PATH` (default: `backend/data/chat_logs.sqlite3`)
+- `CHAT_LOG_HASH_SALT` (recommended for stable anonymous hashing)
+- `CHAT_LOG_ADMIN_KEY` (required to read logs remotely from `/logs`)
+- `CHAT_LOG_DEFAULT_LIMIT` (default: `50`)
+- `CHAT_LOG_MAX_LIMIT` (default: `500`)
 
 Example `backend/.env`:
 
@@ -57,6 +63,31 @@ ALLOWED_ORIGIN=https://ilkinisler.com
 RATE_LIMIT_MAX_REQUESTS=12
 RATE_LIMIT_WINDOW_SECONDS=60
 RATE_LIMIT_BLOCK_SECONDS=120
+CHAT_LOG_HASH_SALT=change-this-salt
+CHAT_LOG_ADMIN_KEY=change-this-admin-key
+```
+
+## Question logs
+
+Every `/chat` request is logged with:
+- timestamp (UTC)
+- anonymous client hash (not raw IP)
+- question text
+- response status + response kind
+- answer preview
+- user-agent
+
+Read recent logs:
+
+```bash
+curl "http://localhost:8000/logs?limit=50"
+```
+
+Read logs remotely (when `CHAT_LOG_ADMIN_KEY` is set):
+
+```bash
+curl "https://api.ilkinisler.com/logs?limit=100" \
+  -H "x-admin-key: YOUR_ADMIN_KEY"
 ```
 
 ## Production notes

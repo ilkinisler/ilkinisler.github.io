@@ -186,6 +186,7 @@ class LocalPageIndexRAG:
                 "support": [],
                 "links": [],
                 "notice": "",
+                "kind": "empty",
             }
 
         small_talk = self._small_talk_response(question)
@@ -196,6 +197,7 @@ class LocalPageIndexRAG:
                 "support": [],
                 "links": [],
                 "notice": "",
+                "kind": "small_talk",
             }
 
         retrieved = self.retrieve(question, top_k=6)
@@ -208,6 +210,7 @@ class LocalPageIndexRAG:
                 "support": [],
                 "links": [],
                 "notice": "",
+                "kind": "not_enough_info",
                 "retrieval": retrieval_assessment,
             }
 
@@ -233,6 +236,7 @@ class LocalPageIndexRAG:
                 "support": [],
                 "links": [],
                 "notice": "",
+                "kind": "not_enough_info",
                 "retrieval": retrieval_assessment,
             }
 
@@ -248,6 +252,7 @@ class LocalPageIndexRAG:
             "support": [],
             "links": [],
             "notice": llm_notice,
+            "kind": "llm_grounded_answer" if llm_result else "extractive_grounded_answer",
             "retrieval": retrieval_assessment,
         }
 
