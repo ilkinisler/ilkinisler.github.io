@@ -110,6 +110,12 @@
         model: "Pre-verified answer",
         note: "Pre-verified answer written from my profile facts."
       },
+      media: {
+        type: "video",
+        src: "assets/deadlift-475.mp4",
+        poster: "assets/deadlift-475-poster.jpg",
+        caption: "Proof: the 475 lb sumo deadlift"
+      },
       answer:
         "Haha, my deadlift PR is 475 lbs, and yes, I pull sumo. I've held deadlift records in Türkiye since 2020 and in Florida since 2022, including both junior and open records. I'm a four-time USA Powerlifting Florida state record holder, a two-time Overall Champion of Türkiye, and placed 1st overall at the IPSU European Championship.",
       citations: [{ id: "profile_facts", label: "Profile Facts" }],
@@ -369,6 +375,7 @@
       links: preset.links || [],
       notice: "",
       fixed: Boolean(preset.fixed),
+      media: preset.media || null,
       groundedness: preset.groundedness ? normalizeGroundedness(preset.groundedness) : null
     };
   }
@@ -1278,6 +1285,10 @@
     body.textContent = text;
     bubble.appendChild(body);
 
+    if (role !== "user" && meta.media?.type === "video") {
+      bubble.appendChild(createVideoFigure(meta.media));
+    }
+
     if (role !== "user") {
       const metaBlock = createMetaBlock(meta);
       if (metaBlock) {
@@ -1288,6 +1299,27 @@
     item.appendChild(bubble);
     log.appendChild(item);
     log.scrollTop = log.scrollHeight;
+  }
+
+  function createVideoFigure(media) {
+    const figure = document.createElement("figure");
+    figure.className = "chat-media";
+    const video = document.createElement("video");
+    video.src = media.src;
+    if (media.poster) {
+      video.poster = media.poster;
+    }
+    // Silent clip: autoplay requires muted + playsinline on mobile.
+    Object.assign(video, { muted: true, autoplay: true, loop: true, playsInline: true, controls: true });
+    video.setAttribute("playsinline", "");
+    video.setAttribute("aria-label", media.caption || "Video");
+    figure.appendChild(video);
+    if (media.caption) {
+      const caption = document.createElement("figcaption");
+      caption.textContent = media.caption;
+      figure.appendChild(caption);
+    }
+    return figure;
   }
 
   function createMetaBlock(meta) {

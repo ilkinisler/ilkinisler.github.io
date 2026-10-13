@@ -1756,6 +1756,26 @@ body {
   color: var(--text);
 }
 
+.chat-media {
+  margin: 0.7rem 0 0.2rem;
+  width: min(15rem, 100%);
+}
+
+.chat-media video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #e8e8ef;
+}
+
+.chat-media figcaption {
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
 /* Jump nav under the chat */
 .jump-nav {
   margin: 1.75rem auto 0;
