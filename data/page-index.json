@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T20:50:30+00:00",
+  "generated_at": "2026-10-13T20:51:08+00:00",
   "pipeline": "page-index-rag-v1",
   "sources": [
     {
@@ -32,8 +32,8 @@
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
-      "section": "Ilkin Isler",
-      "text": "ilkinisler@gmail.com | linkedin.com/in/ilkinsevgiisler | Google Scholar | github.com/ilkinisler | ilkinisler.com"
+      "section": "Resume Page 1",
+      "text": "ILKIN ISLER, Ph.D."
     },
     {
       "chunk_id": "resume-p1-c2",
@@ -41,8 +41,8 @@
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
-      "section": "Professional Summary",
-      "text": "Senior AI Engineer working in a forward-deployed role: meets with business teams, scopes complex business needs, and builds the AI"
+      "section": "Resume Page 1",
+      "text": "ilkinisler@gmail.com | linkedin.com/in/ilkinsevgiisler | Google Scholar | github.com/ilkinisler | ilkinisler.com"
     },
     {
       "chunk_id": "resume-p1-c3",
@@ -51,7 +51,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Summary",
-      "text": "solution from first prototype to trusted production. Builds models, not just uses them: Ph.D. in Computer Science focused on designing novel"
+      "text": "Senior AI Engineer working in a forward-deployed role: meets with business teams, scopes complex business needs, and builds the AI"
     },
     {
       "chunk_id": "resume-p1-c4",
@@ -60,7 +60,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Summary",
-      "text": "neural network architectures, with hands-on work across computer vision, NLP, LLMs, agentic systems, automation, and dataset creation."
+      "text": "solution from first prototype to trusted production. Builds models, not just uses them: Ph.D. in Computer Science focused on designing novel"
     },
     {
       "chunk_id": "resume-p1-c5",
@@ -69,7 +69,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Summary",
-      "text": "Built RAG, hallucination detection, and evaluation systems and an enterprise AI platform from scratch, designed to enterprise security and"
+      "text": "neural network architectures, with hands-on work across computer vision, NLP, LLMs, agentic systems, automation, and dataset creation."
     },
     {
       "chunk_id": "resume-p1-c6",
@@ -78,7 +78,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Summary",
-      "text": "governance standards. Leads an AI engineering team across AI infrastructure, finance automation, and cost estimating."
+      "text": "Built RAG, hallucination detection, and evaluation systems and an enterprise AI platform from scratch, designed to enterprise security and"
     },
     {
       "chunk_id": "resume-p1-c7",
@@ -86,8 +86,8 @@
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
-      "section": "Technical Skills",
-      "text": "Languages & Cloud: Python, SQL, Azure"
+      "section": "Professional Summary",
+      "text": "governance standards. Leads an AI engineering team across AI infrastructure, finance automation, and cost estimating."
     },
     {
       "chunk_id": "resume-p1-c8",
@@ -96,7 +96,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "LLMs & Frameworks: Azure OpenAI, OpenAI, Anthropic Claude, LlamaIndex, LangChain, LangGraph, FastAPI"
+      "text": "Languages & Cloud: Python, SQL, Azure"
     },
     {
       "chunk_id": "resume-p1-c9",
@@ -105,7 +105,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "Search & Vector Databases: SQLite FTS5 (full-text search), pgvector (Postgres), Pinecone, Weaviate, Qdrant, Chroma, FAISS"
+      "text": "LLMs & Frameworks: Azure OpenAI, OpenAI, Anthropic Claude, LlamaIndex, LangChain, LangGraph, FastAPI"
     },
     {
       "chunk_id": "resume-p1-c10",
@@ -114,7 +114,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "LLM & Agentic AI: Retrieval-Augmented Generation (RAG), Hybrid Search (BM25 + Vector), Document Ingestion Pipelines, Multi-Agent"
+      "text": "Search & Vector Databases: SQLite FTS5 (full-text search), pgvector (Postgres), Pinecone, Weaviate, Qdrant, Chroma, FAISS"
     },
     {
       "chunk_id": "resume-p1-c11",
@@ -123,7 +123,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "Systems, Agent Orchestration, Model Context Protocol (MCP), LLM Integration, Prompt Engineering, Vision-Language Model Fine-Tuning"
+      "text": "LLM & Agentic AI: Retrieval-Augmented Generation (RAG), Hybrid Search (BM25 + Vector), Document Ingestion Pipelines, Multi-Agent"
     },
     {
       "chunk_id": "resume-p1-c12",
@@ -132,7 +132,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "Evaluation & Trustworthy AI: Hallucination Detection, Groundedness Evaluation, Citation Verification, LLM-as-Judge, RAGAS,"
+      "text": "Systems, Agent Orchestration, Model Context Protocol (MCP), LLM Integration, Prompt Engineering, Vision-Language Model Fine-Tuning"
     },
     {
       "chunk_id": "resume-p1-c13",
@@ -141,7 +141,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "DeepEval, BERTScore, ROUGE, Mean Reciprocal Rank (MRR), Benchmark Dataset Creation, Failure Analysis, Uncertainty Quantification,"
+      "text": "Evaluation & Trustworthy AI: Hallucination Detection, Groundedness Evaluation, Citation Verification, LLM-as-Judge, RAGAS,"
     },
     {
       "chunk_id": "resume-p1-c14",
@@ -150,7 +150,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "Explainable AI, AI Safety and Governance"
+      "text": "DeepEval, BERTScore, ROUGE, Mean Reciprocal Rank (MRR), Benchmark Dataset Creation, Failure Analysis, Uncertainty Quantification,"
     },
     {
       "chunk_id": "resume-p1-c15",
@@ -159,7 +159,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "Deep Learning & Computer Vision: PyTorch, MONAI, Neural Network Architecture Design, Self-Supervised Pretraining, Transfer"
+      "text": "Explainable AI, AI Safety and Governance"
     },
     {
       "chunk_id": "resume-p1-c16",
@@ -168,7 +168,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "Learning & Fine-Tuning (Swin UNETR, foundation models), Custom Loss Function Design, Medical Image Segmentation, Segmentation"
+      "text": "Deep Learning & Computer Vision: PyTorch, MONAI, Neural Network Architecture Design, Self-Supervised Pretraining, Transfer"
     },
     {
       "chunk_id": "resume-p1-c17",
@@ -177,7 +177,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "Metrics (Dice, HD95), NLP, Anomaly Detection"
+      "text": "Learning & Fine-Tuning (Swin UNETR, foundation models), Custom Loss Function Design, Medical Image Segmentation, Segmentation"
     },
     {
       "chunk_id": "resume-p1-c18",
@@ -186,7 +186,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "AI Platform & Architecture: Enterprise AI Architecture, Human-in-the-Loop Systems, Access Control (RBAC, ABAC), Model-Serving"
+      "text": "Metrics (Dice, HD95), NLP, Anomaly Detection"
     },
     {
       "chunk_id": "resume-p1-c19",
@@ -195,7 +195,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "APIs, Workflow Automation, Observability and Monitoring"
+      "text": "AI Platform & Architecture: Enterprise AI Architecture, Human-in-the-Loop Systems, Access Control (RBAC, ABAC), Model-Serving"
     },
     {
       "chunk_id": "resume-p1-c20",
@@ -203,8 +203,8 @@
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
-      "section": "Professional Experience",
-      "text": "Universal Creative Orlando, FL"
+      "section": "Technical Skills",
+      "text": "APIs, Workflow Automation, Observability and Monitoring"
     },
     {
       "chunk_id": "resume-p1-c21",
@@ -213,7 +213,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "Senior AI Engineer, AI Strategy & Solutions Aug 2025 - Present"
+      "text": "Universal Creative Orlando, FL"
     },
     {
       "chunk_id": "resume-p1-c22",
@@ -222,7 +222,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "\u2022 Lead the AI engineering team as technical lead and accountable owner across the enterprise AI platform, finance, and cost-estimating"
+      "text": "Senior AI Engineer, AI Strategy & Solutions Aug 2025 - Present"
     },
     {
       "chunk_id": "resume-p1-c23",
@@ -231,7 +231,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "workstreams."
+      "text": "\u2022 Lead the AI engineering team as technical lead and accountable owner across the enterprise AI platform, finance, and cost-estimating"
     },
     {
       "chunk_id": "resume-p1-c24",
@@ -240,7 +240,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "\u2022 Architected and built an in-house enterprise AI platform for deploying, orchestrating, governing, and monitoring AI tools, agents, and"
+      "text": "workstreams."
     },
     {
       "chunk_id": "resume-p1-c25",
@@ -249,7 +249,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "multi-agent workflows across multiple business units."
+      "text": "\u2022 Architected and built an in-house enterprise AI platform for deploying, orchestrating, governing, and monitoring AI tools, agents, and"
     },
     {
       "chunk_id": "resume-p1-c26",
@@ -258,7 +258,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "\u2022 Co-developed an enterprise ingestion pipeline that makes large volumes of structured and unstructured documents searchable, including"
+      "text": "multi-agent workflows across multiple business units."
     },
     {
       "chunk_id": "resume-p1-c27",
@@ -267,7 +267,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "invoices, RFIs, presentations, emails, and screenshots."
+      "text": "\u2022 Co-developed an enterprise ingestion pipeline that makes large volumes of structured and unstructured documents searchable, including"
     },
     {
       "chunk_id": "resume-p1-c28",
@@ -276,7 +276,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "\u2022 Built LLM evaluation pipelines that score hallucination, groundedness, citation correctness, and factual consistency, used to gate new"
+      "text": "invoices, RFIs, presentations, emails, and screenshots."
     },
     {
       "chunk_id": "resume-p1-c29",
@@ -285,7 +285,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "methods before production, monitor live assistants, and select the best grounded answer at runtime or decline when none is grounded."
+      "text": "\u2022 Built LLM evaluation pipelines that score hallucination, groundedness, citation correctness, and factual consistency, used to gate new"
     },
     {
       "chunk_id": "resume-p1-c30",
@@ -294,7 +294,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "\u2022 Co-authored AI engineering guidance covering build and deployment, retrieval, topic modeling, metadata tagging, hallucination"
+      "text": "methods before production, monitor live assistants, and select the best grounded answer at runtime or decline when none is grounded."
     },
     {
       "chunk_id": "resume-p1-c31",
@@ -303,7 +303,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "detection, evaluation, and data security; ran AI lunch-and-learns and advised senior leaders on AI adoption."
+      "text": "\u2022 Co-authored AI engineering guidance covering build and deployment, retrieval, topic modeling, metadata tagging, hallucination"
     },
     {
       "chunk_id": "resume-p1-c32",
@@ -312,7 +312,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "\u2022 Built human-in-the-loop AI tools that replace spreadsheet-heavy finance reporting and forecasting with a single, adaptable source of"
+      "text": "detection, evaluation, and data security; ran AI lunch-and-learns and advised senior leaders on AI adoption."
     },
     {
       "chunk_id": "resume-p1-c33",
@@ -321,7 +321,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "truth."
+      "text": "\u2022 Built human-in-the-loop AI tools that replace spreadsheet-heavy finance reporting and forecasting with a single, adaptable source of"
     },
     {
       "chunk_id": "resume-p1-c34",
@@ -330,7 +330,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "\u2022 Architected a human-in-the-loop cost-estimating system of purpose-built AI tools that generate scope from design drawings, structure"
+      "text": "truth."
     },
     {
       "chunk_id": "resume-p1-c35",
@@ -339,7 +339,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "messy scope lists into estimates, and retrieve historical pricing."
+      "text": "\u2022 Architected a human-in-the-loop cost-estimating system of purpose-built AI tools that generate scope from design drawings, structure"
     },
     {
       "chunk_id": "resume-p1-c36",
@@ -348,7 +348,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "\u2022 Building a project-tracking tool that unifies design, scheduling, estimating, budgeting, and finance data into one view for senior"
+      "text": "messy scope lists into estimates, and retrieve historical pricing."
     },
     {
       "chunk_id": "resume-p1-c37",
@@ -357,7 +357,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "leadership."
+      "text": "\u2022 Building a project-tracking tool that unifies design, scheduling, estimating, budgeting, and finance data into one view for senior"
     },
     {
       "chunk_id": "resume-p1-c38",
@@ -366,7 +366,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "AI Software Engineer, Engineering & Safety Jan 2025 - Aug 2025"
+      "text": "leadership."
     },
     {
       "chunk_id": "resume-p1-c39",
@@ -375,7 +375,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "\u2022 Independently researched and built a retrieval-enabled chatbot over engineering specifications, including its RAG, hallucination"
+      "text": "AI Software Engineer, Engineering & Safety Jan 2025 - Aug 2025"
     },
     {
       "chunk_id": "resume-p1-c40",
@@ -384,7 +384,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "detection, groundedness scoring, citation verification, topic modeling, metadata tagging, and structured information extraction, evaluated"
+      "text": "\u2022 Independently researched and built a retrieval-enabled chatbot over engineering specifications, including its RAG, hallucination"
     },
     {
       "chunk_id": "resume-p1-c41",
@@ -393,7 +393,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "with self-built benchmark datasets and metrics (MRR, RAGAS, DeepEval, BERTScore, ROUGE, LLM-as-judge); this work grew into"
+      "text": "detection, groundedness scoring, citation verification, topic modeling, metadata tagging, and structured information extraction, evaluated"
     },
     {
       "chunk_id": "resume-p1-c42",
@@ -402,7 +402,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "the core of the enterprise AI platform."
+      "text": "with self-built benchmark datasets and metrics (MRR, RAGAS, DeepEval, BERTScore, ROUGE, LLM-as-judge); this work grew into"
     },
     {
       "chunk_id": "resume-p1-c43",
@@ -411,7 +411,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "University of Central Florida, College of Engineering and Computer Science Orlando, FL"
+      "text": "the core of the enterprise AI platform."
     },
     {
       "chunk_id": "resume-p1-c44",
@@ -420,7 +420,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "Graduate Teaching Assistant Aug 2023 - Dec 2024"
+      "text": "University of Central Florida, College of Engineering and Computer Science Orlando, FL"
     },
     {
       "chunk_id": "resume-p1-c45",
@@ -429,7 +429,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "\u2022 Assisted with Advanced Artificial Intelligence and Advanced Computer Networks courses, and taught ~4 lectures."
+      "text": "Graduate Teaching Assistant Aug 2023 - Dec 2024"
     },
     {
       "chunk_id": "resume-p1-c46",
@@ -438,7 +438,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "Graduate Research Assistant Jan 2021 - Aug 2023"
+      "text": "\u2022 Assisted with Advanced Artificial Intelligence and Advanced Computer Networks courses, and taught ~4 lectures."
     },
     {
       "chunk_id": "resume-p1-c47",
@@ -447,7 +447,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "\u2022 Designed novel 3D neural network architectures and compound loss functions combining overlap and boundary-distance objectives for"
+      "text": "Graduate Research Assistant Jan 2021 - Aug 2023"
     },
     {
       "chunk_id": "resume-p1-c48",
@@ -456,7 +456,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "tumor and organ-at-risk segmentation; self-supervised and uncertainty-guided coarse-to-fine approaches achieved state-of-the-art results"
+      "text": "\u2022 Designed novel 3D neural network architectures and compound loss functions combining overlap and boundary-distance objectives for"
     },
     {
       "chunk_id": "resume-p1-c49",
@@ -465,7 +465,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "at publication (IEEE ICECCME 2023, IEEE ACDSA 2025), including raising Swin UNETR Dice from 0.47 to 0.64, and an improved U-"
+      "text": "tumor and organ-at-risk segmentation; self-supervised and uncertainty-guided coarse-to-fine approaches achieved state-of-the-art results"
     },
     {
       "chunk_id": "resume-p1-c50",
@@ -474,7 +474,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "Net reached ~80% vs. 63% Dice over baseline (SPIE Medical Imaging 2022)."
+      "text": "at publication (IEEE ICECCME 2023, IEEE ACDSA 2025), including raising Swin UNETR Dice from 0.47 to 0.64, and an improved U-"
     },
     {
       "chunk_id": "resume-p1-c51",
@@ -483,7 +483,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "\u2022 Developed uncertainty quantification, explainability, and anatomy-aware post-processing methods that guided the model to refine its"
+      "text": "Net reached ~80% vs. 63% Dice over baseline (SPIE Medical Imaging 2022)."
     },
     {
       "chunk_id": "resume-p1-c52",
@@ -492,7 +492,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "uncertain regions, improving accuracy, and gave clinicians uncertainty estimates showing when to rely on its output; validated reliability"
+      "text": "\u2022 Developed uncertainty quantification, explainability, and anatomy-aware post-processing methods that guided the model to refine its"
     },
     {
       "chunk_id": "resume-p1-c53",
@@ -501,7 +501,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "with a broad set of segmentation metrics, including Dice and HD95, alongside confidence and failure analysis."
+      "text": "uncertain regions, improving accuracy, and gave clinicians uncertainty estimates showing when to rely on its output; validated reliability"
     },
     {
       "chunk_id": "resume-p1-c54",
@@ -510,7 +510,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "\u2022 Led multi-institutional collaborations, including with Northwestern Radiology, and co-authored a five-center pancreas segmentation"
+      "text": "with a broad set of segmentation metrics, including Dice and HD95, alongside confidence and failure analysis."
     },
     {
       "chunk_id": "resume-p1-c55",
@@ -519,7 +519,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "study (767 MRI scans from 499 participants, plus CT from 1,350 patients) published in Medical Image Analysis."
+      "text": "\u2022 Led multi-institutional collaborations, including with Northwestern Radiology, and co-authored a five-center pancreas segmentation"
     },
     {
       "chunk_id": "resume-p1-c56",
@@ -528,7 +528,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "Earlier Experience"
+      "text": "study (767 MRI scans from 499 participants, plus CT from 1,350 patients) published in Medical Image Analysis."
     },
     {
       "chunk_id": "resume-p1-c57",
@@ -537,7 +537,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "\u2022 Python Developer (Contract), Universal Orlando Resort (Orlando, 2022): resolved 100+ vulnerabilities in cloud data pipelines and"
+      "text": "Earlier Experience"
     },
     {
       "chunk_id": "resume-p1-c58",
@@ -546,7 +546,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "optimized ML workflows with Azure Databricks and MLflow."
+      "text": "\u2022 Python Developer (Contract), Universal Orlando Resort (Orlando, 2022): resolved 100+ vulnerabilities in cloud data pipelines and"
     },
     {
       "chunk_id": "resume-p1-c59",
@@ -555,7 +555,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "\u2022 Data Analyst, Simsoft Information Technologies (Ankara, 2020): built LSTM models for anomaly detection and predictive"
+      "text": "optimized ML workflows with Azure Databricks and MLflow."
     },
     {
       "chunk_id": "resume-p1-c60",
@@ -564,7 +564,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "maintenance on industrial sensor data; modeled COVID-19 spread."
+      "text": "\u2022 Data Analyst, Simsoft Information Technologies (Ankara, 2020): built LSTM models for anomaly detection and predictive"
     },
     {
       "chunk_id": "resume-p1-c61",
@@ -573,10 +573,19 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "\u2022 Research Intern, UCF Synthetic Reality Lab (Orlando, 2019): applied GANs to facial expression recognition and human-to-avatar"
+      "text": "maintenance on industrial sensor data; modeled COVID-19 spread."
     },
     {
       "chunk_id": "resume-p1-c62",
+      "source_id": "resume_oct2026",
+      "source_title": "Ilkin Isler Resume (Oct 2026)",
+      "source_url": "assets/Ilkin_Isler_Resume.pdf",
+      "page_index": 1,
+      "section": "Professional Experience",
+      "text": "\u2022 Research Intern, UCF Synthetic Reality Lab (Orlando, 2019): applied GANs to facial expression recognition and human-to-avatar"
+    },
+    {
+      "chunk_id": "resume-p1-c63",
       "source_id": "resume_oct2026",
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
