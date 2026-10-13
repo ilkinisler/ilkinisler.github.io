@@ -1302,6 +1302,19 @@
     };
   }
 
+  const AVATAR_SRC = "assets/avatar-main.jpg";
+  const prefersReducedMotion = () =>
+    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function createRowAvatar() {
+    const avatar = document.createElement("img");
+    avatar.className = "chat-row-avatar";
+    avatar.src = AVATAR_SRC;
+    avatar.alt = "";
+    avatar.setAttribute("aria-hidden", "true");
+    return avatar;
+  }
+
   function addMessage(log, role, text, meta = {}) {
     const item = document.createElement("li");
     item.className = `chat-row ${role === "user" ? "user" : "bot"}`;
@@ -1311,24 +1324,54 @@
 
     const body = document.createElement("p");
     body.className = "chat-text";
-    body.textContent = text;
     bubble.appendChild(body);
 
+    // Video, badge, and sources appear once the text has finished "typing".
+    const extras = [];
     if (role !== "user" && meta.media?.type === "video") {
-      bubble.appendChild(createVideoFigure(meta.media));
+      extras.push(createVideoFigure(meta.media));
     }
-
     if (role !== "user") {
       const metaBlock = createMetaBlock(meta);
       if (metaBlock) {
-        bubble.appendChild(metaBlock);
+        extras.push(metaBlock);
       }
     }
 
+    if (role !== "user") {
+      item.appendChild(createRowAvatar());
+    }
     item.appendChild(bubble);
     log.appendChild(item);
-    log.scrollTop = log.scrollHeight;
+
+    const finish = () => {
+      body.textContent = text;
+      extras.forEach((node) => bubble.appendChild(node));
+      log.scrollTop = log.scrollHeight;
+    };
+
+    if (role === "user" || prefersReducedMotion()) {
+      finish();
+      return;
+    }
+
+    // Typewriter: reveal the answer as if it's being typed, capped at ~1.4 s.
+    const steps = Math.min(text.length, 90);
+    const perStep = Math.ceil(text.length / steps);
+    let shown = 0;
+    const tick = () => {
+      shown = Math.min(text.length, shown + perStep);
+      body.textContent = text.slice(0, shown);
+      log.scrollTop = log.scrollHeight;
+      if (shown < text.length) {
+        setTimeout(tick, 15);
+      } else {
+        finish();
+      }
+    };
+    tick();
   }
+
 
   function createVideoFigure(media) {
     const figure = document.createElement("figure");
@@ -1456,15 +1499,27 @@
     const item = document.createElement("li");
     item.className = "chat-row bot";
 
+    // Typing indicator: my avatar with a spinning ring, bouncing dots, and the status text.
+    const typingAvatar = document.createElement("span");
+    typingAvatar.className = "typing-avatar";
+    typingAvatar.setAttribute("aria-hidden", "true");
+    typingAvatar.appendChild(createRowAvatar());
+
     const bubble = document.createElement("div");
-    bubble.className = "chat-bubble";
+    bubble.className = "chat-bubble chat-pending";
+    bubble.setAttribute("role", "status");
+
+    const dots = document.createElement("span");
+    dots.className = "typing-dots";
+    dots.setAttribute("aria-hidden", "true");
+    dots.append(document.createElement("span"), document.createElement("span"), document.createElement("span"));
 
     const body = document.createElement("p");
-    body.className = "chat-text";
+    body.className = "chat-pending-text";
     body.textContent = text;
 
-    bubble.appendChild(body);
-    item.appendChild(bubble);
+    bubble.append(dots, body);
+    item.append(typingAvatar, bubble);
     log.appendChild(item);
     log.scrollTop = log.scrollHeight;
 
