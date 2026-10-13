@@ -1418,6 +1418,16 @@ body {
   color: var(--text);
 }
 
+.brand {
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.site-header.brand-hidden .brand {
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+}
+
 /* Hero */
 .hero {
   padding: clamp(2.5rem, 6vw, 4rem) 0 0;

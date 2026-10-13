@@ -189,6 +189,7 @@
     initMobileNav();
     setFooterYear();
     initReveals();
+    initHeaderBrand();
     initShortcutButtons();
     await initBioChatbot();
     window.addEventListener("resize", syncHeaderOffset);
@@ -322,6 +323,22 @@
     if (year) {
       year.textContent = String(new Date().getFullYear());
     }
+  }
+
+  // The hero already shows the name in large type, so the header brand stays hidden
+  // until the hero title scrolls out of view.
+  function initHeaderBrand() {
+    const header = document.querySelector("[data-site-header]");
+    const heroTitle = document.querySelector(".hero-title");
+    if (!header || !heroTitle) {
+      return;
+    }
+    const update = () => {
+      const titleVisible = heroTitle.getBoundingClientRect().bottom > header.offsetHeight;
+      header.classList.toggle("brand-hidden", titleVisible);
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    update();
   }
 
   function initReveals() {
@@ -488,6 +505,18 @@
       }
     }
 
+    // Cloud Run scales to zero, so the first request after a quiet period waits for the
+    // server to start. Ping /health on load so it's usually warm before anyone asks.
+    let backendWarm = !backendEnabled;
+    if (backendEnabled) {
+      const healthUrl = chatConfig.api.endpoint.replace(/\/chat$/, "/health");
+      fetch(healthUrl, { cache: "no-store" })
+        .then((response) => {
+          backendWarm = response.ok;
+        })
+        .catch(() => {});
+    }
+
     let busy = false;
 
     const setBusy = (value) => {
@@ -531,10 +560,16 @@
       }
 
       setBusy(true);
-      const pending = addPendingMessage(log, "Retrieving sources and checking groundedness...");
+      const pending = addPendingMessage(
+        log,
+        backendWarm
+          ? "Retrieving sources and checking groundedness..."
+          : "Waking up the server: the first answer can take up to ~20 seconds. After that it's quick."
+      );
 
       try {
         let result = await answerQuestion(q, retrievalIndex, chatConfig);
+        backendWarm = true;
         if (manualAnswer && !result.groundedness) {
           // Backend unreachable: the curated preset beats an unscored extractive answer.
           result = manualAnswer;
