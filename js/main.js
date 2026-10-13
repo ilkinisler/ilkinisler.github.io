@@ -63,7 +63,7 @@
   const EXAMPLE_QUESTION_ANSWERS = Object.freeze({
     "can you tell me about your background": {
       answer:
-        "I moved from Turkey to the U.S. to pursue AI at UCF, where I completed my MS (2022) and PhD (2025) in Computer Science. I focus on building trustworthy AI for high-stakes real-world decisions.",
+        "I moved from Turkey to the U.S. to study AI at UCF, where I earned my MS (2022) and PhD (2025) in Computer Science, with research on uncertainty-aware medical image segmentation. Today I'm a Senior AI Engineer at Universal Creative in a forward-deployed role: I work with business teams to scope what they need and take the AI solution from first prototype to trusted production, and I lead an AI engineering team across our AI platform, finance, and cost-estimating work.",
       citations: [
         { id: "resume", label: "Resume" },
         { id: "mind_to_move", label: "The Mind to Move Mountains" }
@@ -82,19 +82,19 @@
       ],
       links: [
         { label: "Pancreas CT/MRI Segmentation (2025)", href: "https://doi.org/10.1016/j.media.2024.103382" },
-        { label: "Power-VR (2022)", href: "https://doi.org/10.1002/cav.2045" },
         { label: "Uncertainty-Guided Tumor Segmentation (2025)", href: "https://doi.org/10.48550/arXiv.2504.12215" },
+        { label: "Generative AI in Medical Imaging (2024)", href: "https://doi.org/10.1007/978-3-031-72787-0_17" },
         { label: "OAR + Tumor Segmentation UQ (2023)", href: "https://doi.org/10.1109/ICECCME57830.2023.10252269" },
         { label: "Enhancing OAR Segmentation (2022)", href: "https://doi.org/10.1117/12.2611498" },
+        { label: "Power-VR (2022)", href: "https://doi.org/10.1002/cav.2045" },
         { label: "Facial Expression Translation (2019)", href: "https://doi.org/10.48550/arXiv.1910.05595" },
-        { label: "Generative AI in Medical Imaging (2024)", href: "https://doi.org/10.1007/978-3-031-72787-0_17" },
         { label: "3D Modelling in Plastic Surgery (2019)", href: "https://scholar.google.com/scholar?q=Usage+of+3D+Modelling+and+Morphing+Tools+in+Plastic+Surgery" },
         { label: "Open Google Scholar", href: "https://scholar.google.com/citations?user=ZgPdlJ0AAAAJ&hl=en" }
       ]
     },
     "what is your research focus": {
       answer:
-        "My research focuses on medical imaging, explainable AI, and uncertainty modeling, with the goal of building systems that clinicians and real-world operators can actually trust. During my PhD, my dissertation centered on advanced AI algorithms for medical imaging, including tumor and organ-at-risk segmentation. More recently, I’ve been working on LLM + RAG systems with hallucination detection, groundedness evaluation, citation, meta tagging, and topic modeling. I’m also experienced in architecting secure, production-grade AI infrastructure, including MCP server ecosystems and multi-agent frameworks with persistent memory, tool orchestration, and controlled execution environments, with a strong focus on safety, cybersecurity alignment, access control, sandboxed tool use, audit logging, and governance.",
+        "My research is about building AI that people can rely on, which starts with knowing when a model is wrong. During my PhD I designed 3D neural network architectures, loss functions, and uncertainty quantification methods for tumor and organ-at-risk segmentation; my self-supervised and uncertainty-guided approaches achieved state-of-the-art results at publication. Today I apply the same idea to LLMs: retrieval-augmented generation, hallucination detection, groundedness and citation checks, and evaluation pipelines that decide when an answer can be trusted, or when the system should decline to answer.",
       citations: [
         { id: "resume", label: "Resume" },
         { id: "profile_facts", label: "Profile Facts" }
@@ -103,7 +103,7 @@
     },
     "how much can you deadlift": {
       answer:
-        "Haha, my deadlift PR is 475 lbs, and yes, I pull sumo. Fun fact: I am still holding deadlift records in Turkiye since 2020 and in Florida since 2022. Those include both junior and open records, and I broke both when I was a junior.",
+        "Haha, my deadlift PR is 475 lbs, and yes, I pull sumo. I've held deadlift records in Türkiye since 2020 and in Florida since 2022, including both junior and open records. I'm a four-time USA Powerlifting Florida state record holder and a two-time Overall Champion of Türkiye.",
       citations: [{ id: "profile_facts", label: "Profile Facts" }],
       links: [
         {
@@ -118,12 +118,13 @@
     },
     "where can i see your media links": {
       answer:
-        "The best place to start is my UCF feature article, The Mind to Move Mountains. You can also follow updates on LinkedIn and my publication list on Google Scholar.",
+        "The best place to start is my UCF News feature, The Mind to Move Mountains. You can also follow updates on LinkedIn, see my publications on Google Scholar, and find my research code on GitHub.",
       citations: [{ id: "mind_to_move", label: "The Mind to Move Mountains" }],
       links: [
         { label: "Open UCF Article", href: "https://www.ucf.edu/news/the-mind-to-move-mountains/" },
         { label: "Open LinkedIn", href: "https://www.linkedin.com/in/ilkinsevgiisler/" },
-        { label: "Open Google Scholar", href: "https://scholar.google.com/citations?user=ZgPdlJ0AAAAJ&hl=en" }
+        { label: "Open Google Scholar", href: "https://scholar.google.com/citations?user=ZgPdlJ0AAAAJ&hl=en" },
+        { label: "Open GitHub", href: "https://github.com/ilkinisler" }
       ]
     },
     "how can i contact you": {
@@ -132,7 +133,8 @@
       citations: [{ id: "resume", label: "Resume" }],
       links: [
         { label: "Email Me", href: "mailto:ilkinisler@gmail.com" },
-        { label: "Open LinkedIn", href: "https://www.linkedin.com/in/ilkinsevgiisler/" }
+        { label: "Open LinkedIn", href: "https://www.linkedin.com/in/ilkinsevgiisler/" },
+        { label: "Open Resume", href: "assets/Ilkin_Isler_Resume.pdf" }
       ]
     }
   });
@@ -419,7 +421,7 @@
       return;
     }
 
-    intro.textContent = "Ask about my work, research, or background.";
+    intro.textContent = "Hi! Ask me about my work, research, or background.";
 
     const chatConfig = mergeConfig(DEFAULT_CHAT_CONFIG, window.ILKIN_CHAT_CONFIG || {});
     const backendEnabled = Boolean(chatConfig.api?.enabled && chatConfig.api?.endpoint);

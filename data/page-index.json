@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T20:51:08+00:00",
+  "generated_at": "2026-10-13T20:54:16+00:00",
   "pipeline": "page-index-rag-v1",
   "sources": [
     {
@@ -1050,7 +1050,7 @@
       "source_url": "local://profile-facts",
       "page_index": 1,
       "section": "Projects",
-      "text": "I have been building trustworthy AI systems and LLM/RAG workflows for high-impact environments, including uncertainty-aware decision support, explainability, and hallucination-aware pipelines. I am also building personal AI assistants for home workflows and daily automation."
+      "text": "At work I build enterprise AI systems: an in-house AI platform for deploying and governing AI tools and agents, LLM evaluation and hallucination detection pipelines, and human-in-the-loop tools for finance and cost estimating. On my own time I build personal AI assistants for home workflows and daily automation, and this site's grounded assistant."
     },
     {
       "chunk_id": "profile-p1-c3",
@@ -1059,7 +1059,7 @@
       "source_url": "local://profile-facts",
       "page_index": 1,
       "section": "Research",
-      "text": "My research focuses on medical imaging, explainable AI, and uncertainty modeling, with the goal of building systems clinicians and real-world operators can trust. During my PhD, my dissertation centered on advanced AI algorithms for medical imaging, including tumor and organ-at-risk segmentation. More recently, I have been working on LLM and retrieval-augmented generation (RAG) systems with hallucination detection, groundedness evaluation, citation, meta tagging, and topic modeling. I am experienced in architecting secure, production-grade AI infrastructure, including the design and deployment of MCP server ecosystems and multi-agent frameworks with persistent memory, tool orchestration, and controlled execution environments. I maintain a strong focus on safety, cybersecurity alignment, access control, sandboxed tool use, audit logging, and governance to keep AI systems reliable, traceable, and compliant."
+      "text": "My research is about building AI that people can rely on, which starts with knowing when a model is wrong. During my PhD I designed 3D neural network architectures, loss functions, and uncertainty quantification methods for tumor and organ-at-risk segmentation; my self-supervised and uncertainty-guided approaches achieved state-of-the-art results at publication. Today I apply the same idea to LLMs: retrieval-augmented generation, hallucination detection, groundedness and citation checks, and evaluation pipelines that decide when an answer can be trusted, or when the system should decline to answer."
     },
     {
       "chunk_id": "profile-p1-c4",

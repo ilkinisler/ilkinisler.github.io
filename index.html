@@ -10,81 +10,87 @@
   <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-  <meta name="theme-color" content="#faf9f6">
+  <meta name="theme-color" content="#f7f7fb">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/main.css?v=20261013d">
-  <script src="js/chat-config.js?v=20261013d"></script>
-  <script src="js/main.js?v=20261013d" defer></script>
+  <link rel="stylesheet" href="css/main.css?v=20261013e">
+  <script src="js/chat-config.js?v=20261013e"></script>
+  <script src="js/main.js?v=20261013e" defer></script>
 </head>
 <body data-page="home">
   <div data-include="navbar.html"></div>
 
   <main class="page-frame" id="top">
     <div class="site-shell">
-      <section class="hero reveal" aria-label="Homepage hero">
-        <div class="hero-inner">
-          <div class="hero-text">
-            <p class="hero-pretitle">AI Engineer &amp; Researcher &middot; Orlando, FL</p>
-
-            <h1 class="hero-title">Ilkin Isler</h1>
-
-            <p class="hero-subtitle">
-              I design and build AI systems that people can rely on &mdash; from medical image segmentation during my
-              PhD to LLM evaluation and enterprise AI tools today.
-            </p>
-
-            <div class="hero-links">
-              <a href="#work">Selected work</a>
-              <a href="#publications">Publications</a>
-              <a href="assets/Ilkin_Isler_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-            </div>
+      <section class="hero" aria-label="Introduction and assistant">
+        <div class="hero-intro">
+          <div class="hero-visual">
+            <img src="assets/avatar-main.jpg" alt="Portrait of Ilkin Isler">
           </div>
-
-          <div class="hero-visual-wrap" aria-hidden="true">
-            <div class="hero-visual">
-              <img src="assets/avatar-main.jpg" alt="Portrait of Ilkin Isler">
-            </div>
-          </div>
+          <h1 class="hero-title">Ilkin Isler</h1>
+          <p class="hero-subtitle">AI engineer and researcher building AI systems people can rely on.</p>
+          <ul class="hero-tags" aria-label="Focus areas">
+            <li>LLM evaluation</li>
+            <li>Trustworthy AI</li>
+            <li>Medical imaging</li>
+            <li>PhD, Computer Science</li>
+          </ul>
         </div>
 
-          <div class="card chatbot-shell hero-chat" id="chat" data-bio-chatbot>
-            <p class="chat-intro" data-chat-intro>
-              Ask about my work, research, or background.
-            </p>
-            <p class="chat-source-note" data-chat-source-note>
-              Answers come only from my resume, a UCF News feature, and first-party facts, and it says so when it doesn&rsquo;t know.
-            </p>
-
-            <ul class="chat-log" data-chat-log aria-live="polite" aria-label="Chat messages" hidden></ul>
-
-            <div class="chat-suggestions" aria-label="Suggested questions">
-              <button type="button" class="command-shortcut" data-chat-suggestion="Can you tell me about your background?">Can you tell me about your background?</button>
-              <button type="button" class="command-shortcut" data-chat-suggestion="Where can I see your publications?">Where can I see your publications?</button>
-              <button type="button" class="command-shortcut" data-chat-suggestion="What is your research focus?">What is your research focus?</button>
-              <button type="button" class="command-shortcut" data-chat-suggestion="How much can you deadlift?">How much can you deadlift?</button>
-              <button type="button" class="command-shortcut" data-chat-suggestion="Where can I see your media links?">Where can I see your media links?</button>
-              <button type="button" class="command-shortcut" data-chat-suggestion="How can I contact you?">How can I contact you?</button>
-            </div>
-
-            <form class="chat-form" data-chat-form>
-              <label class="sr-only" for="chat-input">Ask a question</label>
-              <input id="chat-input" class="chat-input" data-chat-input type="text" placeholder="Message..." autocomplete="off" required>
-              <button class="chat-send" type="submit" aria-label="Send message">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 17V7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M8 11l4-4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </form>
+        <div class="chat-panel" id="chat" data-bio-chatbot>
+          <div class="chat-panel-head">
+            <span class="chat-status" aria-hidden="true"></span>
+            <span class="chat-panel-title">Ask me anything</span>
+            <span class="chat-panel-badge">Grounded answers</span>
           </div>
+
+          <div class="chat-welcome">
+            <img class="chat-avatar" src="assets/avatar-main.jpg" alt="" aria-hidden="true">
+            <p class="chat-intro" data-chat-intro>
+              Hi! Ask me about my work, research, or background.
+            </p>
+          </div>
+
+          <ul class="chat-log" data-chat-log aria-live="polite" aria-label="Chat messages" hidden></ul>
+
+          <div class="chat-suggestions" aria-label="Suggested questions">
+            <button type="button" class="command-shortcut" data-chat-suggestion="Can you tell me about your background?">Your background</button>
+            <button type="button" class="command-shortcut" data-chat-suggestion="What is your research focus?">Research focus</button>
+            <button type="button" class="command-shortcut" data-chat-suggestion="Where can I see your publications?">Publications</button>
+            <button type="button" class="command-shortcut" data-chat-suggestion="How much can you deadlift?">Powerlifting</button>
+            <button type="button" class="command-shortcut" data-chat-suggestion="Where can I see your media links?">In the media</button>
+            <button type="button" class="command-shortcut" data-chat-suggestion="How can I contact you?">Contact</button>
+          </div>
+
+          <form class="chat-form" data-chat-form>
+            <label class="sr-only" for="chat-input">Ask a question</label>
+            <input id="chat-input" class="chat-input" data-chat-input type="text" placeholder="Ask about my work, research, or background..." autocomplete="off" required>
+            <button class="chat-send" type="submit" aria-label="Send message">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 17V7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11l4-4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </form>
+
+          <p class="chat-source-note" data-chat-source-note>
+            Answers come only from my resume, a UCF News feature, and first-party facts, and it says so when it doesn&rsquo;t know.
+          </p>
+        </div>
+
+        <nav class="jump-nav" aria-label="Page sections">
+          <a href="#now">About</a>
+          <a href="#work">Work</a>
+          <a href="#publications">Publications</a>
+          <a href="#contact">Contact</a>
+        </nav>
       </section>
 
       <section class="section reveal" id="now" aria-labelledby="now-title">
-        <span class="section-eyebrow">Currently</span>
+        <span class="section-eyebrow">About</span>
         <h2 class="section-title" id="now-title">Senior AI Engineer at Universal Creative</h2>
         <p class="section-lead">
           I work in a forward-deployed role: I meet with business teams, scope what they need, and take the AI solution
@@ -101,6 +107,7 @@
 
         <div class="feature-grid">
           <article class="card feature-card">
+            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="6" rx="2" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="18" height="6" rx="2" stroke="currentColor" stroke-width="1.8"/><circle cx="7" cy="7" r="1" fill="currentColor"/><circle cx="7" cy="17" r="1" fill="currentColor"/></svg></span>
             <span class="feature-meta">Universal Creative</span>
             <h3 class="feature-name">Enterprise AI systems</h3>
             <p class="feature-text">
@@ -110,6 +117,7 @@
           </article>
 
           <article class="card feature-card">
+            <span class="feature-icon violet" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 3"/><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.8"/></svg></span>
             <span class="feature-meta">PhD research &middot; UCF</span>
             <h3 class="feature-name">Uncertainty-aware medical image segmentation</h3>
             <p class="feature-text">
@@ -120,6 +128,7 @@
           </article>
 
           <article class="card feature-card">
+            <span class="feature-icon teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 5h14v10H9l-4 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 10l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             <span class="feature-meta">This site</span>
             <h3 class="feature-name">An assistant that knows its limits</h3>
             <p class="feature-text">
