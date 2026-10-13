@@ -419,7 +419,7 @@
       return;
     }
 
-    intro.textContent = "Tell me what you need and I will pull the right projects, research, CV, media, or contact links.";
+    intro.textContent = "Ask about my work, research, or background.";
 
     const chatConfig = mergeConfig(DEFAULT_CHAT_CONFIG, window.ILKIN_CHAT_CONFIG || {});
     const backendEnabled = Boolean(chatConfig.api?.enabled && chatConfig.api?.endpoint);
