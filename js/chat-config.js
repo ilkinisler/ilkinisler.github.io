@@ -4,7 +4,7 @@ window.ILKIN_CHAT_CONFIG = {
   api: (() => {
     // Production endpoint is set once the backend is deployed; until then the live site
     // answers in the browser. Local previews use the backend on localhost:8000.
-    const productionEndpoint = "";
+    const productionEndpoint = "https://ilkin-chat-api-601328376296.us-east1.run.app/chat";
     const isLocal = ["localhost", "127.0.0.1"].includes(window.location.hostname);
     const endpoint = isLocal ? "http://localhost:8000/chat" : productionEndpoint;
     return {

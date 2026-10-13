@@ -1801,8 +1801,46 @@ body {
 
 /* Sections */
 .section {
-  margin-top: clamp(4rem, 8vw, 6rem);
+  margin-top: clamp(3rem, 5vw, 4rem);
   scroll-margin-top: 5.5rem;
+}
+
+/* About: story + at-a-glance facts */
+.about-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.about-text {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.about-facts {
+  margin: 0;
+  display: grid;
+  gap: 0.85rem;
+  align-content: start;
+  padding-left: clamp(1.25rem, 3vw, 2rem);
+  border-left: 1px solid var(--line);
+}
+
+.about-facts dt {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.about-facts dd {
+  margin: 0.15rem 0 0;
+  font-weight: 600;
+  color: var(--text);
 }
 
 .section-eyebrow {
@@ -1987,5 +2025,17 @@ body {
 
   .chat-panel-badge {
     display: none;
+  }
+
+  .about-card {
+    grid-template-columns: 1fr;
+  }
+
+  .about-facts {
+    padding-left: 0;
+    padding-top: 1.1rem;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

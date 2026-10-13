@@ -16,9 +16,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/main.css?v=20261013l">
-  <script src="js/chat-config.js?v=20261013l"></script>
-  <script src="js/main.js?v=20261013l" defer></script>
+  <link rel="stylesheet" href="css/main.css?v=20261013n">
+  <script src="js/chat-config.js?v=20261013n"></script>
+  <script src="js/main.js?v=20261013n" defer></script>
 </head>
 <body data-page="home">
   <div data-include="navbar.html"></div>
@@ -92,13 +92,23 @@
       <section class="section reveal" id="now" aria-labelledby="now-title">
         <span class="section-eyebrow">About</span>
         <h2 class="section-title" id="now-title">Senior AI Engineer at Universal Creative</h2>
-        <p class="section-lead">
-          I work in a forward-deployed role: I meet with business teams, scope what they need, and take the AI solution
-          from first prototype to trusted production. I lead an AI engineering team across our AI platform,
-          finance, and cost-estimating work. Before that, my PhD was about designing neural networks and knowing
-          when a model is wrong &mdash; the same question behind the evaluation work I do today. Outside work, I'm a
-          competitive powerlifter.
-        </p>
+
+        <div class="card about-card">
+          <p class="about-text">
+            I work in a forward-deployed role: I meet with business teams, scope what they need, and take the AI
+            solution from first prototype to trusted production. I lead an AI engineering team across our AI platform,
+            finance, and cost-estimating work. Before that, my PhD was about designing neural networks and knowing when
+            a model is wrong &mdash; the same question behind the evaluation work I do today.
+          </p>
+
+          <dl class="about-facts" aria-label="At a glance">
+            <div><dt>Role</dt><dd>Senior AI Engineer, Universal Creative</dd></div>
+            <div><dt>Education</dt><dd>PhD &amp; MS in Computer Science, UCF</dd></div>
+            <div><dt>Focus</dt><dd>LLM evaluation, RAG, medical imaging</dd></div>
+            <div><dt>Based in</dt><dd>Orlando, FL</dd></div>
+            <div><dt>Off the clock</dt><dd>Competitive powerlifter</dd></div>
+          </dl>
+        </div>
       </section>
 
       <section class="section reveal" id="work" aria-labelledby="work-title">
