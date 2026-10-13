@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T21:14:02+00:00",
+  "generated_at": "2026-10-13T21:47:48+00:00",
   "pipeline": "page-index-rag-v1",
   "sources": [
     {
@@ -60,7 +60,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "Languages & Cloud: Python, SQL, Azure"
+      "text": "Languages & Cloud: Python, SQL, Azure, Google Cloud (Cloud Run)"
     },
     {
       "chunk_id": "resume-p1-c5",
@@ -96,7 +96,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "Evaluation & Trustworthy AI: Hallucination Detection, Groundedness Evaluation, Citation Verification, LLM-as-Judge, RAGAS, DeepEval, BERTScore, ROUGE, Mean Reciprocal Rank (MRR), Benchmark Dataset Creation, Failure Analysis, Uncertainty Quantification, Explainable AI, AI Safety and Governance"
+      "text": "Evaluation & Trustworthy AI: Hallucination Detection, Groundedness Evaluation, Vectara HHEM, Citation Verification, LLM-as-Judge, RAGAS, DeepEval, BERTScore, ROUGE, Mean Reciprocal Rank (MRR), Benchmark Dataset Creation, Failure Analysis, Uncertainty Quantification, Explainable AI, AI Safety and Governance"
     },
     {
       "chunk_id": "resume-p1-c9",
@@ -411,7 +411,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
       "section": "Additional",
-      "text": "Project: ilkinisler.com, a personal site with a grounded AI assistant over a curated knowledge base: hybrid BM25 + embedding retrieval, confidence-based abstention, and sentence-level grounding checks."
+      "text": "Project: ilkinisler.com, a personal site with a grounded AI assistant: hybrid BM25 + embedding retrieval, LLM answers scored for groundedness with Vectara's HHEM model (declining below a confidence threshold), and a FastAPI backend deployed on Google Cloud Run."
     },
     {
       "chunk_id": "resume-p2-c13",
