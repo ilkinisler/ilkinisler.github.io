@@ -1886,6 +1886,50 @@ body {
   background: rgba(18, 19, 26, 0.05);
 }
 
+.scroll-cue {
+  margin: 1.4rem auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  width: fit-content;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: opacity 300ms ease, color var(--transition);
+}
+
+.scroll-cue:hover {
+  color: var(--accent);
+}
+
+.scroll-cue svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  animation: cue-bounce 1.8s ease-in-out infinite;
+}
+
+.has-scrolled .scroll-cue {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes cue-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue svg {
+    animation: none;
+  }
+}
+
 /* Sections */
 .section {
   margin-top: clamp(3rem, 5vw, 4rem);

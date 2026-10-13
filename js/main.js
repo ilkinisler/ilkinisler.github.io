@@ -189,6 +189,7 @@
     initMobileNav();
     setFooterYear();
     initReveals();
+    initScrollCue();
     initShortcutButtons();
     await initBioChatbot();
     window.addEventListener("resize", syncHeaderOffset);
@@ -322,6 +323,13 @@
     if (year) {
       year.textContent = String(new Date().getFullYear());
     }
+  }
+
+  // Hide the "More about me" cue once the visitor has started scrolling.
+  function initScrollCue() {
+    const update = () => document.body.classList.toggle("has-scrolled", window.scrollY > 40);
+    window.addEventListener("scroll", update, { passive: true });
+    update();
   }
 
   function initReveals() {
