@@ -102,8 +102,16 @@
       links: [{ label: "Open Google Scholar", href: "https://scholar.google.com/citations?user=ZgPdlJ0AAAAJ&hl=en" }]
     },
     "how much can you deadlift": {
+      // Kept as a fixed answer for its personality; it restates the profile facts verbatim.
+      fixed: true,
+      groundedness: {
+        score: 1,
+        passed: true,
+        model: "Pre-verified answer",
+        note: "Pre-verified answer written from my profile facts."
+      },
       answer:
-        "Haha, my deadlift PR is 475 lbs, and yes, I pull sumo. I've held deadlift records in Türkiye since 2020 and in Florida since 2022, including both junior and open records. I'm a four-time USA Powerlifting Florida state record holder and a two-time Overall Champion of Türkiye.",
+        "Haha, my deadlift PR is 475 lbs, and yes, I pull sumo. I've held deadlift records in Türkiye since 2020 and in Florida since 2022, including both junior and open records. I'm a four-time USA Powerlifting Florida state record holder, a two-time Overall Champion of Türkiye, and placed 1st overall at the IPSU European Championship.",
       citations: [{ id: "profile_facts", label: "Profile Facts" }],
       links: [
         {
@@ -359,7 +367,9 @@
       citations: preset.citations || [],
       support: [],
       links: preset.links || [],
-      notice: ""
+      notice: "",
+      fixed: Boolean(preset.fixed),
+      groundedness: preset.groundedness ? normalizeGroundedness(preset.groundedness) : null
     };
   }
 
@@ -496,7 +506,7 @@
       // Preset answers are instant but unscored, so they're only used when there's no
       // backend; with a backend, presets just contribute their extra link buttons.
       const manualAnswer = getManualExampleAnswer(q);
-      if (manualAnswer && !backendEnabled) {
+      if (manualAnswer && (manualAnswer.fixed || !backendEnabled)) {
         addMessage(log, "bot", manualAnswer.answer, manualAnswer);
         input.focus();
         return;
@@ -697,7 +707,8 @@
     return {
       score,
       passed: Boolean(value.passed),
-      model: String(value.model || "HHEM").trim()
+      model: String(value.model || "HHEM").trim(),
+      note: String(value.note || "").trim()
     };
   }
 
@@ -1294,10 +1305,10 @@
     wrapper.className = "chat-meta";
 
     if (showGroundedness) {
-      const { score, passed, model } = meta.groundedness;
+      const { score, passed, model, note } = meta.groundedness;
       const badge = document.createElement("span");
       badge.className = `chat-groundedness ${passed ? "ok" : "low"}`;
-      badge.title = `Groundedness confidence from ${model}: how strongly the retrieved sources support this answer.`;
+      badge.title = note || `Groundedness confidence from ${model}: how strongly the retrieved sources support this answer.`;
       badge.textContent = `${passed ? "Grounded" : "Not sure"} · ${Math.round(score * 100)}% confidence`;
       wrapper.appendChild(badge);
     }
