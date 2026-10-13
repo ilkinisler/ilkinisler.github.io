@@ -145,8 +145,15 @@
     thanks:
       "You are welcome. If you want, ask me about research, publications, projects, strength stats, media, or contact.",
     who:
-      "I am Ilkin Isler, PhD - an AI engineer, researcher, and powerlifting champion focused on trustworthy AI for high-stakes real-world use."
+      "I'm Ilkin Isler, an AI engineer and researcher working on trustworthy AI, LLM evaluation, and medical imaging. Ask me about my work, research, or background.",
+    personal:
+      "I keep this assistant focused on my work, research, and background, so I'll skip personal questions. Happy to help with anything professional, or you can reach me by email."
   });
+
+  // Personal or private topics are declined before retrieval, so a stray keyword
+  // match (e.g. "single" in "a single source of truth") can't produce an answer.
+  const PERSONAL_TOPIC_PATTERN =
+    /(^| )(are you single|are u single|u single|you single|still single|married|marry|boyfriend|girlfriend|husband|wife|your partner|dating|date me|in a relationship|are you engaged|crush|kids|children|pregnant|how old|your age|age are you|born in|birthday|date of birth|salary|income|compensation|net worth|how much do you (make|earn)|how much are you paid|religion|religious|muslim|christian|atheist|believe in god|politics|political|vote|democrat|republican|where do you live|home address|your address|phone number|social security|how tall|your height|how much do you weigh|your weight|your health|are you sick|visa|green card|citizenship|sponsorship|immigration)( |$)/;
 
   document.addEventListener("DOMContentLoaded", async () => {
     await injectPartials();
@@ -360,6 +367,16 @@
     const text = normalize(question);
     if (!text) {
       return null;
+    }
+
+    if (PERSONAL_TOPIC_PATTERN.test(text)) {
+      return {
+        answer: SMALL_TALK_RESPONSES.personal,
+        citations: [],
+        support: [],
+        links: [{ label: "Email Me", href: "mailto:ilkinisler@gmail.com" }],
+        notice: ""
+      };
     }
 
     if (/(^| )who are you( |$)|(^| )tell me about yourself( |$)/.test(text)) {

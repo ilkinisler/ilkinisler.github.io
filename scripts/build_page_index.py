@@ -184,13 +184,31 @@ def extract_resume_chunks() -> List[Chunk]:
         section = f"Resume Page {page_index}"
         chunk_counter = 0
 
+        # PDF text wraps bullets across lines; join continuation lines back onto
+        # their bullet so chunks never end mid-sentence.
+        blocks: List[tuple[str, str]] = []
+        current: List[str] = []
         for line in lines:
-            heading = line.strip()
-            if heading.isupper() and len(heading) <= 60:
-                section = heading.title()
+            if line.isupper() and len(line) <= 60:
+                if current:
+                    blocks.append((section, " ".join(current)))
+                    current = []
+                section = line.title()
                 continue
+            starts_block = (
+                line.startswith("•")
+                or re.match(r"^[A-Z][\w &/,-]{2,40}:", line)  # skill rows, "Peer Reviewer:", "Athletics:"
+                or re.search(r"((19|20)\d{2}|Present)\s*$", line)  # role and degree lines ending in a date
+            )
+            if starts_block and current:
+                blocks.append((section, " ".join(current)))
+                current = []
+            current.append(line)
+        if current:
+            blocks.append((section, " ".join(current)))
 
-            for piece in chunk_text(line):
+        for block_section, block in blocks:
+            for piece in chunk_text(block.lstrip("• ")):
                 chunk_counter += 1
                 chunks.append(
                     Chunk(
@@ -199,7 +217,7 @@ def extract_resume_chunks() -> List[Chunk]:
                         source_title=source_title,
                         source_url=source_url,
                         page_index=page_index,
-                        section=section,
+                        section=block_section,
                         text=piece,
                     )
                 )

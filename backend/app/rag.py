@@ -756,10 +756,19 @@ class LocalPageIndexRAG:
         if not text:
             return ""
 
+        # Decline personal/private topics before retrieval (see PERSONAL_TOPIC_PATTERN in js/main.js).
+        if re.search(
+            r"(^| )(are you single|are u single|u single|you single|still single|married|marry|boyfriend|girlfriend|husband|wife|your partner|dating|date me|in a relationship|are you engaged|crush|kids|children|pregnant|how old|your age|age are you|born in|birthday|date of birth|salary|income|compensation|net worth|how much do you (make|earn)|how much are you paid|religion|religious|muslim|christian|atheist|believe in god|politics|political|vote|democrat|republican|where do you live|home address|your address|phone number|social security|how tall|your height|how much do you weigh|your weight|your health|are you sick|visa|green card|citizenship|sponsorship|immigration)( |$)",
+            text,
+        ):
+            return (
+                "I keep this assistant focused on my work, research, and background, so I'll skip personal questions. Happy to help with anything professional, or you can reach me by email."
+            )
+
         if re.search(r"(^| )who are you( |$)|(^| )tell me about yourself( |$)", text):
             return (
-                "I'm Ilkin Isler, PhD - an AI engineer, researcher, and powerlifting champion. "
-                "Ask me about my research, publications, projects, deadlift PR, media, or contact."
+                "I'm Ilkin Isler, an AI engineer and researcher working on trustworthy AI, LLM evaluation, "
+                "and medical imaging. Ask me about my work, research, or background."
             )
 
         if re.search(r"(^| )(thank you|thanks|thx)( |$)", text):
