@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T20:57:43+00:00",
+  "generated_at": "2026-10-13T21:14:02+00:00",
   "pipeline": "page-index-rag-v1",
   "sources": [
     {
@@ -429,7 +429,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
       "section": "Additional",
-      "text": "Athletics: Competitive powerlifter: four-time USA Powerlifting Florida state record holder, two-time Overall Champion of T\u00fcrkiye, 2nd Overall at the IPSU European Championship"
+      "text": "Athletics: Competitive powerlifter: four-time USA Powerlifting Florida state record holder, two-time Overall Champion of T\u00fcrkiye, 1st Place Overall at the IPSU European Championship"
     },
     {
       "chunk_id": "mind-p0-c1",
