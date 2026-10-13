@@ -112,7 +112,7 @@
         },
         {
           label: "IPF Turkiye Records",
-          href: "https://ipfturkiye.com/t%C3%BCrkiye-rekorlar%C4%B1"
+          href: "https://powerlifting.org.tr/turkiye-rekorlari"
         }
       ]
     },
