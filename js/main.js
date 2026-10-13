@@ -111,7 +111,7 @@
           href: "https://usapl.liftingdatabase.com/records-default?priority=0&recordtypeid=120382&categoryid=&weightclassid="
         },
         {
-          label: "IPF Turkiye Records",
+          label: "Türkiye Powerlifting Records",
           href: "https://powerlifting.org.tr/turkiye-rekorlari"
         }
       ]
