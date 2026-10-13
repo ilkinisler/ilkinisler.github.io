@@ -37,6 +37,7 @@ CHAT_LOG_DEFAULT_LIMIT = int(os.getenv("CHAT_LOG_DEFAULT_LIMIT", "50"))
 CHAT_LOG_MAX_LIMIT = int(os.getenv("CHAT_LOG_MAX_LIMIT", "500"))
 HHEM_ENABLED = os.getenv("HHEM_ENABLED", "true").lower() == "true"
 GROUNDEDNESS_THRESHOLD = float(os.getenv("GROUNDEDNESS_THRESHOLD", "0.5"))
+HHEM_PRELOAD = os.getenv("HHEM_PRELOAD", "false").lower() == "true"
 
 groundedness_scorer = HHEMScorer() if HHEM_ENABLED else None
 
@@ -76,8 +77,14 @@ app = FastAPI(
 
 @app.on_event("startup")
 def _warm_up_groundedness() -> None:
-    # Load HHEM in the background so the first visitor doesn't wait for it.
-    if groundedness_scorer is not None:
+    if groundedness_scorer is None:
+        return
+    if HHEM_PRELOAD:
+        # Scale-to-zero hosts (Cloud Run) only send traffic once startup finishes,
+        # so load synchronously and the first request is scored.
+        groundedness_scorer.warm_up()
+    else:
+        # Local dev: start serving immediately and load in the background.
         threading.Thread(target=groundedness_scorer.warm_up, daemon=True).start()
 
 if ALLOWED_ORIGIN == "*":

@@ -90,7 +90,28 @@ curl "https://api.ilkinisler.com/logs?limit=100" \
   -H "x-admin-key: YOUR_ADMIN_KEY"
 ```
 
-## Production notes
-- Deploy this service to a host like Render as `api.ilkinisler.com`
-- Keep frontend on GitHub Pages (`ilkinisler.com`)
-- Point frontend chat config to `https://api.ilkinisler.com/chat`
+## Groundedness scoring (Vectara HHEM)
+
+Each LLM-written answer is scored by [Vectara HHEM-2.1-Open](https://huggingface.co/vectara/hallucination_evaluation_model)
+(Apache-2.0): premise = the retrieved passages, hypothesis = the answer. Scores at or above
+`GROUNDEDNESS_THRESHOLD` (default `0.5`) are shown with the answer; below it the assistant says it isn't sure.
+The model revision is pinned in `app/groundedness.py`.
+
+- `HHEM_ENABLED` (default `true`)
+- `HHEM_PRELOAD` (default `false`; the Docker image sets `true` so cold starts load the model before serving)
+- `GROUNDEDNESS_THRESHOLD` (default `0.5`)
+
+## Production (Google Cloud Run)
+
+The frontend stays on GitHub Pages; the API runs on Cloud Run and scales to zero.
+
+```bash
+gcloud auth login
+PROJECT_ID=<your-project> scripts/deploy_api.sh setup   # enable APIs, store OPENAI_API_KEY in Secret Manager
+PROJECT_ID=<your-project> scripts/deploy_api.sh         # remote build from backend/Dockerfile + deploy
+```
+
+Then set `productionEndpoint` in `js/chat-config.js` to `<service-url>/chat`.
+
+Chat logs use SQLite on the container's disk, which Cloud Run discards when an instance stops; request logs are
+also in Cloud Logging.
