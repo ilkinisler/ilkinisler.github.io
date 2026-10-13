@@ -1389,6 +1389,16 @@ body {
 }
 
 /* Header */
+.brand {
+  white-space: nowrap;
+}
+
+.header-action svg {
+  display: none;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
 .site-header {
   background: rgba(247, 247, 251, 0.8);
   border-bottom: 1px solid var(--line);
@@ -2148,6 +2158,23 @@ body {
 @media (max-width: 760px) {
   .site-shell {
     width: min(var(--content-width), calc(100% - 2rem));
+  }
+
+  /* Phones: header links become icons so the name and links fit on one row. */
+  .header-action-label {
+    display: none;
+  }
+
+  .header-action svg {
+    display: block;
+  }
+
+  .header-actions {
+    gap: 0.1rem;
+  }
+
+  .header-action {
+    padding: 0.5rem;
   }
 
   .chat-panel {
