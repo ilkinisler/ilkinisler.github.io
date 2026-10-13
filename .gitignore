@@ -9,3 +9,9 @@ __pycache__/
 assets/avatar-main.png
 backend/.env
 backend/.env.*
+
+# Local virtualenvs
+.venv*/
+
+# Chat question logs (private)
+backend/data/

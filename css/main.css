@@ -1685,6 +1685,77 @@ body {
   text-align: left;
 }
 
+.chat-groundedness {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: help;
+}
+
+.chat-groundedness::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.chat-groundedness.ok {
+  color: #15803d;
+  background: rgba(34, 197, 94, 0.12);
+}
+
+.chat-groundedness.low {
+  color: #b45309;
+  background: rgba(245, 158, 11, 0.14);
+}
+
+.chat-passages summary {
+  cursor: pointer;
+  width: fit-content;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.chat-passages ol {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.chat-passages li {
+  border-left: 2px solid rgba(81, 70, 229, 0.3);
+  background: #ffffff;
+  border-radius: 0 8px 8px 0;
+  padding: 0.5rem 0.7rem;
+}
+
+.chat-passage-head {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.chat-passage-head a {
+  color: var(--accent);
+}
+
+.chat-passage-text {
+  margin: 0.2rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
 /* Jump nav under the chat */
 .jump-nav {
   margin: 1.75rem auto 0;

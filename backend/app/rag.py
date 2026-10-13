@@ -10,6 +10,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List
 
+from .groundedness import HHEMScorer, build_premise
+
 STOP_WORDS = {
     "a",
     "an",
@@ -109,6 +111,10 @@ THEME_EXPANSIONS = [
 TOKEN_PATTERN = re.compile(r"[a-z0-9]+")
 SENTENCE_PATTERN = re.compile(r"(?<=[.!?])\s+(?=[A-Z0-9\"'])")
 FALLBACK_NOT_ENOUGH_INFO = "I don't have enough information to answer this question."
+LOW_GROUNDEDNESS_ANSWER = (
+    "I'm not sure about this one. My draft answer wasn't well supported by my sources, so I'd rather not guess. "
+    "Try rephrasing, or ask about my work, research, or background."
+)
 
 
 @dataclass
@@ -144,6 +150,8 @@ class LocalPageIndexRAG:
         openai_endpoint: str = "https://api.openai.com/v1/chat/completions",
         llm_temperature: float = 0.15,
         llm_max_tokens: int = 520,
+        groundedness_scorer: HHEMScorer | None = None,
+        groundedness_threshold: float = 0.5,
     ) -> None:
         self.page_index_path = Path(page_index_path)
         self.cache_path = Path(cache_path)
@@ -154,6 +162,8 @@ class LocalPageIndexRAG:
         self.openai_endpoint = str(openai_endpoint or "https://api.openai.com/v1/chat/completions").strip()
         self.llm_temperature = float(llm_temperature)
         self.llm_max_tokens = int(llm_max_tokens)
+        self.groundedness_scorer = groundedness_scorer
+        self.groundedness_threshold = float(groundedness_threshold)
 
         if not self.page_index_path.exists():
             raise FileNotFoundError(f"Page index not found: {self.page_index_path}")
@@ -240,6 +250,34 @@ class LocalPageIndexRAG:
                 "retrieval": retrieval_assessment,
             }
 
+        # Score LLM-written answers with HHEM against the retrieved context. Extractive
+        # answers are copied from the sources, so scoring them would always pass.
+        groundedness = None
+        if llm_result and self.groundedness_scorer is not None:
+            # Judge against every passage the LLM was given: it often uses more than it cites.
+            premise = build_premise([chunk.text for chunk in selected_chunks])
+            score = self.groundedness_scorer.score(premise, answer_text)
+            if score is not None:
+                passed = score >= self.groundedness_threshold
+                groundedness = {
+                    "score": round(score, 3),
+                    "threshold": self.groundedness_threshold,
+                    "passed": passed,
+                    "model": self.groundedness_scorer.label,
+                }
+                if not passed:
+                    return {
+                        "answer": LOW_GROUNDEDNESS_ANSWER,
+                        "citations": [],
+                        "support": [],
+                        "links": [],
+                        "notice": "",
+                        "kind": "declined_low_groundedness",
+                        "retrieval": retrieval_assessment,
+                        "passages": self._passages(selected_chunks),
+                        "groundedness": groundedness,
+                    }
+
         citation_ids: List[str] = []
         if llm_result and isinstance(llm_result.get("citations"), list):
             citation_ids.extend(llm_result.get("citations", []))
@@ -254,6 +292,8 @@ class LocalPageIndexRAG:
             "notice": llm_notice,
             "kind": "llm_grounded_answer" if llm_result else "extractive_grounded_answer",
             "retrieval": retrieval_assessment,
+            "groundedness": groundedness,
+            "passages": self._passages(selected_chunks, citation_ids),
         }
 
     def _ask_grounded_llm(self, question: str, selected_chunks: List[Chunk]) -> dict | None:
@@ -297,13 +337,19 @@ class LocalPageIndexRAG:
 
         payload = {
             "model": self.openai_model,
-            "temperature": self.llm_temperature,
-            "max_tokens": self.llm_max_tokens,
             "messages": [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
         }
+        # GPT-5 and o-series reasoning models reject temperature/max_tokens and spend part of
+        # the completion budget on reasoning, so they get max_completion_tokens and minimal effort.
+        if re.match(r"^(gpt-5|o\d)", self.openai_model):
+            payload["max_completion_tokens"] = max(self.llm_max_tokens, 2000)
+            payload["reasoning_effort"] = "minimal"
+        else:
+            payload["temperature"] = self.llm_temperature
+            payload["max_tokens"] = self.llm_max_tokens
 
         request = urllib.request.Request(
             self.openai_endpoint,
@@ -662,6 +708,26 @@ class LocalPageIndexRAG:
             results.append({"id": source_key or chunk.chunk_id, "label": self._citation_label(chunk)})
 
         return results[:5]
+
+    def _passages(self, chunks: List[Chunk], cited_ids: List[str] | None = None, limit: int = 4) -> List[dict]:
+        """Retrieved passages for the 'View sources' panel, cited ones first."""
+        cited = [chunk_id for chunk_id in (cited_ids or [])]
+        ordered = sorted(chunks, key=lambda chunk: (chunk.chunk_id not in cited,))
+        passages = []
+        for chunk in ordered[:limit]:
+            url = chunk.source_url if chunk.source_url.startswith(("http://", "https://")) else ""
+            if not url and chunk.source_url and not chunk.source_url.startswith("local://"):
+                url = self.frontend_base_url + chunk.source_url.lstrip("/")
+            passages.append(
+                {
+                    "id": chunk.chunk_id,
+                    "label": self._citation_label(chunk),
+                    "section": chunk.section,
+                    "text": chunk.text,
+                    "url": url,
+                }
+            )
+        return passages
 
     def _citation_label(self, chunk: Chunk) -> str:
         if chunk.source_id.startswith("resume_"):

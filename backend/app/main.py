@@ -12,6 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 from .chat_logs import ChatLogStore
+from .groundedness import HHEMScorer
 from .rag import LocalPageIndexRAG
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -34,6 +35,10 @@ CHAT_LOG_HASH_SALT = os.getenv("CHAT_LOG_HASH_SALT", "").strip()
 CHAT_LOG_ADMIN_KEY = os.getenv("CHAT_LOG_ADMIN_KEY", "").strip()
 CHAT_LOG_DEFAULT_LIMIT = int(os.getenv("CHAT_LOG_DEFAULT_LIMIT", "50"))
 CHAT_LOG_MAX_LIMIT = int(os.getenv("CHAT_LOG_MAX_LIMIT", "500"))
+HHEM_ENABLED = os.getenv("HHEM_ENABLED", "true").lower() == "true"
+GROUNDEDNESS_THRESHOLD = float(os.getenv("GROUNDEDNESS_THRESHOLD", "0.5"))
+
+groundedness_scorer = HHEMScorer() if HHEM_ENABLED else None
 
 rag = LocalPageIndexRAG(
     page_index_path=PAGE_INDEX_PATH,
@@ -46,17 +51,34 @@ rag = LocalPageIndexRAG(
     openai_endpoint=OPENAI_ENDPOINT,
     llm_temperature=LLM_TEMPERATURE,
     llm_max_tokens=LLM_MAX_TOKENS,
+    groundedness_scorer=groundedness_scorer,
+    groundedness_threshold=GROUNDEDNESS_THRESHOLD,
 )
 chat_logs = ChatLogStore(
     db_path=CHAT_LOG_DB_PATH,
     hash_salt=CHAT_LOG_HASH_SALT,
 )
 
+def _groundedness_status() -> str:
+    if groundedness_scorer is None:
+        return "disabled"
+    if groundedness_scorer.load_error:
+        return f"unavailable ({groundedness_scorer.load_error})"
+    return groundedness_scorer.label
+
+
 app = FastAPI(
     title="Ilkin Chat API",
     version="0.1.0",
-    description="Local page-index retrieval API (no vector DB)",
+    description="Local page-index retrieval API (no vector DB) with HHEM groundedness scoring",
 )
+
+
+@app.on_event("startup")
+def _warm_up_groundedness() -> None:
+    # Load HHEM in the background so the first visitor doesn't wait for it.
+    if groundedness_scorer is not None:
+        threading.Thread(target=groundedness_scorer.warm_up, daemon=True).start()
 
 if ALLOWED_ORIGIN == "*":
     allow_origins = ["*"]
@@ -122,6 +144,7 @@ class HealthResponse(BaseModel):
     cache_path: str
     log_db_path: str
     log_count: int
+    groundedness_model: str
 
 
 class ChatLogEntry(BaseModel):
@@ -149,6 +172,7 @@ def health() -> HealthResponse:
         cache_path=str(CACHE_PATH),
         log_db_path=str(CHAT_LOG_DB_PATH),
         log_count=chat_logs.count(),
+        groundedness_model=_groundedness_status(),
     )
 
 

@@ -443,24 +443,20 @@
     const chatConfig = mergeConfig(DEFAULT_CHAT_CONFIG, window.ILKIN_CHAT_CONFIG || {});
     const backendEnabled = Boolean(chatConfig.api?.enabled && chatConfig.api?.endpoint);
 
+    // The local index is always loaded so the browser can still answer if the backend is down.
     let retrievalIndex = null;
-    if (backendEnabled) {
+    try {
+      const knowledgeBase = await loadKnowledgeBase(chatConfig.knowledgeBaseUrl);
+      retrievalIndex = buildRetrievalIndex(knowledgeBase);
       if (sourceNote) {
-        sourceNote.textContent =
-          chatConfig.api?.sourceNote || "Grounded knowledge base served by the chat backend.";
+        sourceNote.textContent = backendEnabled
+          ? chatConfig.api?.sourceNote || "Grounded knowledge base served by the chat backend."
+          : buildSourceNote(knowledgeBase);
       }
-    } else {
-      try {
-        const knowledgeBase = await loadKnowledgeBase(chatConfig.knowledgeBaseUrl);
-        retrievalIndex = buildRetrievalIndex(knowledgeBase);
-        if (sourceNote) {
-          sourceNote.textContent = buildSourceNote(knowledgeBase);
-        }
-      } catch (error) {
-        console.error(error);
-        if (sourceNote) {
-          sourceNote.textContent = "Knowledge base unavailable. Check data/page-index.json.";
-        }
+    } catch (error) {
+      console.error(error);
+      if (sourceNote && !backendEnabled) {
+        sourceNote.textContent = "Knowledge base unavailable. Check data/page-index.json.";
       }
     }
 
@@ -514,7 +510,9 @@
           citations: result.citations,
           support: result.support,
           links: result.links,
-          notice: result.notice
+          notice: result.notice,
+          groundedness: result.groundedness,
+          passages: result.passages
         });
       } catch (error) {
         console.error(error);
@@ -640,7 +638,49 @@
       citations,
       support,
       links,
-      notice: typeof payload?.notice === "string" ? payload.notice : ""
+      notice: typeof payload?.notice === "string" ? payload.notice : "",
+      groundedness: normalizeGroundedness(payload?.groundedness),
+      passages: normalizePassages(payload?.passages)
+    };
+  }
+
+  function normalizePassages(value) {
+    if (!Array.isArray(value)) {
+      return [];
+    }
+    return value
+      .map((entry) => ({
+        label: String(entry?.label || "Source").trim(),
+        section: String(entry?.section || "").trim(),
+        text: String(entry?.text || "").trim(),
+        url: String(entry?.url || "").trim()
+      }))
+      .filter((entry) => entry.text);
+  }
+
+  // Retrieved chunks for the "View sources" panel, cited ones first.
+  function buildPassages(selectedChunks, citedIds = [], limit = 4) {
+    const cited = new Set(citedIds);
+    return [...selectedChunks]
+      .sort((a, b) => Number(!cited.has(a.chunk_id)) - Number(!cited.has(b.chunk_id)))
+      .slice(0, limit)
+      .map((chunk) => ({
+        label: citationLabel(chunk),
+        section: String(chunk.section || "").trim(),
+        text: String(chunk.text || "").trim(),
+        url: /^https?:\/\//.test(chunk.source_url || "") ? chunk.source_url : ""
+      }));
+  }
+
+  function normalizeGroundedness(value) {
+    const score = Number(value?.score);
+    if (!value || !Number.isFinite(score)) {
+      return null;
+    }
+    return {
+      score,
+      passed: Boolean(value.passed),
+      model: String(value.model || "HHEM").trim()
     };
   }
 
@@ -831,7 +871,8 @@
       citations,
       support: [],
       links: [],
-      notice
+      notice,
+      passages: buildPassages(context.selectedChunks, citationIds)
     };
   }
 
@@ -1225,13 +1266,24 @@
     const showCitations = Array.isArray(meta.citations) && meta.citations.length;
     const showLinks = Array.isArray(meta.links) && meta.links.length;
     const showNotice = typeof meta.notice === "string" && meta.notice.trim();
+    const showGroundedness = Boolean(meta.groundedness);
+    const showPassages = Array.isArray(meta.passages) && meta.passages.length;
 
-    if (!showCitations && !showLinks && !showNotice) {
+    if (!showCitations && !showLinks && !showNotice && !showGroundedness && !showPassages) {
       return null;
     }
 
     const wrapper = document.createElement("div");
     wrapper.className = "chat-meta";
+
+    if (showGroundedness) {
+      const { score, passed, model } = meta.groundedness;
+      const badge = document.createElement("span");
+      badge.className = `chat-groundedness ${passed ? "ok" : "low"}`;
+      badge.title = `${model} scores how well this answer is supported by the retrieved sources (0 to 1).`;
+      badge.textContent = `${passed ? "Grounded" : "Not grounded"} · ${score.toFixed(2)}`;
+      wrapper.appendChild(badge);
+    }
 
     if (showCitations) {
       const citationLabels = [...new Set(
@@ -1266,6 +1318,39 @@
       });
 
       wrapper.appendChild(linkRow);
+    }
+
+    if (showPassages) {
+      const details = document.createElement("details");
+      details.className = "chat-passages";
+      const summary = document.createElement("summary");
+      summary.textContent = `View sources (${meta.passages.length})`;
+      details.appendChild(summary);
+
+      const list = document.createElement("ol");
+      meta.passages.forEach((passage) => {
+        const item = document.createElement("li");
+        const head = document.createElement("p");
+        head.className = "chat-passage-head";
+        const label = passage.section ? `${passage.label} · ${passage.section}` : passage.label;
+        if (passage.url) {
+          const anchor = document.createElement("a");
+          anchor.href = passage.url;
+          anchor.textContent = label;
+          anchor.target = "_blank";
+          anchor.rel = "noopener";
+          head.appendChild(anchor);
+        } else {
+          head.textContent = label;
+        }
+        const text = document.createElement("p");
+        text.className = "chat-passage-text";
+        text.textContent = passage.text;
+        item.append(head, text);
+        list.appendChild(item);
+      });
+      details.appendChild(list);
+      wrapper.appendChild(details);
     }
 
     if (showNotice) {
