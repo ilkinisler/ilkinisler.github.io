@@ -316,6 +316,9 @@ class LocalPageIndexRAG:
                 "Answer strictly using the supplied context chunks.",
                 "If the answer is missing, say: I don't have that in my current published sources.",
                 "Never fabricate details.",
+                "Speak naturally and concisely, in 2-4 sentences.",
+                "Never mention chunks, context, profile facts, or 'my profile'; just state the facts.",
+                "Do not paste raw URLs; the interface shows links separately.",
                 "Return strict JSON with keys answer and citations.",
                 "citations must be an array of chunk IDs from the allowed list.",
             ]

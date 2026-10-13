@@ -30,9 +30,12 @@ if [[ "${1:-}" == "setup" ]]; then
   fi
 
   number="$(gcloud projects describe "$PROJECT_ID" --format='value(projectNumber)')"
+  compute_sa="serviceAccount:${number}-compute@developer.gserviceaccount.com"
   gcloud secrets add-iam-policy-binding "$SECRET" \
-    --member="serviceAccount:${number}-compute@developer.gserviceaccount.com" \
-    --role=roles/secretmanager.secretAccessor >/dev/null
+    --member="$compute_sa" --role=roles/secretmanager.secretAccessor >/dev/null
+  # New projects' default compute service account can't run source builds without this role.
+  gcloud projects add-iam-policy-binding "$PROJECT_ID" \
+    --member="$compute_sa" --role=roles/run.builder --condition=None >/dev/null
   echo "Setup done."
   exit 0
 fi

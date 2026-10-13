@@ -60,6 +60,16 @@
     }
   ];
 
+  // Curated answers that restate the knowledge base verbatim. Navigational questions
+  // (publications, media, contact) read better as a pointer plus link buttons than as
+  // LLM prose, and HHEM scores paraphrased link lists poorly, so these skip the LLM.
+  const PRE_VERIFIED = Object.freeze({
+    score: 1,
+    passed: true,
+    model: "Pre-verified answer",
+    note: "Pre-verified answer written from my resume and profile facts."
+  });
+
   const EXAMPLE_QUESTION_ANSWERS = Object.freeze({
     "can you tell me about your background": {
       answer:
@@ -74,8 +84,10 @@
       ]
     },
     "where can i see your publications": {
+      fixed: true,
+      groundedness: PRE_VERIFIED,
       answer:
-        "Here are my publications with links. I included direct DOI links where available, plus my Google Scholar profile for complete citations and updates.",
+        "My research is on trustworthy AI for medical imaging: segmentation, uncertainty quantification, and self-supervised learning. Here are my publications with direct links, and Google Scholar has the full, up-to-date list.",
       citations: [
         { id: "resume", label: "Resume" },
         { id: "scholar", label: "Google Scholar" }
@@ -104,12 +116,7 @@
     "how much can you deadlift": {
       // Kept as a fixed answer for its personality; it restates the profile facts verbatim.
       fixed: true,
-      groundedness: {
-        score: 1,
-        passed: true,
-        model: "Pre-verified answer",
-        note: "Pre-verified answer written from my profile facts."
-      },
+      groundedness: PRE_VERIFIED,
       media: {
         type: "video",
         src: "assets/deadlift-475.mp4",
@@ -131,6 +138,8 @@
       ]
     },
     "where can i see your media links": {
+      fixed: true,
+      groundedness: PRE_VERIFIED,
       answer:
         "The best place to start is my UCF News feature, The Mind to Move Mountains. You can also follow updates on LinkedIn, see my publications on Google Scholar, and find my research code on GitHub.",
       citations: [{ id: "mind_to_move", label: "The Mind to Move Mountains" }],
@@ -142,6 +151,8 @@
       ]
     },
     "how can i contact you": {
+      fixed: true,
+      groundedness: PRE_VERIFIED,
       answer:
         "The best way to reach me is by email. You can also message me on LinkedIn.",
       citations: [{ id: "resume", label: "Resume" }],
