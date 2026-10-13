@@ -1418,16 +1418,6 @@ body {
   color: var(--text);
 }
 
-.brand {
-  transition: opacity var(--transition), transform var(--transition);
-}
-
-.site-header.brand-hidden .brand {
-  opacity: 0;
-  transform: translateY(-4px);
-  pointer-events: none;
-}
-
 /* Hero */
 .hero {
   padding: clamp(2.5rem, 6vw, 4rem) 0 0;
@@ -1472,20 +1462,14 @@ body {
 }
 
 .hero-title {
-  margin: 1.1rem 0 0;
+  margin: 1.1rem auto 0;
+  max-width: 22ch;
   font-family: var(--heading);
   font-weight: 700;
-  font-size: clamp(2.4rem, 6vw, 3.6rem);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.8rem, 4.2vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
   color: var(--text);
-}
-
-.hero-subtitle {
-  margin: 0.8rem auto 0;
-  max-width: 40ch;
-  color: var(--text-muted);
-  font-size: clamp(1.02rem, 2vw, 1.15rem);
 }
 
 .hero-tags {

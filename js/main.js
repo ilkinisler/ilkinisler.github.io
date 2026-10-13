@@ -189,7 +189,6 @@
     initMobileNav();
     setFooterYear();
     initReveals();
-    initHeaderBrand();
     initShortcutButtons();
     await initBioChatbot();
     window.addEventListener("resize", syncHeaderOffset);
@@ -323,22 +322,6 @@
     if (year) {
       year.textContent = String(new Date().getFullYear());
     }
-  }
-
-  // The hero already shows the name in large type, so the header brand stays hidden
-  // until the hero title scrolls out of view.
-  function initHeaderBrand() {
-    const header = document.querySelector("[data-site-header]");
-    const heroTitle = document.querySelector(".hero-title");
-    if (!header || !heroTitle) {
-      return;
-    }
-    const update = () => {
-      const titleVisible = heroTitle.getBoundingClientRect().bottom > header.offsetHeight;
-      header.classList.toggle("brand-hidden", titleVisible);
-    };
-    window.addEventListener("scroll", update, { passive: true });
-    update();
   }
 
   function initReveals() {
