@@ -992,6 +992,10 @@ body[data-page="home"] .header-actions {
   font-weight: 700;
 }
 
+.timeline + .card-link {
+  margin-top: 1rem;
+}
+
 .card-link::after {
   content: "\2192";
   font-size: 0.95rem;

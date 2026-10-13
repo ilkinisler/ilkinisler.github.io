@@ -664,7 +664,7 @@ class LocalPageIndexRAG:
         return results[:5]
 
     def _citation_label(self, chunk: Chunk) -> str:
-        if chunk.source_id == "resume_nov2025":
+        if chunk.source_id.startswith("resume_"):
             return "Resume"
         if chunk.source_id == "ucf_mind_to_move_mountains_2026":
             return "The Mind to Move Mountains"

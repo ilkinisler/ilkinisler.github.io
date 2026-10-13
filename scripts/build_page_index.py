@@ -2,8 +2,9 @@
 """Build a local page index for the homepage RAG assistant.
 
 Sources are intentionally restricted to:
-1) assets/resumeilkinisler-nov5.pdf
+1) assets/Ilkin_Isler_Resume.pdf
 2) UCF article "The Mind to Move Mountains"
+3) First-party profile facts below
 """
 
 from __future__ import annotations
@@ -22,7 +23,9 @@ from pypdf import PdfReader
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_PATH = ROOT / "data" / "page-index.json"
-RESUME_PATH = ROOT / "assets" / "resumeilkinisler-nov5.pdf"
+RESUME_PATH = ROOT / "assets" / "Ilkin_Isler_Resume.pdf"
+RESUME_SOURCE_ID = "resume_oct2026"
+RESUME_SOURCE_TITLE = "Ilkin Isler Resume (Oct 2026)"
 ARTICLE_PUBLIC_URL = "https://www.ucf.edu/news/the-mind-to-move-mountains/"
 ARTICLE_API_URL = "https://www.ucf.edu/news/wp-json/wp/v2/posts/150753"
 
@@ -146,9 +149,9 @@ class ArticleParser(HTMLParser):
 
 
 def extract_resume_chunks() -> List[Chunk]:
-    source_id = "resume_nov2025"
-    source_title = "Ilkin Isler Resume (Nov 2025)"
-    source_url = "assets/resumeilkinisler-nov5.pdf"
+    source_id = RESUME_SOURCE_ID
+    source_title = RESUME_SOURCE_TITLE
+    source_url = "assets/Ilkin_Isler_Resume.pdf"
 
     reader = PdfReader(str(RESUME_PATH))
     chunks: List[Chunk] = []
@@ -157,11 +160,14 @@ def extract_resume_chunks() -> List[Chunk]:
         "PROFESSIONAL SUMMARY",
         "EDUCATION",
         "WORK EXPERIENCE",
+        "PROFESSIONAL EXPERIENCE",
         "TECHNICAL SKILLS",
         "AREAS OF EXPERTISE",
         "ACADEMIA",
         "ADDITIONAL CREDENTIALS",
         "HONORS & AWARDS",
+        "PUBLICATIONS & ACADEMIC SERVICE",
+        "ADDITIONAL",
     ]
 
     for page_index, page in enumerate(reader.pages, start=1):
@@ -312,7 +318,11 @@ def extract_profile_chunks() -> List[Chunk]:
         ),
         (
             "Contact",
-            "You can reach me at ilkinisler@gmail.com. LinkedIn: https://www.linkedin.com/in/ilkinsevgiisler/. Google Scholar: https://scholar.google.com/citations?user=ZgPdlJ0AAAAJ&hl=en.",
+            "You can reach me at ilkinisler@gmail.com. LinkedIn: https://www.linkedin.com/in/ilkinsevgiisler/. Google Scholar: https://scholar.google.com/citations?user=ZgPdlJ0AAAAJ&hl=en. GitHub: https://github.com/ilkinisler.",
+        ),
+        (
+            "This Assistant",
+            "This assistant answers only from my resume, the UCF News feature, and these first-party facts. It uses hybrid retrieval (BM25-style keyword matching plus embedding similarity), declines to answer when retrieval confidence is low instead of guessing, and checks that each answer sentence is supported by a source. I built it as a small, public example of the grounded, hallucination-aware systems I build at work.",
         ),
     ]
 
@@ -340,10 +350,10 @@ def build_page_index(chunks: Iterable[Chunk]) -> dict:
         "pipeline": "page-index-rag-v1",
         "sources": [
             {
-                "source_id": "resume_nov2025",
-                "title": "Ilkin Isler Resume (Nov 2025)",
+                "source_id": RESUME_SOURCE_ID,
+                "title": RESUME_SOURCE_TITLE,
                 "type": "pdf",
-                "url": "assets/resumeilkinisler-nov5.pdf",
+                "url": "assets/Ilkin_Isler_Resume.pdf",
                 "note": "Primary professional record",
             },
             {

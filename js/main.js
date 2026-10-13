@@ -70,7 +70,7 @@
       ],
       links: [
         { label: "Open UCF Article", href: "https://www.ucf.edu/news/the-mind-to-move-mountains/" },
-        { label: "Open Resume", href: "assets/resumeilkinisler-nov5.pdf" }
+        { label: "Open Resume", href: "assets/Ilkin_Isler_Resume.pdf" }
       ]
     },
     "where can i see your publications": {
@@ -1084,7 +1084,7 @@
   }
 
   function citationLabel(chunk) {
-    if (chunk.source_id === "resume_nov2025") {
+    if (String(chunk.source_id).startsWith("resume_")) {
       return "Resume";
     }
 
