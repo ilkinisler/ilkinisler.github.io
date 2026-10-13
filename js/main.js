@@ -493,23 +493,29 @@
         return;
       }
 
+      // Preset answers are instant but unscored, so they're only used when there's no
+      // backend; with a backend, presets just contribute their extra link buttons.
       const manualAnswer = getManualExampleAnswer(q);
-      if (manualAnswer) {
+      if (manualAnswer && !backendEnabled) {
         addMessage(log, "bot", manualAnswer.answer, manualAnswer);
         input.focus();
         return;
       }
 
       setBusy(true);
-      const pending = addPendingMessage(log, "Retrieving relevant context...");
+      const pending = addPendingMessage(log, "Retrieving sources and checking groundedness...");
 
       try {
-        const result = await answerQuestion(q, retrievalIndex, chatConfig);
+        let result = await answerQuestion(q, retrievalIndex, chatConfig);
+        if (manualAnswer && !result.groundedness) {
+          // Backend unreachable: the curated preset beats an unscored extractive answer.
+          result = manualAnswer;
+        }
         pending.remove();
         addMessage(log, "bot", result.answer, {
           citations: result.citations,
           support: result.support,
-          links: result.links,
+          links: mergeLinks(result.links, manualAnswer?.links),
           notice: result.notice,
           groundedness: result.groundedness,
           passages: result.passages
@@ -642,6 +648,17 @@
       groundedness: normalizeGroundedness(payload?.groundedness),
       passages: normalizePassages(payload?.passages)
     };
+  }
+
+  function mergeLinks(primary = [], extra = []) {
+    const seen = new Set();
+    return [...(primary || []), ...(extra || [])].filter((link) => {
+      if (!link?.href || seen.has(link.href)) {
+        return false;
+      }
+      seen.add(link.href);
+      return true;
+    });
   }
 
   function normalizePassages(value) {
@@ -1280,8 +1297,8 @@
       const { score, passed, model } = meta.groundedness;
       const badge = document.createElement("span");
       badge.className = `chat-groundedness ${passed ? "ok" : "low"}`;
-      badge.title = `${model} scores how well this answer is supported by the retrieved sources (0 to 1).`;
-      badge.textContent = `${passed ? "Grounded" : "Not grounded"} · ${score.toFixed(2)}`;
+      badge.title = `Groundedness confidence from ${model}: how strongly the retrieved sources support this answer.`;
+      badge.textContent = `${passed ? "Grounded" : "Not sure"} · ${Math.round(score * 100)}% confidence`;
       wrapper.appendChild(badge);
     }
 
