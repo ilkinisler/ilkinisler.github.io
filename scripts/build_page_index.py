@@ -316,7 +316,7 @@ def extract_profile_chunks() -> List[Chunk]:
         ),
         (
             "Projects",
-            "At work I build enterprise AI systems: an in-house AI platform for deploying and governing AI tools and agents, LLM evaluation and hallucination detection pipelines, and human-in-the-loop tools for finance and cost estimating. On my own time I build personal AI assistants for home workflows and daily automation, and this site's grounded assistant.",
+            "At work I build enterprise AI systems: an in-house AI platform for deploying, orchestrating, and governing AI tools, agents, and multi-agent workflows (including MCP servers, tool calling, and agent skills), LLM evaluation and hallucination detection pipelines, and human-in-the-loop tools for finance and cost estimating. On my own time I build personal AI assistants for home workflows and daily automation, and this site's grounded assistant.",
         ),
         (
             "Research",
@@ -328,7 +328,7 @@ def extract_profile_chunks() -> List[Chunk]:
         ),
         (
             "Strength",
-            "My powerlifting PRs are Squat 355 lbs, Bench 200 lbs, and Deadlift 475 lbs. I am a European powerlifting champion and a national champion in Turkey. I am still holding deadlift records in Turkiye since 2020 and in Florida since 2022. These include both junior and open records, and I broke both while I was a junior. Sources: USAPL records database https://usapl.liftingdatabase.com/records-default?priority=0&recordtypeid=120382&categoryid=&weightclassid= and IPF Turkiye records https://powerlifting.org.tr/turkiye-rekorlari.",
+            "My powerlifting PRs are Squat 355 lbs, Bench 200 lbs, and Deadlift 475 lbs. I am a European powerlifting champion (1st Place Overall at the IPSU European Championship) and a two-time Overall Champion of Türkiye. I am still holding deadlift records in Turkiye since 2020 and in Florida since 2022. These include both junior and open records, and I broke both while I was a junior. Sources: USAPL records database https://usapl.liftingdatabase.com/records-default?priority=0&recordtypeid=120382&categoryid=&weightclassid= and IPF Turkiye records https://powerlifting.org.tr/turkiye-rekorlari.",
         ),
         (
             "Media",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T21:47:48+00:00",
+  "generated_at": "2026-10-14T01:52:22+00:00",
   "pipeline": "page-index-rag-v1",
   "sources": [
     {
@@ -33,7 +33,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Resume Page 1",
-      "text": "ILKIN ISLER, Ph.D. ilkinisler@gmail.com | linkedin.com/in/ilkinsevgiisler | Google Scholar | github.com/ilkinisler | ilkinisler.com"
+      "text": "ILKIN ISLER, Ph.D. ilkinisler@gmail.com LinkedIn Google Scholar GitHub ilkinisler.com"
     },
     {
       "chunk_id": "resume-p1-c2",
@@ -60,7 +60,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "Languages & Cloud: Python, SQL, Azure, Google Cloud (Cloud Run)"
+      "text": "Languages & Cloud: Python, SQL (database schema design, data modeling), Azure, Google Cloud (Cloud Run)"
     },
     {
       "chunk_id": "resume-p1-c5",
@@ -87,7 +87,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "LLM & Agentic AI: Retrieval-Augmented Generation (RAG), Hybrid Search (BM25 + Vector), Document Ingestion Pipelines, Multi-Agent Systems, Agent Orchestration, Model Context Protocol (MCP), LLM Integration, Prompt Engineering, Vision-Language Model Fine-Tuning"
+      "text": "LLM & Agentic AI: Retrieval-Augmented Generation (RAG), Hybrid Search (BM25 + Vector), Document Ingestion Pipelines, Multi-Agent Systems, Agent Orchestration, Model Context Protocol (MCP) Server Development, Function Calling and Tool Use, Agent Skills, LLM Integration, Prompt Engineering, Vision-Language Model Fine-Tuning"
     },
     {
       "chunk_id": "resume-p1-c8",
@@ -96,7 +96,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "Evaluation & Trustworthy AI: Hallucination Detection, Groundedness Evaluation, Vectara HHEM, Citation Verification, LLM-as-Judge, RAGAS, DeepEval, BERTScore, ROUGE, Mean Reciprocal Rank (MRR), Benchmark Dataset Creation, Failure Analysis, Uncertainty Quantification, Explainable AI, AI Safety and Governance"
+      "text": "Evaluation & Trustworthy AI: Hallucination Detection, Groundedness Evaluation, Vectara HHEM, Citation Verification, LLM-as-Judge, RAGAS, DeepEval, BERTScore, ROUGE, Mean Reciprocal Rank (MRR), Benchmark Dataset Creation, Synthetic Data Generation for RAG Evals, Failure Analysis, Uncertainty Quantification, Explainable AI, AI Safety and Governance"
     },
     {
       "chunk_id": "resume-p1-c9",
@@ -105,7 +105,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "Deep Learning & Computer Vision: PyTorch, MONAI, Neural Network Architecture Design, Self-Supervised Pretraining, Transfer Learning & Fine-Tuning (Swin UNETR, foundation models), Custom Loss Function Design, Medical Image Segmentation, Segmentation Metrics (Dice, HD95), NLP, Anomaly Detection"
+      "text": "Deep Learning & Computer Vision: PyTorch, Multi-GPU Distributed Training (PyTorch DDP), Multi-Source Dataset Curation, Data Augmentation, MONAI, Neural Network Architecture Design, Self-Supervised Pretraining, Transfer Learning & Fine-Tuning (Swin UNETR, foundation models), Custom Loss Function Design, Medical Image Segmentation, Segmentation Metrics (Dice, HD95), NLP, Anomaly Detection"
     },
     {
       "chunk_id": "resume-p1-c10",
@@ -123,7 +123,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "Universal Creative Orlando, FL"
+      "text": "UNIVERSAL CREATIVE Orlando, FL"
     },
     {
       "chunk_id": "resume-p1-c12",
@@ -150,7 +150,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "Architected and built an in-house enterprise AI platform for deploying, orchestrating, governing, and monitoring AI tools, agents, and multi-agent workflows across multiple business units."
+      "text": "Architected and built an in-house enterprise AI platform for deploying, orchestrating, governing, and monitoring AI tools, agents, and multi-agent workflows, including MCP servers, tool calling, and agent skills, across multiple business units."
     },
     {
       "chunk_id": "resume-p1-c15",
@@ -222,7 +222,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "Independently researched and built a retrieval-enabled chatbot over engineering specifications, including its RAG, hallucination detection, groundedness scoring, citation verification, topic modeling, metadata tagging, and structured information extraction, evaluated with self-built benchmark datasets and metrics (MRR, RAGAS, DeepEval, BERTScore, ROUGE, LLM-as-judge); this work grew into the core of the enterprise AI platform. University of Central Florida, College of Engineering and Computer Science Orlando, FL"
+      "text": "Independently researched and built a retrieval-enabled chatbot over engineering specifications, including its RAG, hallucination detection, groundedness scoring, citation verification, topic modeling, metadata tagging, and structured information extraction, evaluated with self-built benchmark datasets, including synthetic question-answer data generated for RAG evaluation, and metrics (MRR, RAGAS, DeepEval, BERTScore, ROUGE, LLM-as-judge); this work grew into the core of the enterprise AI platform. UNIVERSITY OF CENTRAL FLORIDA, COLLEGE OF ENGINEERING AND COMPUTER SCIENCE Orlando, FL"
     },
     {
       "chunk_id": "resume-p1-c23",
@@ -258,7 +258,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "Designed novel 3D neural network architectures and compound loss functions combining overlap and boundary-distance objectives for tumor and organ-at-risk segmentation; self-supervised and uncertainty-guided coarse-to-fine approaches achieved state-of-the-art results at publication (IEEE ICECCME 2023, IEEE ACDSA 2025), including raising Swin UNETR Dice from 0.47 to 0.64, and an improved U- Net reached ~80% vs. 63% Dice over baseline (SPIE Medical Imaging 2022)."
+      "text": "Designed novel 3D neural network architectures and compound loss functions combining overlap and boundary-distance objectives for tumor and organ-at-risk segmentation, trained with multi-GPU distributed training (PyTorch DDP) on ~1,000 3D CT and MRI volumes merged and harmonized from multiple datasets, expanded with extensive data augmentation; self-supervised and uncertainty-guided coarse-to-fine approaches achieved state-of-the-art results at publication (IEEE ICECCME 2023, IEEE ACDSA 2025), including raising Swin UNETR Dice from 0.47 to 0.64, and an improved U-Net reached ~80% vs. 63% Dice over baseline (SPIE Medical Imaging 2022)."
     },
     {
       "chunk_id": "resume-p1-c27",
@@ -285,25 +285,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "Python Developer (Contract), Universal Orlando Resort (Orlando, 2022): resolved 100+ vulnerabilities in cloud data pipelines and optimized ML workflows with Azure Databricks and MLflow."
-    },
-    {
-      "chunk_id": "resume-p1-c30",
-      "source_id": "resume_oct2026",
-      "source_title": "Ilkin Isler Resume (Oct 2026)",
-      "source_url": "assets/Ilkin_Isler_Resume.pdf",
-      "page_index": 1,
-      "section": "Professional Experience",
-      "text": "Data Analyst, Simsoft Information Technologies (Ankara, 2020): built LSTM models for anomaly detection and predictive maintenance on industrial sensor data; modeled COVID-19 spread."
-    },
-    {
-      "chunk_id": "resume-p1-c31",
-      "source_id": "resume_oct2026",
-      "source_title": "Ilkin Isler Resume (Oct 2026)",
-      "source_url": "assets/Ilkin_Isler_Resume.pdf",
-      "page_index": 1,
-      "section": "Professional Experience",
-      "text": "Research Intern, UCF Synthetic Reality Lab (Orlando, 2019): applied GANs to facial expression recognition and human-to-avatar translation."
+      "text": "Python Developer (Contract), Universal Orlando Resort (Orlando, 2022): strengthened the security and performance of cloud data pipelines and optimized ML workflows with Azure Databricks and MLflow."
     },
     {
       "chunk_id": "resume-p2-c1",
@@ -312,7 +294,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
       "section": "Resume Page 2",
-      "text": "Data Analyst Intern, Carbon Health (San Francisco, 2018): built predictive models that cut clinic wait times by 30%."
+      "text": "Data Analyst, Simsoft Information Technologies (Ankara, 2020): built LSTM models for anomaly detection and predictive maintenance on industrial sensor data; modeled COVID-19 spread."
     },
     {
       "chunk_id": "resume-p2-c2",
@@ -320,8 +302,8 @@
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
-      "section": "Education",
-      "text": "Ph.D., Computer Science, University of Central Florida, Orlando, FL Aug 2025"
+      "section": "Resume Page 2",
+      "text": "Research Intern, UCF Synthetic Reality Lab (Orlando, 2019): applied GANs to facial expression recognition and human-to-avatar translation."
     },
     {
       "chunk_id": "resume-p2-c3",
@@ -329,8 +311,8 @@
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
-      "section": "Education",
-      "text": "Dissertation: Advanced Deep Learning Algorithms for Medical Imaging Applications: Tumor and Organ at Risk Segmentation UCF College of Graduate Studies Presentation Fellowship (2021)"
+      "section": "Resume Page 2",
+      "text": "Data Analyst Intern, Carbon Health (San Francisco, 2018): built predictive models that cut clinic wait times by 30%."
     },
     {
       "chunk_id": "resume-p2-c4",
@@ -339,7 +321,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
       "section": "Education",
-      "text": "MS, Computer Science, University of Central Florida, Orlando, FL Dec 2022"
+      "text": "Ph.D., Computer Science, University of Central Florida, Orlando, FL Aug 2025"
     },
     {
       "chunk_id": "resume-p2-c5",
@@ -348,7 +330,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
       "section": "Education",
-      "text": "BS, Computer Science, Hacettepe University, Ankara, Turkey June 2020"
+      "text": "Dissertation: Advanced Deep Learning Algorithms for Medical Imaging Applications: Tumor and Organ at Risk Segmentation UCF College of Graduate Studies Presentation Fellowship (2021)"
     },
     {
       "chunk_id": "resume-p2-c6",
@@ -356,8 +338,8 @@
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
-      "section": "Publications & Academic Service",
-      "text": "Zhang, Z., \u2026, Isler, I., et al. Large-scale multi-center CT and MRI segmentation of pancreas with deep learning. Medical Image Analysis, 2025."
+      "section": "Education",
+      "text": "MS, Computer Science, University of Central Florida, Orlando, FL Dec 2022"
     },
     {
       "chunk_id": "resume-p2-c7",
@@ -365,8 +347,8 @@
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
-      "section": "Publications & Academic Service",
-      "text": "Isler, I., Mohaisen, D., Lisle, C., Turgut, D., Bagci, U. Uncertainty-Guided Coarse-to-Fine Tumor Segmentation with Anatomy-Aware Post-Processing. IEEE ACDSA, 2025."
+      "section": "Education",
+      "text": "BS, Computer Science, Hacettepe University, Ankara, Turkey June 2020"
     },
     {
       "chunk_id": "resume-p2-c8",
@@ -375,7 +357,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
       "section": "Publications & Academic Service",
-      "text": "Jha, D., \u2026, Isler, I., et al. Practical and Ethical Considerations for Generative AI in Medical Imaging. MICCAI Workshop, 2024."
+      "text": "Zhang, Z., \u2026, Isler, I., et al. Large-scale multi-center CT and MRI segmentation of pancreas with deep learning. Medical Image Analysis, 2025."
     },
     {
       "chunk_id": "resume-p2-c9",
@@ -384,10 +366,28 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
       "section": "Publications & Academic Service",
-      "text": "Isler, I., Jha, D., Lisle, C., et al. Self-Supervised Learning for Organs At Risk and Tumor Segmentation with Uncertainty Quantification."
+      "text": "Isler, I., Mohaisen, D., Lisle, C., Turgut, D., Bagci, U. Uncertainty-Guided Coarse-to-Fine Tumor Segmentation with Anatomy-Aware Post-Processing. IEEE ACDSA, 2025."
     },
     {
       "chunk_id": "resume-p2-c10",
+      "source_id": "resume_oct2026",
+      "source_title": "Ilkin Isler Resume (Oct 2026)",
+      "source_url": "assets/Ilkin_Isler_Resume.pdf",
+      "page_index": 2,
+      "section": "Publications & Academic Service",
+      "text": "Jha, D., \u2026, Isler, I., et al. Practical and Ethical Considerations for Generative AI in Medical Imaging. MICCAI Workshop, 2024."
+    },
+    {
+      "chunk_id": "resume-p2-c11",
+      "source_id": "resume_oct2026",
+      "source_title": "Ilkin Isler Resume (Oct 2026)",
+      "source_url": "assets/Ilkin_Isler_Resume.pdf",
+      "page_index": 2,
+      "section": "Publications & Academic Service",
+      "text": "Isler, I., Jha, D., Lisle, C., et al. Self-Supervised Learning for Organs At Risk and Tumor Segmentation with Uncertainty Quantification."
+    },
+    {
+      "chunk_id": "resume-p2-c12",
       "source_id": "resume_oct2026",
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
@@ -396,7 +396,7 @@
       "text": "Isler, I., Lisle, C., Rineer, J., et al. Enhancing Organ at Risk Segmentation with Improved Deep Neural Networks. SPIE Medical Imaging, 2022."
     },
     {
-      "chunk_id": "resume-p2-c11",
+      "chunk_id": "resume-p2-c13",
       "source_id": "resume_oct2026",
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
@@ -405,7 +405,7 @@
       "text": "Peer Reviewer: Medical Physics; IEEE Journal of Biomedical and Health Informatics; IEEE Transactions on Medical Imaging"
     },
     {
-      "chunk_id": "resume-p2-c12",
+      "chunk_id": "resume-p2-c14",
       "source_id": "resume_oct2026",
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
@@ -414,7 +414,7 @@
       "text": "Project: ilkinisler.com, a personal site with a grounded AI assistant: hybrid BM25 + embedding retrieval, LLM answers scored for groundedness with Vectara's HHEM model (declining below a confidence threshold), and a FastAPI backend deployed on Google Cloud Run."
     },
     {
-      "chunk_id": "resume-p2-c13",
+      "chunk_id": "resume-p2-c15",
       "source_id": "resume_oct2026",
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
@@ -423,7 +423,7 @@
       "text": "Media: Featured in UCF News, The Mind to Move Mountains (2026)."
     },
     {
-      "chunk_id": "resume-p2-c14",
+      "chunk_id": "resume-p2-c16",
       "source_id": "resume_oct2026",
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
@@ -708,7 +708,7 @@
       "source_url": "local://profile-facts",
       "page_index": 1,
       "section": "Projects",
-      "text": "At work I build enterprise AI systems: an in-house AI platform for deploying and governing AI tools and agents, LLM evaluation and hallucination detection pipelines, and human-in-the-loop tools for finance and cost estimating. On my own time I build personal AI assistants for home workflows and daily automation, and this site's grounded assistant."
+      "text": "At work I build enterprise AI systems: an in-house AI platform for deploying, orchestrating, and governing AI tools, agents, and multi-agent workflows (including MCP servers, tool calling, and agent skills), LLM evaluation and hallucination detection pipelines, and human-in-the-loop tools for finance and cost estimating. On my own time I build personal AI assistants for home workflows and daily automation, and this site's grounded assistant."
     },
     {
       "chunk_id": "profile-p1-c3",
@@ -735,7 +735,7 @@
       "source_url": "local://profile-facts",
       "page_index": 1,
       "section": "Strength",
-      "text": "My powerlifting PRs are Squat 355 lbs, Bench 200 lbs, and Deadlift 475 lbs. I am a European powerlifting champion and a national champion in Turkey. I am still holding deadlift records in Turkiye since 2020 and in Florida since 2022. These include both junior and open records, and I broke both while I was a junior. Sources: USAPL records database https://usapl.liftingdatabase.com/records-default?priority=0&recordtypeid=120382&categoryid=&weightclassid= and IPF Turkiye records https://powerlifting.org.tr/turkiye-rekorlari."
+      "text": "My powerlifting PRs are Squat 355 lbs, Bench 200 lbs, and Deadlift 475 lbs. I am a European powerlifting champion (1st Place Overall at the IPSU European Championship) and a two-time Overall Champion of T\u00fcrkiye. I am still holding deadlift records in Turkiye since 2020 and in Florida since 2022. These include both junior and open records, and I broke both while I was a junior. Sources: USAPL records database https://usapl.liftingdatabase.com/records-default?priority=0&recordtypeid=120382&categoryid=&weightclassid= and IPF Turkiye records https://powerlifting.org.tr/turkiye-rekorlari."
     },
     {
       "chunk_id": "profile-p1-c6",
