@@ -2197,3 +2197,60 @@ body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Main initiatives: case studies */
+.section-lead {
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 66ch;
+  margin: 0 0 1.25rem;
+}
+
+.initiative-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.case-card {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.case-card.case-wide {
+  margin-top: 1rem;
+}
+
+.case-card h4 {
+  margin: 0.6rem 0 0;
+  font-family: var(--heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.case-card p,
+.case-card li {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.case-card .case-intro {
+  color: var(--text);
+}
+
+.case-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.3rem;
+}
+
+@media (max-width: 860px) {
+  .initiative-grid {
+    grid-template-columns: 1fr;
+  }
+}

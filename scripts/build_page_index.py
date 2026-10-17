@@ -319,6 +319,14 @@ def extract_profile_chunks() -> List[Chunk]:
             "At work I build enterprise AI systems: an in-house AI platform for deploying, orchestrating, and governing AI tools, agents, and multi-agent workflows (including MCP servers, tool calling, and agent skills), LLM evaluation and hallucination detection pipelines, and human-in-the-loop tools for finance and cost estimating. On my own time I build personal AI assistants for home workflows and daily automation, and this site's grounded assistant.",
         ),
         (
+            "Finance Initiative",
+            "One of my two main initiatives at work is AI for finance reporting and forecasting. Finance teams kept a separate, frequently reworked spreadsheet for every project, so monthly reporting meant hours of manual consolidation. I built human-in-the-loop AI tools that bring project finance data into one adaptable source of truth, surface the top cost drivers each month, flag transactions worth a closer look, and support forecasting while the analyst stays in control of every number. I started from how analysts actually close a month, kept every output reviewable, and evaluated new methods before they reached the team.",
+        ),
+        (
+            "Estimating Initiative",
+            "My other main initiative is AI-assisted cost estimating, which I lead along with its developers. Estimating large, one-of-a-kind projects depends on deep expertise and messy, non-standardized inputs, and the estimators were skeptical at first. We built a suite of purpose-built, human-in-the-loop tools that read design drawings to draft scope, turn messy scope lists into structured estimates and track how they change, and retrieve everything previously paid for an item. Instead of replacing their Excel workflows, the tools accept their existing files and return results in the same format; we started with small validated wins and added automation as trust grew. The conversation moved from whether it would work to what else we could automate. I am also building a project-intelligence tool that unifies design, scheduling, estimating, budgeting, and finance data into one view for senior leadership.",
+        ),
+        (
             "Research",
             "My research is about building AI that people can rely on, which starts with knowing when a model is wrong. During my PhD I designed 3D neural network architectures, loss functions, and uncertainty quantification methods for tumor and organ-at-risk segmentation; my self-supervised and uncertainty-guided approaches achieved state-of-the-art results at publication. Today I apply the same idea to LLMs: retrieval-augmented generation, hallucination detection, groundedness and citation checks, and evaluation pipelines that decide when an answer can be trusted, or when the system should decline to answer.",
         ),
