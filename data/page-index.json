@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T21:23:18+00:00",
+  "generated_at": "2026-10-17T21:28:44+00:00",
   "pipeline": "page-index-rag-v1",
   "sources": [
     {
@@ -51,7 +51,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Summary",
-      "text": "Built RAG, hallucination detection, and evaluation systems and an enterprise AI platform from scratch, designed to enterprise security and governance standards. Leads an AI engineering team across AI infrastructure, finance automation, and cost estimating."
+      "text": "Built RAG, hallucination detection, and evaluation systems and an enterprise AI platform from scratch, and co-developed an enterprise data ingestion pipeline for structured and unstructured documents, all designed to enterprise security and governance standards. Leads an AI engineering team across AI infrastructure, finance automation, and cost estimating."
     },
     {
       "chunk_id": "resume-p1-c4",
@@ -87,7 +87,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "LLM & Agentic AI: Retrieval-Augmented Generation (RAG), Hybrid Search (BM25 + Vector), Document Ingestion Pipelines, Multi-Agent Systems, Agent Orchestration, Model Context Protocol (MCP) Server Development, Function Calling and Tool Use, Agent Skills, LLM Integration, Prompt Engineering, Vision-Language Model Fine-Tuning"
+      "text": "LLM & Agentic AI: Retrieval-Augmented Generation (RAG), Hybrid Search (BM25 + Vector), Data and Document Ingestion Pipelines (structured and unstructured data), Multi-Agent Systems, Agent Orchestration, Model Context Protocol (MCP) Server Development, Function Calling and Tool Use, Agent Skills, LLM Integration, Prompt Engineering, Vision-Language Model Fine-Tuning"
     },
     {
       "chunk_id": "resume-p1-c8",
