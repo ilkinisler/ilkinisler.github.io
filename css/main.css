@@ -2254,3 +2254,8 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+.case-card a {
+  color: var(--accent);
+  font-weight: 600;
+}

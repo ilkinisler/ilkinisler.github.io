@@ -162,9 +162,20 @@
         </div>
 
         <div class="card case-card case-wide">
-          <span class="feature-meta">In progress</span>
-          <h3 class="feature-name">Project intelligence</h3>
-          <p>A tool that unifies design, scheduling, estimating, budgeting, and finance data into one view for senior leadership, showing what changed across a project and how it affects budgets, plans, and schedules.</p>
+          <span class="feature-meta">In progress &middot; Built from scratch</span>
+          <h3 class="feature-name">Project intelligence: a temporal knowledge graph</h3>
+          <p class="case-intro">Leadership needs to know what changed on a project and what it affects, but the answer is spread across design, scheduling, estimating, budgeting, and finance systems and a steady stream of project decks.</p>
+          <h4>What I'm building</h4>
+          <p>A project-intelligence tool built from scratch on a temporal knowledge-graph architecture similar to <a href="https://github.com/getzep/graphiti" target="_blank" rel="noopener">Graphiti</a>:</p>
+          <ul>
+            <li>Every new deck, schedule, or budget update is ingested as an episode, so each fact traces back to its source.</li>
+            <li>An LLM extracts project entities and the relationships between them into a graph.</li>
+            <li>Facts are never overwritten: when something changes, the old version is closed out with its validity window, so the system knows both what is true now and what was true at any point.</li>
+            <li>Retrieval combines semantic search, keyword search, and graph traversal, so "what changed this month, and what does it affect?" follows the links from a scope change to the budgets and schedules downstream.</li>
+          </ul>
+          <h4>The goal</h4>
+          <p>One view for senior leadership that shows what changed across a project and how it affects budgets, plans, and schedules, with every answer traceable to the document it came from.</p>
+          <div class="tag-row"><span class="tag">Knowledge graphs</span><span class="tag">Temporal data</span><span class="tag">Hybrid retrieval</span><span class="tag">Provenance</span></div>
         </div>
       </section>
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T21:54:59+00:00",
+  "generated_at": "2026-10-17T22:11:29+00:00",
   "pipeline": "page-index-rag-v1",
   "sources": [
     {
@@ -87,7 +87,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "LLM & Agentic AI: Retrieval-Augmented Generation (RAG), Hybrid Search (BM25 + Vector), Data and Document Ingestion Pipelines (structured and unstructured data), Multi-Agent Systems, Agent Orchestration, Model Context Protocol (MCP) Server Development, Function Calling and Tool Use, Agent Skills, LLM Integration, Prompt Engineering, Vision-Language Model Fine-Tuning"
+      "text": "LLM & Agentic AI: Retrieval-Augmented Generation (RAG), Hybrid Search (BM25 + Vector), Data and Document Ingestion Pipelines (structured and unstructured data), Temporal Knowledge Graphs, Entity and Relationship Extraction, Graph-Traversal Retrieval, Multi-Agent Systems, Agent Orchestration, Model Context Protocol (MCP) Server Development, Function Calling and Tool Use, Agent Skills, LLM Integration, Prompt Engineering, Vision-Language Model Fine-Tuning"
     },
     {
       "chunk_id": "resume-p1-c8",
@@ -186,7 +186,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "Built human-in-the-loop AI tools that replace spreadsheet-heavy finance reporting and forecasting with a single, adaptable source of truth."
+      "text": "Embedded with Finance to replace a frequently reworked, file-per-project spreadsheet process with human-in-the-loop AI tools for reporting and forecasting that unify project finance data in one adaptable source of truth, surface the top cost drivers each month, and flag transaction risk, with the analyst in control of every number."
     },
     {
       "chunk_id": "resume-p1-c19",
@@ -195,7 +195,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "Architected a human-in-the-loop cost-estimating system of purpose-built AI tools that generate scope from design drawings, structure messy scope lists into estimates, and retrieve historical pricing."
+      "text": "Lead the cost-estimating AI initiative and its developers: architected a human-in-the-loop system of purpose-built AI tools that generate scope from design drawings, structure messy, non-standardized scope lists into estimates and track how they change, and retrieve everything previously paid for an item; won over skeptical estimators by replicating their existing Excel workflows first and adding automation as trust grew."
     },
     {
       "chunk_id": "resume-p1-c20",
@@ -204,7 +204,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "Building a project-intelligence tool that unifies design, scheduling, estimating, budgeting, and finance data into one view for senior leadership."
+      "text": "Building from scratch a project-intelligence tool on a temporal knowledge-graph architecture (similar to Graphiti): project decks, schedules, and budget updates are ingested as episodes, an LLM extracts entities and relationships into a graph that keeps every fact's history, and hybrid semantic, keyword, and graph-traversal retrieval shows senior leadership what changed across a project and how it affects budgets, plans, and schedules."
     },
     {
       "chunk_id": "resume-p1-c21",
@@ -270,31 +270,13 @@
       "text": "Assisted with Advanced Artificial Intelligence and Advanced Computer Networks courses, and taught ~4 lectures."
     },
     {
-      "chunk_id": "resume-p1-c28",
-      "source_id": "resume_oct2026",
-      "source_title": "Ilkin Isler Resume (Oct 2026)",
-      "source_url": "assets/Ilkin_Isler_Resume.pdf",
-      "page_index": 1,
-      "section": "Professional Experience",
-      "text": "Graduate Research Assistant Jan 2021 - Aug 2023"
-    },
-    {
-      "chunk_id": "resume-p1-c29",
-      "source_id": "resume_oct2026",
-      "source_title": "Ilkin Isler Resume (Oct 2026)",
-      "source_url": "assets/Ilkin_Isler_Resume.pdf",
-      "page_index": 1,
-      "section": "Professional Experience",
-      "text": "Designed novel 3D neural network architectures and compound loss functions combining overlap and boundary-distance objectives for tumor and organ-at-risk segmentation, trained with multi-GPU distributed training (PyTorch DDP) on ~1,000 3D CT and MRI volumes merged and harmonized from multiple datasets, expanded with extensive data augmentation; self-supervised and uncertainty-guided coarse-to-fine approaches achieved state-of-the-art results at publication (IEEE ICECCME 2023, IEEE ACDSA 2025), including raising Swin UNETR Dice from 0.47 to 0.64, and an improved U-Net reached ~80% vs. 63% Dice over baseline (SPIE Medical Imaging 2022)."
-    },
-    {
       "chunk_id": "resume-p2-c1",
       "source_id": "resume_oct2026",
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
       "section": "Resume Page 2",
-      "text": "Developed uncertainty quantification, explainability, and anatomy-aware post-processing methods that guided the model to refine its uncertain regions, improving accuracy, and gave clinicians uncertainty estimates showing when to rely on its output; validated reliability with a broad set of segmentation metrics, including Dice and HD95, alongside confidence and failure analysis."
+      "text": "Graduate Research Assistant Jan 2021 - Aug 2023"
     },
     {
       "chunk_id": "resume-p2-c2",
@@ -303,7 +285,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
       "section": "Resume Page 2",
-      "text": "Co-authored a multi-institutional, five-center pancreas segmentation study (767 MRI scans from 499 participants, plus CT from 1,350 patients) published in Medical Image Analysis."
+      "text": "Designed novel 3D neural network architectures and compound loss functions combining overlap and boundary-distance objectives for tumor and organ-at-risk segmentation, trained with multi-GPU distributed training (PyTorch DDP) on ~1,000 3D CT and MRI volumes merged and harmonized from multiple datasets, expanded with extensive data augmentation; self-supervised and uncertainty-guided coarse-to-fine approaches achieved state-of-the-art results at publication (IEEE ICECCME 2023, IEEE ACDSA 2025), including raising Swin UNETR Dice from 0.47 to 0.64, and an improved U-Net reached ~80% vs. 63% Dice over baseline (SPIE Medical Imaging 2022)."
     },
     {
       "chunk_id": "resume-p2-c3",
@@ -311,8 +293,8 @@
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
-      "section": "Earlier Experience",
-      "text": "Python Developer (Contract), Universal Orlando Resort (Orlando, 2022): strengthened the security and performance of cloud data pipelines and optimized ML workflows with Azure Databricks and MLflow."
+      "section": "Resume Page 2",
+      "text": "Developed uncertainty quantification, explainability, and anatomy-aware post-processing methods that guided the model to refine its uncertain regions, improving accuracy, and gave clinicians uncertainty estimates showing when to rely on its output; validated reliability with a broad set of segmentation metrics, including Dice and HD95, alongside confidence and failure analysis."
     },
     {
       "chunk_id": "resume-p2-c4",
@@ -320,8 +302,8 @@
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
-      "section": "Earlier Experience",
-      "text": "Data Analyst, Simsoft Information Technologies (Ankara, 2020): built LSTM models for anomaly detection and predictive maintenance on industrial sensor data; modeled COVID-19 spread."
+      "section": "Resume Page 2",
+      "text": "Co-authored a multi-institutional, five-center pancreas segmentation study (767 MRI scans from 499 participants, plus CT from 1,350 patients) published in Medical Image Analysis."
     },
     {
       "chunk_id": "resume-p2-c5",
@@ -330,7 +312,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
       "section": "Earlier Experience",
-      "text": "Research Intern, UCF Synthetic Reality Lab (Orlando, 2019): applied GANs to facial expression recognition and human-to-avatar translation."
+      "text": "Python Developer (Contract), Universal Orlando Resort (Orlando, 2022): strengthened the security and performance of cloud data pipelines and optimized ML workflows with Azure Databricks and MLflow."
     },
     {
       "chunk_id": "resume-p2-c6",
@@ -339,7 +321,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
       "section": "Earlier Experience",
-      "text": "Data Analyst Intern, Carbon Health (San Francisco, 2018): built predictive models that cut clinic wait times by 30%."
+      "text": "Data Analyst, Simsoft Information Technologies (Ankara, 2020): built LSTM models for anomaly detection and predictive maintenance on industrial sensor data; modeled COVID-19 spread."
     },
     {
       "chunk_id": "resume-p2-c7",
@@ -347,8 +329,8 @@
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
-      "section": "Education",
-      "text": "Ph.D., Computer Science, University of Central Florida, Orlando, FL Aug 2025"
+      "section": "Earlier Experience",
+      "text": "Research Intern, UCF Synthetic Reality Lab (Orlando, 2019): applied GANs to facial expression recognition and human-to-avatar translation."
     },
     {
       "chunk_id": "resume-p2-c8",
@@ -356,8 +338,8 @@
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
-      "section": "Education",
-      "text": "Dissertation: Advanced Deep Learning Algorithms for Medical Imaging Applications: Tumor and Organ at Risk Segmentation"
+      "section": "Earlier Experience",
+      "text": "Data Analyst Intern, Carbon Health (San Francisco, 2018): built predictive models that cut clinic wait times by 30%."
     },
     {
       "chunk_id": "resume-p2-c9",
@@ -366,7 +348,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
       "section": "Education",
-      "text": "MS, Computer Science, University of Central Florida, Orlando, FL Dec 2022"
+      "text": "Ph.D., Computer Science, University of Central Florida, Orlando, FL Aug 2025"
     },
     {
       "chunk_id": "resume-p2-c10",
@@ -375,7 +357,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
       "section": "Education",
-      "text": "BS, Computer Science, Hacettepe University, Ankara, Turkey June 2020"
+      "text": "Dissertation: Advanced Deep Learning Algorithms for Medical Imaging Applications: Tumor and Organ at Risk Segmentation"
     },
     {
       "chunk_id": "resume-p2-c11",
@@ -383,8 +365,8 @@
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
-      "section": "Publications & Academic Service",
-      "text": "Zhang, Z., \u2026, Isler, I., et al. Large-scale multi-center CT and MRI segmentation of pancreas with deep learning. Medical Image Analysis, 2025."
+      "section": "Education",
+      "text": "MS, Computer Science, University of Central Florida, Orlando, FL Dec 2022"
     },
     {
       "chunk_id": "resume-p2-c12",
@@ -392,8 +374,8 @@
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
-      "section": "Publications & Academic Service",
-      "text": "Isler, I., Mohaisen, D., Lisle, C., Turgut, D., Bagci, U. Uncertainty-Guided Coarse-to-Fine Tumor Segmentation with Anatomy-Aware Post-Processing. IEEE ACDSA, 2025."
+      "section": "Education",
+      "text": "BS, Computer Science, Hacettepe University, Ankara, Turkey June 2020"
     },
     {
       "chunk_id": "resume-p2-c13",
@@ -402,7 +384,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
       "section": "Publications & Academic Service",
-      "text": "Jha, D., \u2026, Isler, I., et al. Practical and Ethical Considerations for Generative AI in Medical Imaging. MICCAI Workshop, 2024."
+      "text": "Zhang, Z., \u2026, Isler, I., et al. Large-scale multi-center CT and MRI segmentation of pancreas with deep learning. Medical Image Analysis, 2025."
     },
     {
       "chunk_id": "resume-p2-c14",
@@ -411,10 +393,28 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
       "section": "Publications & Academic Service",
-      "text": "Isler, I., Jha, D., Lisle, C., et al. Self-Supervised Learning for Organs At Risk and Tumor Segmentation with Uncertainty Quantification."
+      "text": "Isler, I., Mohaisen, D., Lisle, C., Turgut, D., Bagci, U. Uncertainty-Guided Coarse-to-Fine Tumor Segmentation with Anatomy-Aware Post-Processing. IEEE ACDSA, 2025."
     },
     {
       "chunk_id": "resume-p2-c15",
+      "source_id": "resume_oct2026",
+      "source_title": "Ilkin Isler Resume (Oct 2026)",
+      "source_url": "assets/Ilkin_Isler_Resume.pdf",
+      "page_index": 2,
+      "section": "Publications & Academic Service",
+      "text": "Jha, D., \u2026, Isler, I., et al. Practical and Ethical Considerations for Generative AI in Medical Imaging. MICCAI Workshop, 2024."
+    },
+    {
+      "chunk_id": "resume-p2-c16",
+      "source_id": "resume_oct2026",
+      "source_title": "Ilkin Isler Resume (Oct 2026)",
+      "source_url": "assets/Ilkin_Isler_Resume.pdf",
+      "page_index": 2,
+      "section": "Publications & Academic Service",
+      "text": "Isler, I., Jha, D., Lisle, C., et al. Self-Supervised Learning for Organs At Risk and Tumor Segmentation with Uncertainty Quantification."
+    },
+    {
+      "chunk_id": "resume-p2-c17",
       "source_id": "resume_oct2026",
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
@@ -423,7 +423,7 @@
       "text": "Isler, I., Lisle, C., Rineer, J., et al. Enhancing Organ at Risk Segmentation with Improved Deep Neural Networks. SPIE Medical Imaging, 2022."
     },
     {
-      "chunk_id": "resume-p2-c16",
+      "chunk_id": "resume-p2-c18",
       "source_id": "resume_oct2026",
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
@@ -432,7 +432,7 @@
       "text": "Peer Reviewer: Medical Physics; IEEE Journal of Biomedical and Health Informatics; IEEE Transactions on Medical Imaging"
     },
     {
-      "chunk_id": "resume-p2-c17",
+      "chunk_id": "resume-p2-c19",
       "source_id": "resume_oct2026",
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
@@ -441,7 +441,7 @@
       "text": "Project: ilkinisler.com, a personal site with a grounded AI assistant: hybrid BM25 + embedding retrieval, LLM answers scored for groundedness with Vectara's HHEM model (declining below a confidence threshold), and a FastAPI backend deployed on Google Cloud Run."
     },
     {
-      "chunk_id": "resume-p2-c18",
+      "chunk_id": "resume-p2-c20",
       "source_id": "resume_oct2026",
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
@@ -450,7 +450,7 @@
       "text": "Media: Featured in UCF News, The Mind to Move Mountains (2026)."
     },
     {
-      "chunk_id": "resume-p2-c19",
+      "chunk_id": "resume-p2-c21",
       "source_id": "resume_oct2026",
       "source_title": "Ilkin Isler Resume (Oct 2026)",
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
@@ -753,7 +753,7 @@
       "source_url": "local://profile-facts",
       "page_index": 1,
       "section": "Estimating Initiative",
-      "text": "My other main initiative is AI-assisted cost estimating, which I lead along with its developers. Estimating large, one-of-a-kind projects depends on deep expertise and messy, non-standardized inputs, and the estimators were skeptical at first. We built a suite of purpose-built, human-in-the-loop tools that read design drawings to draft scope, turn messy scope lists into structured estimates and track how they change, and retrieve everything previously paid for an item. Instead of replacing their Excel workflows, the tools accept their existing files and return results in the same format; we started with small validated wins and added automation as trust grew. The conversation moved from whether it would work to what else we could automate. I am also building a project-intelligence tool that unifies design, scheduling, estimating, budgeting, and finance data into one view for senior leadership."
+      "text": "My other main initiative is AI-assisted cost estimating, which I lead along with its developers. Estimating large, one-of-a-kind projects depends on deep expertise and messy, non-standardized inputs, and the estimators were skeptical at first. We built a suite of purpose-built, human-in-the-loop tools that read design drawings to draft scope, turn messy scope lists into structured estimates and track how they change, and retrieve everything previously paid for an item. Instead of replacing their Excel workflows, the tools accept their existing files and return results in the same format; we started with small validated wins and added automation as trust grew. The conversation moved from whether it would work to what else we could automate. I am also building, from scratch, a project-intelligence tool on a temporal knowledge-graph architecture similar to Graphiti: project decks, schedules, and budget updates are ingested as episodes, an LLM extracts entities and relationships into a graph, facts keep their history instead of being overwritten, and retrieval combines semantic search, keyword search, and graph traversal. It gives senior leadership one view of what changed across a project and how it affects budgets, plans, and schedules."
     },
     {
       "chunk_id": "profile-p1-c5",
