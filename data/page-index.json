@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T21:03:30+00:00",
+  "generated_at": "2026-10-17T21:23:18+00:00",
   "pipeline": "page-index-rag-v1",
   "sources": [
     {
@@ -357,7 +357,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 2,
       "section": "Education",
-      "text": "Dissertation: Advanced Deep Learning Algorithms for Medical Imaging Applications: Tumor and Organ at Risk Segmentation UCF College of Graduate Studies Presentation Fellowship (2021)"
+      "text": "Dissertation: Advanced Deep Learning Algorithms for Medical Imaging Applications: Tumor and Organ at Risk Segmentation"
     },
     {
       "chunk_id": "resume-p2-c9",
