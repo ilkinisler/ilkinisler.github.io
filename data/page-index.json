@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T01:54:32+00:00",
+  "generated_at": "2026-10-18T03:23:30+00:00",
   "pipeline": "page-index-rag-v1",
   "sources": [
     {
@@ -51,7 +51,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Summary",
-      "text": "Works across the full LLM stack: architecture fundamentals, pre-training and fine-tuning, evaluation, serving and inference, RAG over vector databases, inference optimization for speed and cost, and securing LLM applications. Independently built MCPGates, the organization's enterprise AI platform (20+ production applications), and its first RAG and evaluation systems; leads a five-person team across AI infrastructure, Finance, and Estimating & Budgeting."
+      "text": "Works across the full LLM stack: architecture fundamentals, pre-training and fine-tuning, evaluation, RAG over vector databases, serving and inference optimization for speed and cost, and securing LLM applications. Independently built MCPGates, the organization's enterprise AI platform (20+ production applications), and its first RAG and evaluation systems; leads a five-person team across AI infrastructure, Finance, and Estimating & Budgeting."
     },
     {
       "chunk_id": "resume-p1-c4",
@@ -60,7 +60,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Technical Skills",
-      "text": "LLM Foundations: Transformer architecture (tokenization, attention, sampling), prompt engineering, LLM serving and inference, inference optimization (latency and cost), LLM security"
+      "text": "LLM Foundations: Transformer architecture (tokenization, attention, sampling), prompt engineering, LLM serving and inference optimization (latency and cost), LLM security"
     },
     {
       "chunk_id": "resume-p1-c5",
@@ -204,7 +204,7 @@
       "source_url": "assets/Ilkin_Isler_Resume.pdf",
       "page_index": 1,
       "section": "Professional Experience",
-      "text": "Co-developed the data ingestion pipeline that made unstructured files plus structured data searchable across the organization and its contractors, from invoices, RFIs, change orders, and issues to PRDs, meeting notes, presentations, emails, and screenshots, powering retrieval for MCPGates applications."
+      "text": "Extended and improved the in-house data ingestion pipeline to make all structured and unstructured project data searchable for the project-intelligence application, from invoices, RFIs, change orders, and issues to PRDs, meeting notes, presentations, emails, and screenshots."
     },
     {
       "chunk_id": "resume-p1-c21",
